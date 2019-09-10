@@ -4,16 +4,32 @@ public class Jogador : MonoBehaviour
 {
     public Transform casaAtual;
 
+    void Start()
+    {
+        setCasa(casaAtual);
+    }
+
     public void setCasa(Transform novaCasa)
     {
         casaAtual = novaCasa;
-        transform.Translate(casaAtual.position, Space.World);
-    }
-
-    public void MoveProximo(int i)
-    {
-        Transform proximaCasa = casaAtual.GetComponent<CasaBase>().proximaCasa[i];
-        casaAtual = proximaCasa;
         transform.position = casaAtual.position;
     }
+
+    public void ProcuraCasa(int indice)
+    {
+        bool achou = false;
+        do
+        {
+            CasaBase cbAtual = casaAtual.GetComponent<CasaBase>();
+            if (cbAtual.indiceCasa == indice)
+                achou = true;
+            else
+                casaAtual = cbAtual.proximaCasa[0];
+
+        } while (!achou);
+
+        setCasa(casaAtual);
+    }
+
+
 }
