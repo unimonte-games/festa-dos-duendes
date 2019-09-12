@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9074290466137041919}
   - component: {fileID: 3801132741044059134}
   - component: {fileID: -8742114404946728013}
-  - component: {fileID: 2562927247112029242}
+  - component: {fileID: -6519737028682933088}
   m_Layer: 0
   m_Name: Conector
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2562927247112029242
+--- !u!114 &-6519737028682933088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,13 +88,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3600752002982683516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d353ad1a440e4a84493867f312c129cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 76b1d29f7a79ec945a34196d140e6290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proximaCasa: []
-  casas:
-  - {fileID: 6351363164045626644, guid: 4b0ced1c89626d64e860f41e4aec6c65, type: 3}
-  - {fileID: 8610309090212006567, guid: d69a606661a5382448b01443b3aa17c3, type: 3}
-  - {fileID: 7244064611445312319, guid: 9da3b61038043324cb6cf13870ce46a8, type: 3}
-  quantidadeCasas: 0
-  proximoConector: []

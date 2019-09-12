@@ -4,9 +4,10 @@ using System.Collections.Generic;
 public class CasaBase : MonoBehaviour
 {
     public List<Transform> proximaCasa;
+    public int indiceCasa;
 
-    public void AddProximaCasa(Transform obj)
+    public void setProximaCasa(Transform casa)
     {
-        proximaCasa.Add(obj);
+        proximaCasa.Add(casa);
     }
 }
