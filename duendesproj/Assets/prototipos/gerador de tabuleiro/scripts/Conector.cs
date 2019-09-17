@@ -3,9 +3,13 @@ using System.Collections.Generic;
 
 public class Conector : CasaBase
 {
-    [HideInInspector] public int primeiraCasa;
+    [Tooltip("Aponta para o(s) próximo(s) conectore(s)")]
     public List<Transform> conexoes;
+    [Tooltip("Quantidade de casas até o próximo conector")]
     public int qtdCasas;
+
+    [HideInInspector]
+    public int ultimoIndice = 0;
 
     private void OnDrawGizmos()
     {

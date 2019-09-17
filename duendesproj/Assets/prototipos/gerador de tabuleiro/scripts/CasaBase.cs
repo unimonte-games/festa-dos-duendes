@@ -4,10 +4,15 @@ using System.Collections.Generic;
 public class CasaBase : MonoBehaviour
 {
     public List<Transform> proximaCasa;
-    public int indiceCasa;
+    public List<Transform>  casaAnterior;
 
-    public void setProximaCasa(Transform casa)
+    public virtual void SetProximaCasa(Transform casa)
     {
         proximaCasa.Add(casa);
+    }
+
+    public virtual void SetCasaAnterior(Transform casa)
+    {
+        casaAnterior.Add(casa);
     }
 }
