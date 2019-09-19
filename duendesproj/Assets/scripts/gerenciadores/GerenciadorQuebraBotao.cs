@@ -7,48 +7,57 @@ namespace Gerenciadores
 {
     public class GerenciadorQuebraBotao : MonoBehaviour
     {
+        public GameObject[] duendesPrefab;
+
         public float duracaoPartida;
 
         Transform[] tr_jogadores;
         float tempoInicialPartida;
         bool partidaEncerrada;
 
+        public float tamanhoPasso;
+
         void Start()
         {
-            ObterTrJogadores();
+            InstanciarJogadores();
+            AplicarControladorQuebraBotao();
         }
 
         void Update()
         {
             float tempoAtual = Time.time;
-            if (tempoAtual - tempoInicialPartida > duracaoPartida && !partidaEncerrada)
+            float diferencaTempo = tempoAtual - tempoInicialPartida;
+
+            if (diferencaTempo > duracaoPartida && !partidaEncerrada)
             {
                 EncerrarPartida();
                 partidaEncerrada = true;
             }
         }
 
-        void ObterTrJogadores()
+        void InstanciarJogadores()
         {
-            GameObject[] jogadores = GameObject.FindGameObjectsWithTag("Player");
-
-#if UNITY_EDITOR
-            // caso algo dê errado, isso aqui vai nos salvar um tempão
-            Debug.Assert(
-                jogadores.Length == GerenciadorGeral.qtdJogadores,
-                "Quantidade de jogadores encontrados não correponde à"
-                + " quantidade de jogadores cadastrados!:\n"
-                + "\tjogadores.Length = " + jogadores.Length.ToString() + " - "
-                + "GerenciadorGeral.qtdJogadores = "
-                + GerenciadorGeral.qtdJogadores.ToString() + ".",
-                gameObject
-            );
-#endif
-
             tr_jogadores = new Transform[GerenciadorGeral.qtdJogadores];
 
             for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
-                tr_jogadores[i] = jogadores[i].GetComponent<Transform>();
+            {
+                GameObject novo_jogador = Instantiate<GameObject>(
+                    duendesPrefab[i],
+                    new Vector3(i*2f, 0f, 0f),
+                    Quaternion.identity
+                );
+
+                tr_jogadores[i] = novo_jogador.GetComponent<Transform>();
+            }
+        }
+
+        void AplicarControladorQuebraBotao ()
+        {
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.AddComponent<ControladorQuebraBotao>();
+            }
         }
 
         void IniciaPartida()
@@ -67,6 +76,8 @@ namespace Gerenciadores
             float maisLonge = -100000;
             int maisLonge_i = -1;
 
+            // itera sobre todos os jogadores, vê quem está mais longe
+            // no eixo Z
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 float jogador_i_posz = tr_jogadores[i].position.z;
@@ -77,9 +88,11 @@ namespace Gerenciadores
                 }
             }
 
+            // Obtém o jogadorID do campeão
             IdentificadorJogador idJogador =
                 tr_jogadores[maisLonge_i].GetComponent<IdentificadorJogador>();
 
+            // retorna jogadorID obtido
             return idJogador.jogadorID;
         }
     }

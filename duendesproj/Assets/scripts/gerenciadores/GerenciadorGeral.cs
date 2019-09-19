@@ -19,7 +19,7 @@ namespace Gerenciadores
 
     public class GerenciadorGeral : MonoBehaviour
     {
-        public static int qtdJogadores;
+        public static int qtdJogadores = 4; // sobrescrito pelo Start por 0;
         public static int pontosPorVencedorMJ = 10;
         public static int[] pontuacao = new int[4];
 
@@ -44,6 +44,7 @@ namespace Gerenciadores
         void Start()
         {
             // eu acho que poderia escrever = this; mas não tenho certeza
+            qtdJogadores = 0;
             instancia = GetComponent<GerenciadorGeral>();
         }
 
