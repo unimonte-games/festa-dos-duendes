@@ -11,6 +11,8 @@ public class GeradorTabuleiroEditor : Editor
         GeradorTabuleiro gt = (GeradorTabuleiro)target;
 
         if (GUILayout.Button("Gerar Tabuleiro"))
+        {
             gt.GerarCasas();
+        }
     }
 }

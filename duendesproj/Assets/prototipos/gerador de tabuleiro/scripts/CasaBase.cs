@@ -5,6 +5,7 @@ public class CasaBase : MonoBehaviour
 {
     public List<Transform> proximaCasa;
     public List<Transform>  casaAnterior;
+    public int tipoCasa;
 
     public virtual void SetProximaCasa(Transform casa)
     {

@@ -15,21 +15,33 @@ public class Jogador : MonoBehaviour
         transform.position = casaAtual.position;
     }
 
-    //public void ProcuraCasa(int indice)
+    public void ProcuraCasa(int tipo)
+    {
+        int i = 0;
+        bool achou = false;
+        do
+        {
+            Transform proximaCasa = casaAtual.GetComponent<CasaBase>().proximaCasa[0];
+            int tipoCasa = proximaCasa.GetComponent<CasaBase>().tipoCasa;
+            Debug.Log(tipoCasa);
+
+            if (tipoCasa == 0)
+            {
+
+            }
+            if (tipoCasa == tipo)
+            {
+                achou = true;
+                casaAtual = proximaCasa;
+            }
+            i++;
+        } while (!achou || i==30);
+
+        setCasa(casaAtual);
+    }
+
+    //public int EscolheLado(Conector conexao)
     //{
-    //    bool achou = false;
-    //    do
-    //    {
-    //        CasaBase cbAtual = casaAtual.GetComponent<CasaBase>();
-    //        if (cbAtual.indiceCasa == indice)
-    //            achou = true;
-    //        else
-    //            casaAtual = cbAtual.proximaCasa[0];
-
-    //    } while (!achou);
-
-    //    setCasa(casaAtual);
+    //    if (Input.GetKeyDown(KeyCode '1'))
     //}
-
-
 }

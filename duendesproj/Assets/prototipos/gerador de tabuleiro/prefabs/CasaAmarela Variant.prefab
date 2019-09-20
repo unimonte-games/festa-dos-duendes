@@ -12,9 +12,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasaAmarela Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4262312202515046251, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7314459893844595130, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
         type: 3}
       propertyPath: indiceCasa
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314459893844595130, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
+        type: 3}
+      propertyPath: tipoCasa
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2812727806494654789, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
