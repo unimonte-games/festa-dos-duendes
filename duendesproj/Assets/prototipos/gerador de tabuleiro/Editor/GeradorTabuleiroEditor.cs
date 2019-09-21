@@ -13,6 +13,10 @@ public class GeradorTabuleiroEditor : Editor
         if (GUILayout.Button("Gerar Tabuleiro"))
         {
             gt.GerarCasas();
+
+            Conector[] conectores = gt.conectores.GetComponentsInChildren<Conector>();
+            for (int i = 1; i < conectores.Length; i++)
+                EditorUtility.SetDirty(conectores[i]);
         }
     }
 }
