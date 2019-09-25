@@ -71,7 +71,9 @@ public class GeradorTabuleiro : MonoBehaviour
             Conector con = conexao.GetComponent<Conector>();
             con.ultimoIndice = 0;
             con.proximaCasa.Clear();
+            con.proximaCasa.Capacity = 0;
             con.casaAnterior.Clear();
+            con.casaAnterior.Capacity = 0;
         }
 
         var temp = casas.Cast<Transform>().ToList();
