@@ -6,9 +6,10 @@ namespace Identificadores
     {
         Tabuleiro           = 0,
         QuebraBotao         = 1,
-        PescaEscorrega      = 2,
-        TelaCarregamento    = 3,
-        MenuInicial         = 4,
+        BaldeDasMacas       = 2,
+        PescaEscorrega      = 3,
+        TelaCarregamento    = 4,
+        MenuInicial         = 5,
         // TODO: Colocar outros aqui
     };
 }
