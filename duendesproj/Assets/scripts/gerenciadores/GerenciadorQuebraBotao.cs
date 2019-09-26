@@ -13,18 +13,22 @@ namespace Gerenciadores
 
         Transform[] tr_jogadores;
         float tempoInicialPartida;
-        bool partidaEncerrada;
 
         public float tamanhoPasso;
+
+        bool partidaIniciada;
+        bool partidaEncerrada;
 
         void Start()
         {
             InstanciarJogadores();
-            AplicarControladorQuebraBotao();
         }
 
         void Update()
         {
+            if (!partidaIniciada)
+                return;
+
             float tempoAtual = Time.time;
             float diferencaTempo = tempoAtual - tempoInicialPartida;
 
@@ -60,9 +64,12 @@ namespace Gerenciadores
             }
         }
 
+        [ContextMenu("Iniciar Partida")]
         void IniciaPartida()
         {
             tempoInicialPartida = Time.time;
+            partidaIniciada = true;
+            AplicarControladorQuebraBotao();
         }
 
         void EncerrarPartida()

@@ -10,54 +10,93 @@ namespace Gerenciadores
     // TODO: explicitar os números das cenas abaixo
     public enum CenaID
     {
-        Tabuleiro,
-        QuebraBotao,
-        PescaEscorrega,
-        TelaCarregamento,
+        Tabuleiro           = 0,
+        QuebraBotao         = 1,
+        PescaEscorrega      = 2,
+        TelaCarregamento    = 3,
+        MenuInicial         = 4,
         // TODO: Colocar outros aqui
     };
 
     public class GerenciadorGeral : MonoBehaviour
     {
-        public static int qtdJogadores = 4; // sobrescrito pelo Start por 0;
-        public static int pontosPorVencedorMJ = 10;
+        public static int qtdJogadores;
+        public const  int PONTOS_POR_VENCEDOR_MJ = 10;
         public static int[] pontuacao = new int[4];
 
+#region UNITY_EDITOR
+        public bool usandoGGTest;
+#endregion
+
         static GerenciadorGeral instancia;
-
-        public static void ConfirmarNovoJogador()
-        {
-            qtdJogadores += 1;
-        }
-
-        public static void PontuarCampeaoMJ(JogadorID jogadorID)
-        {
-            pontuacao[(int)jogadorID] += pontosPorVencedorMJ;
-            instancia._TransitarPara();
-        }
-
-        void _TransitarPara()
-        {
-            StartCoroutine(TransitarPara(CenaID.Tabuleiro));
-        }
 
         void Start()
         {
             // eu acho que poderia escrever = this; mas não tenho certeza
-            qtdJogadores = 0;
             instancia = GetComponent<GerenciadorGeral>();
+            DontDestroyOnLoad(gameObject);
+        }
+
+#region (de)cadastramento de jogadores
+
+        public static bool PodeCadastrar()   { return qtdJogadores < 4;  }
+        public static bool PodeDecadastrar() { return qtdJogadores > 0; }
+
+        public static void CadastrarJogador()
+        {
+            if (PodeCadastrar())
+                qtdJogadores += 1;
+        }
+
+        public static void DecadastrarJogador()
+        {
+            if (PodeDecadastrar())
+                qtdJogadores -= 1;
+        }
+
+#endregion (de)cadastramento de jogadores
+
+#region gerenciamento de cenas
+
+        public static void PontuarCampeaoMJ(JogadorID jogadorID)
+        {
+            pontuacao[(int)jogadorID] += PONTOS_POR_VENCEDOR_MJ;
+            instancia._TransitarPara(CenaID.Tabuleiro);
+        }
+
+        public static void TransitarParaMJ(CenaID cenaId)
+        {
+            instancia._TransitarPara(cenaId);
+        }
+
+        void _TransitarPara(CenaID cenaId)
+        {
+            // Se estiver rodando no Editor, se rodamos o jogo no GGTest
+            // e a cena pra carregar é o tabuleiro, ao invés de carregar
+            // o tabuleiro, carregamos o GGTest.
+            // caso contrário, carregue o cenaId normalmente (esse vai
+            // ser o caso pro jogador final sempre)
+#if UNITY_EDITOR
+            if (usandoGGTest && cenaId == CenaID.Tabuleiro)
+            {
+                SceneManager.LoadScene("GGTest");
+                return;
+            }
+#endif
+            SceneManager.LoadScene((int)cenaId);
+            //StartCoroutine(TransitarPara(cenaId));
         }
 
         // ALERTA: Por hora esse código é "teórico", ainda preciso testar
-        IEnumerator TransitarPara(CenaID cenaID)
+        IEnumerator TransitarPara(CenaID cenaId)
         {
             // abre cena de transição, isso já fechará o tabuleiro, talvez
             // dê uma travadinha, se ficar irritante mudaremos para
             // Async também
             SceneManager.LoadScene((int)CenaID.TelaCarregamento);
 
-            // pega o número da cenaID
-            int cena_num = (int)cenaID;
+            // pega o número da cenaId
+            int cena_num = (int)cenaId;
 
             // Carrega a cena assincronamente
             AsyncOperation cenaAsync = SceneManager.LoadSceneAsync(cena_num);
@@ -70,5 +109,7 @@ namespace Gerenciadores
                 yield return new WaitForSecondsRealtime(1);
             }
         }
+
+#endregion gerenciamento de cenas
     }
 }
