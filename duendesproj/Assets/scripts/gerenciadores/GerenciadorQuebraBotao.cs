@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Componentes.Jogador;
+using Identificadores;
 
 namespace Gerenciadores
 {

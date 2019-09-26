@@ -2,22 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Identificadores;
 
 namespace Gerenciadores
 {
-    public enum JogadorID {J1, J2, J3, J4};
-
-    // TODO: explicitar os números das cenas abaixo
-    public enum CenaID
-    {
-        Tabuleiro           = 0,
-        QuebraBotao         = 1,
-        PescaEscorrega      = 2,
-        TelaCarregamento    = 3,
-        MenuInicial         = 4,
-        // TODO: Colocar outros aqui
-    };
-
     public class GerenciadorGeral : MonoBehaviour
     {
         public static int qtdJogadores;
