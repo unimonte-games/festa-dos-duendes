@@ -8,79 +8,46 @@ namespace Gerenciadores
 {
     public class GerenciadorQuebraBotao : MonoBehaviour
     {
-        public GameObject[] duendesPrefab;
-
-        public float duracaoPartida;
-
-        Transform[] tr_jogadores;
-        float tempoInicialPartida;
-
+        public GerenciadorMJLib gerenciadorMJ;
         public float tamanhoPasso;
 
-        bool partidaIniciada;
-        bool partidaEncerrada;
+        void Awake()
+        {
+            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+        }
 
         void Start()
         {
-            InstanciarJogadores();
+            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
-        void Update()
+        void AoIniciar()
         {
-            if (!partidaIniciada)
-                return;
-
-            float tempoAtual = Time.time;
-            float diferencaTempo = tempoAtual - tempoInicialPartida;
-
-            if (diferencaTempo > duracaoPartida && !partidaEncerrada)
-            {
-                EncerrarPartida();
-                partidaEncerrada = true;
-            }
-        }
-
-        void InstanciarJogadores()
-        {
-            tr_jogadores = new Transform[GerenciadorGeral.qtdJogadores];
-
-            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
-            {
-                GameObject novo_jogador = Instantiate<GameObject>(
-                    duendesPrefab[i],
-                    new Vector3(i*2f, 0f, 0f),
-                    Quaternion.identity
-                );
-
-                tr_jogadores[i] = novo_jogador.GetComponent<Transform>();
-            }
-        }
-
-        void AplicarControladorQuebraBotao ()
-        {
-            for (int i = 0; i < tr_jogadores.Length; i++)
-            {
-                GameObject gbj_jogador = tr_jogadores[i].gameObject;
-                gbj_jogador.AddComponent<ControladorQuebraBotao>();
-            }
-        }
-
-        [ContextMenu("Iniciar Partida")]
-        void IniciaPartida()
-        {
-            tempoInicialPartida = Time.time;
-            partidaIniciada = true;
             AplicarControladorQuebraBotao();
         }
 
-        void EncerrarPartida()
+        void AoTerminar()
         {
             JogadorID jogadorCampeao = ObterCampeao();
             GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
         }
 
+        void AplicarControladorQuebraBotao ()
+        {
+            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
+                gbj_jogaodor.AddComponent<ControladorQuebraBotao>();
+            }
+        }
+
         JogadorID ObterCampeao()
         {
+            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+
             float maisLonge = -100000;
             int maisLonge_i = -1;
 
@@ -89,6 +56,7 @@ namespace Gerenciadores
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 float jogador_i_posz = tr_jogadores[i].position.z;
+
                 if (jogador_i_posz > maisLonge)
                 {
                     maisLonge = jogador_i_posz;
