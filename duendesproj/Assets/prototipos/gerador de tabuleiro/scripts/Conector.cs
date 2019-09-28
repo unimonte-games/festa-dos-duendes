@@ -6,7 +6,7 @@ public class Conector : CasaBase
     [Tooltip("Aponta para o(s) próximo(s) conectore(s)")]
     public List<Transform> conexoes;
     [Tooltip("Quantidade de casas até o próximo conector")]
-    public int qtdCasas;
+    public List<int> qtdCasas;
 
     [HideInInspector]
     public int ultimoIndice = 0;

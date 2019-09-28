@@ -24,14 +24,14 @@ public class GeradorTabuleiro : MonoBehaviour
             //Laço de rotas entre conexões
             for (int i = 0; i < con.conexoes.Count; i++)
             {
-                Vector3 passo = (conexao.position - con.conexoes[i].position) / (con.qtdCasas + 1);
+                Vector3 passo = (conexao.position - con.conexoes[i].position) / (con.qtdCasas[i] + 1);
                 Vector3 posiAtual = con.transform.position;
 
                 ultimaCasa = conexao;
                 int indiceCasa = con.ultimoIndice;
 
                 //Laço de casas
-                for (int j = 0; j < con.qtdCasas; j++)
+                for (int j = 0; j < con.qtdCasas[i]; j++)
                 {
                     posiAtual -= passo;
                     Instanciador(posiAtual, indiceCasa);
