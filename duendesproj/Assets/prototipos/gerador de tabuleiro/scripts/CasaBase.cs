@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class CasaBase : MonoBehaviour
 {
-    public List<Transform> proximaCasa;
+    public List<Transform> casaSeguinte;
     public List<Transform>  casaAnterior;
+
+    [HideInInspector]
     public int tipoCasa;
 
-    public virtual void SetProximaCasa(Transform casa)
+    public virtual void SetCasaSeguinte(Transform casa)
     {
-        proximaCasa.Add(casa);
+        casaSeguinte.Add(casa);
     }
 
     public virtual void SetCasaAnterior(Transform casa)

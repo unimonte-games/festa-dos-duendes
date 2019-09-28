@@ -4,11 +4,11 @@ using System.Linq;
 public class GeradorTabuleiro : MonoBehaviour
 {
     [Tooltip("Pai dos objetos conectores")]
-    public Transform conectores;
+    public Transform paiConectores;
     [Tooltip("Pai onde ficarão as casas")]
-    public Transform casas;
-    [Tooltip("Prefabs dos tipos de casas")]
-    public GameObject[] tiposCasas;
+    public Transform paiCasas;
+    [Tooltip("Prefabs de casas a serem instanciadas em ordem")]
+    public GameObject[] ordemCasas;
 
     private Transform ultimaCasa;
 
@@ -17,46 +17,46 @@ public class GeradorTabuleiro : MonoBehaviour
         ResetTabuleiro();
 
         //Laço de todas conexões (tabuleiro inteiro)
-        foreach (Transform conexao in conectores)
+        foreach (Transform conector in paiConectores)
         {
-            Conector con = conexao.GetComponent<Conector>();
+            Conector _conector = conector.GetComponent<Conector>();
 
             //Laço de rotas entre conexões
-            for (int i = 0; i < con.conexoes.Count; i++)
+            for (int i = 0; i < _conector.rotas.Count; i++)
             {
-                Vector3 passo = (conexao.position - con.conexoes[i].position) / (con.qtdCasas[i] + 1);
-                Vector3 posiAtual = con.transform.position;
+                Vector3 passo = (conector.position - _conector.rotas[i].conector.position) / (_conector.rotas[i].qtdCasas + 1);
+                Vector3 posiAtual = _conector.transform.position;
 
-                ultimaCasa = conexao;
-                int indiceCasa = con.ultimoIndice;
+                ultimaCasa = conector;
+                int indiceCasa = _conector.ultimoIndice;
 
                 //Laço de casas
-                for (int j = 0; j < con.qtdCasas[i]; j++)
+                for (int j = 0; j < _conector.rotas[i].qtdCasas; j++)
                 {
                     posiAtual -= passo;
                     Instanciador(posiAtual, indiceCasa);
 
-                    indiceCasa = ++indiceCasa % 6;
+                    indiceCasa = ++indiceCasa % ordemCasas.Length;
                 }
 
                 //Última casa aponta para o próximo conector
-                ultimaCasa.GetComponent<CasaBase>().SetProximaCasa(con.conexoes[i]);
+                ultimaCasa.GetComponent<CasaBase>().SetCasaSeguinte(_conector.rotas[i].conector);
                 //Conector atual aponta para a última casa
-                con.conexoes[i].GetComponent<CasaBase>().SetCasaAnterior(ultimaCasa);
+                _conector.rotas[i].conector.GetComponent<CasaBase>().SetCasaAnterior(ultimaCasa);
 
                 //Define último índice do proximo conector
-                con.conexoes[i].GetComponent<Conector>().ultimoIndice = indiceCasa;
+                _conector.rotas[i].conector.GetComponent<Conector>().ultimoIndice = indiceCasa;
             }
         }
     }
 
     void Instanciador(Vector3 posicao, int i)
     {
-        GameObject novaCasa = Instantiate(tiposCasas[i], posicao, Quaternion.identity);
-        novaCasa.transform.parent = casas;
+        GameObject novaCasa = Instantiate(ordemCasas[i], posicao, Quaternion.identity);
+        novaCasa.transform.parent = paiCasas;
 
         //Última Casa aponta para a Nova
-        ultimaCasa.GetComponent<CasaBase>().SetProximaCasa(novaCasa.transform);
+        ultimaCasa.GetComponent<CasaBase>().SetCasaSeguinte(novaCasa.transform);
         //Nova Casa aponta para a Última 
         novaCasa.GetComponent<CasaBase>().SetCasaAnterior(ultimaCasa);
 
@@ -66,17 +66,17 @@ public class GeradorTabuleiro : MonoBehaviour
     [ContextMenu("Resetar Tabuleiro")]
     void ResetTabuleiro()
     {
-        foreach (Transform conexao in conectores)
+        foreach (Transform conexao in paiConectores)
         {
             Conector con = conexao.GetComponent<Conector>();
             con.ultimoIndice = 0;
-            con.proximaCasa.Clear();
-            con.proximaCasa.Capacity = 0;
+            con.casaSeguinte.Clear();
+            con.casaSeguinte.Capacity = 0;
             con.casaAnterior.Clear();
             con.casaAnterior.Capacity = 0;
         }
 
-        var temp = casas.Cast<Transform>().ToList();
+        var temp = paiCasas.Cast<Transform>().ToList();
         foreach (Transform casa in temp)
         {
             DestroyImmediate(casa.gameObject);

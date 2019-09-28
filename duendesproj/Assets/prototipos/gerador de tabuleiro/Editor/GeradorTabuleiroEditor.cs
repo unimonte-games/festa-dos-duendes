@@ -12,7 +12,7 @@ public class GeradorTabuleiroEditor : Editor
 
         if (GUILayout.Button("Gerar Tabuleiro"))
         {
-            Conector[] conectores = gt.conectores.GetComponentsInChildren<Conector>();
+            Conector[] conectores = gt.paiConectores.GetComponentsInChildren<Conector>();
             for (int i = 0; i < conectores.Length; i++)
                 EditorUtility.SetDirty(conectores[i]);
 
