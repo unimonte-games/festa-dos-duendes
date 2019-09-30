@@ -6,7 +6,7 @@ public class CasaBase : MonoBehaviour
     public List<Transform> casaSeguinte;
     public List<Transform>  casaAnterior;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int tipoCasa;
 
     public virtual void SetCasaSeguinte(Transform casa)

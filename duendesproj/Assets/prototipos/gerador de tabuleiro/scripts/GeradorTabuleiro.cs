@@ -59,6 +59,8 @@ public class GeradorTabuleiro : MonoBehaviour
         ultimaCasa.GetComponent<CasaBase>().SetCasaSeguinte(novaCasa.transform);
         //Nova Casa aponta para a Última 
         novaCasa.GetComponent<CasaBase>().SetCasaAnterior(ultimaCasa);
+        //Define indice da casa
+        novaCasa.GetComponent<CasaBase>().tipoCasa = i+1;
 
         ultimaCasa = novaCasa.transform;
     }
