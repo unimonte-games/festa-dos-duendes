@@ -91,4 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a12265b6d430b4e9a50f825230dad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proximaCasa: {fileID: 0}
+  proximaCasa: []
+  casaAnterior: []
+  tipoCasa: 0
