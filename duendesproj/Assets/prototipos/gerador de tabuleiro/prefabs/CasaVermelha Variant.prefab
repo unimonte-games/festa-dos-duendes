@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasaVermelha Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4262312202515046251, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7314459893844595130, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
         type: 3}
       propertyPath: indiceCasa

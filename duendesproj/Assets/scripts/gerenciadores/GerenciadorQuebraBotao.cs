@@ -2,74 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Componentes.Jogador;
+using Identificadores;
 
 namespace Gerenciadores
 {
     public class GerenciadorQuebraBotao : MonoBehaviour
     {
-        public float duracaoPartida;
+        public GerenciadorMJLib gerenciadorMJ;
+        public float tamanhoPasso;
 
-        Transform[] tr_jogadores;
-        float tempoInicialPartida;
-        bool partidaEncerrada;
+        void Awake()
+        {
+            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+        }
 
         void Start()
         {
-            ObterTrJogadores();
+            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
-        void Update()
+        void AoIniciar()
         {
-            float tempoAtual = Time.time;
-            if (tempoAtual - tempoInicialPartida > duracaoPartida && !partidaEncerrada)
-            {
-                EncerrarPartida();
-                partidaEncerrada = true;
-            }
+            AplicarControladorQuebraBotao();
         }
 
-        void ObterTrJogadores()
-        {
-            GameObject[] jogadores = GameObject.FindGameObjectsWithTag("Player");
-
-#if UNITY_EDITOR
-            // caso algo dê errado, isso aqui vai nos salvar um tempão
-            Debug.Assert(
-                jogadores.Length == GerenciadorGeral.qtdJogadores,
-                "Quantidade de jogadores encontrados não correponde à"
-                + " quantidade de jogadores cadastrados!:\n"
-                + "\tjogadores.Length = " + jogadores.Length.ToString() + " - "
-                + "GerenciadorGeral.qtdJogadores = "
-                + GerenciadorGeral.qtdJogadores.ToString() + ".",
-                gameObject
-            );
-#endif
-
-            tr_jogadores = new Transform[GerenciadorGeral.qtdJogadores];
-
-            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
-                tr_jogadores[i] = jogadores[i].GetComponent<Transform>();
-        }
-
-        void IniciaPartida()
-        {
-            tempoInicialPartida = Time.time;
-        }
-
-        void EncerrarPartida()
+        void AoTerminar()
         {
             JogadorID jogadorCampeao = ObterCampeao();
             GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
         }
 
-        JogadorID ObterCampeao()
+        void AplicarControladorQuebraBotao ()
         {
-            float maisLonge = -100000;
-            int maisLonge_i = -1;
+            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
+                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
+                gbj_jogaodor.AddComponent<ControladorQuebraBotao>();
+            }
+        }
+
+        JogadorID ObterCampeao()
+        {
+            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+
+            float maisLonge = -100000;
+            int maisLonge_i = -1;
+
+            // itera sobre todos os jogadores, vê quem está mais longe
+            // no eixo Z
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
                 float jogador_i_posz = tr_jogadores[i].position.z;
+
                 if (jogador_i_posz > maisLonge)
                 {
                     maisLonge = jogador_i_posz;
@@ -77,9 +64,11 @@ namespace Gerenciadores
                 }
             }
 
+            // Obtém o jogadorID do campeão
             IdentificadorJogador idJogador =
                 tr_jogadores[maisLonge_i].GetComponent<IdentificadorJogador>();
 
+            // retorna jogadorID obtido
             return idJogador.jogadorID;
         }
     }

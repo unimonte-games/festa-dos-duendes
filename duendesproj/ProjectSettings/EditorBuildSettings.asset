@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/cenas de teste/GGTest.unity
+    guid: f6ee22ca55ea588ac9204cfb21040fc0
+  - enabled: 1
+    path: Assets/Scenes/minijogos/quebra_botao.unity
+    guid: 7ee3deedd57eca67cacfeb97a2b26d63
+  - enabled: 1
+    path: Assets/Scenes/minijogos/baldes_das_macas.unity
+    guid: 3758934efae82eff3b333390a108517a
   m_configObjects: {}
