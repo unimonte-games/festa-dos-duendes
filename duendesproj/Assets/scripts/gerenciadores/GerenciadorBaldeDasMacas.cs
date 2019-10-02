@@ -11,6 +11,8 @@ namespace Gerenciadores {
 
         public GameObject macaGbj;
         public float intervaloInstanciacao;
+        public float velocidadeMov, velPulo, tamPulo;
+        public float limX;
 
         float tempoPartidaAtual;
 
@@ -31,13 +33,12 @@ namespace Gerenciadores {
             bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
             float tempoPartida = gerenciadorMJ.tempoPartida;
 
-            if (gerenciadorMJ.partidaIniciada && !gerenciadorMJ.partidaEncerrada)
+            if (gerenciadorMJ.partidaIniciada &&
+            !gerenciadorMJ.partidaEncerrada &&
+            tempoPartida - tempoPartidaAtual >= intervaloInstanciacao)
             {
-                if (tempoPartida - tempoPartidaAtual >= intervaloInstanciacao)
-                {
-                    tempoPartidaAtual = tempoPartida;
-                    InstanciarMaca();
-                }
+                tempoPartidaAtual = tempoPartida;
+                InstanciarMaca();
             }
         }
 
