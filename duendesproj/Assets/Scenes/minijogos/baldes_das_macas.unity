@@ -327,8 +327,8 @@ MonoBehaviour:
   gerenciadorMJ: {fileID: 1339703355}
   macaGbj: {fileID: 7089414024945378494, guid: 7d220b116778863959eed3b63929040e, type: 3}
   intervaloInstanciacao: 1
-  velocidadeMov: 10
-  velPulo: 1
+  velocidadeMov: 8
+  velPulo: 4.5
   tamPulo: 2
   limX: 6
 --- !u!4 &1339703354
@@ -362,7 +362,7 @@ MonoBehaviour:
   - {fileID: 8680308246167709803, guid: 725c19bbc929662b095d130feb47fa8b, type: 3}
   - {fileID: 8680308246167709803, guid: 299f4b1b190b30efc9eccb4e1d050f2e, type: 3}
   - {fileID: 8680308246167709803, guid: 6a40be90fa8c195c9a90f3bb942d0805, type: 3}
-  duracaoPartida: 2000
+  duracaoPartida: 20
   tr_jogadores: []
   tempoPartida: 0
   partidaIniciada: 0

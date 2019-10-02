@@ -6,7 +6,7 @@ namespace Componentes.Jogador
 {
     public class ControladorBaldeDasMacas : MonoBehaviour
     {
-        int macasPegas;
+        public int macasPegas;
         bool emPulo;
 
         Transform tr;
@@ -34,34 +34,46 @@ namespace Componentes.Jogador
             Controlador.EntradaJogador entradaJogador =
                 ctrl.ObterEntradaJogador();
 
-            if (!emPulo)
+            // localizando variáveis
+            float eixoH = entradaJogador.eixoH;
+            float pos_x = tr.position.x;
+
+            // Ativando pulo se o jogador apertou o botão de ação 1
+            if (!emPulo && entradaJogador.acao1)
             {
-                float posx = Mathf.Abs(tr.position.x);
-
-                if (posx >= gerenBM.limX)
-                    mov.direcao = Vector3.zero;
-                else
-                {
-                    mov.direcao = v3_r * entradaJogador.eixoH;
-
-                    if (entradaJogador.acao1)
-                    {
-                        emPulo = true;
-                        Pular();
-                    }
-                }
+                emPulo = true;
+                StartCoroutine(Co_Pulo());
             }
 
+            // direcao de movimento, não pode pudar se estiver durante o pulo
+            if (!emPulo)
+            {
+                if (eixoH > 0)
+                    mov.direcao = Vector3.right;
+                else if (eixoH < 0)
+                    mov.direcao = Vector3.left;
+                else
+                    mov.direcao = Vector3.zero;
+            }
+
+            // limitando dentro do limite da fase através da velocidade
+            if (Mathf.Abs(pos_x) >= gerenBM.limX)
+            {
+                if (!emPulo)
+                {
+                    if (eixoH > 0 && pos_x < 0 || eixoH < 0 && pos_x > 0)
+                        mov.velocidade = gerenBM.velocidadeMov;
+                    else
+                        mov.velocidade = 0;
+                }
+                else
+                    mov.velocidade = 0;
+            }
         }
 
         public void PontuarMaca()
         {
             macasPegas++;
-        }
-
-        void Pular()
-        {
-            StartCoroutine(Co_Pulo());
         }
 
         IEnumerator Co_Pulo()

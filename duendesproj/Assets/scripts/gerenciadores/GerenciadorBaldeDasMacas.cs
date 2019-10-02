@@ -77,7 +77,23 @@ namespace Gerenciadores {
 
         JogadorID ObterCampeao()
         {
-            return JogadorID.J1;
+            int qtdMaxMacas = -1;
+            JogadorID jid_ganhador = JogadorID.J1;
+
+            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+            {
+                Transform tr_j = gerenciadorMJ.tr_jogadores[i];
+                var ctrl = tr_j.GetComponent<ControladorBaldeDasMacas>();
+
+                if (ctrl.macasPegas >= qtdMaxMacas)
+                {
+                    qtdMaxMacas = ctrl.macasPegas;
+                    var id_comp = tr_j.GetComponent<IdentificadorJogador>();
+                    jid_ganhador = id_comp.jogadorID;
+                }
+            }
+
+            return jid_ganhador;
         }
     }
 }
