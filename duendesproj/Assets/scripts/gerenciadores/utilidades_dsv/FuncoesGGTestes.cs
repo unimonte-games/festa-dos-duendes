@@ -41,8 +41,8 @@ namespace Gerenciadores.DsvUtils
 #region abrir minijogos
 
         public void AbrirMJ_QuebraBotao() { AbrirMJ(CenaID.QuebraBotao); }
-
         public void AbrirMJ_BaldeDasMacas() { AbrirMJ(CenaID.BaldeDasMacas); }
+        public void AbrirMJ_PescaEscorrega() { AbrirMJ(CenaID.PescaEscorrega); }
 
         void AbrirMJ(CenaID cenaId)
         {

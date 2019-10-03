@@ -1,6 +1,6 @@
 namespace Identificadores
 {
-    public enum JogadorID {J1, J2, J3, J4};
+    public enum JogadorID {J1 = 0, J2, J3, J4};
 
     public enum CenaID
     {
