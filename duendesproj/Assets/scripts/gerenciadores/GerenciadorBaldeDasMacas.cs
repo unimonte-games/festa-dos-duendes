@@ -7,7 +7,7 @@ using Identificadores;
 namespace Gerenciadores {
     public class GerenciadorBaldeDasMacas : MonoBehaviour
     {
-        public GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenciadorMJ;
 
         public GameObject macaGbj;
         public float intervaloInstanciacao;

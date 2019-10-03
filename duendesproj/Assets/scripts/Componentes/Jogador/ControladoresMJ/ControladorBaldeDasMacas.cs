@@ -14,8 +14,6 @@ namespace Componentes.Jogador
         Movimentador mov;
         Gerenciadores.GerenciadorBaldeDasMacas gerenBM;
 
-        static readonly Vector3 v3_r = Vector3.right;
-
         void Awake ()
         {
             tr = GetComponent<Transform>();
