@@ -6,17 +6,20 @@ using Identificadores;
 namespace Componentes.Jogador {
     public class IdentificadorJogador : MonoBehaviour
     {
+        static int id;
         public JogadorID jogadorID;
 
         void Start()
         {
-            switch(Gerenciadores.GerenciadorGeral.qtdJogadores)
+            switch(id)
             {
-                case 1: jogadorID = JogadorID.J1; break;
-                case 2: jogadorID = JogadorID.J2; break;
-                case 3: jogadorID = JogadorID.J3; break;
-                case 4: jogadorID = JogadorID.J4; break;
+                case 0: jogadorID = JogadorID.J1; break;
+                case 1: jogadorID = JogadorID.J2; break;
+                case 2: jogadorID = JogadorID.J3; break;
+                case 3: jogadorID = JogadorID.J4; break;
             }
+
+            id++
         }
     }
 }
