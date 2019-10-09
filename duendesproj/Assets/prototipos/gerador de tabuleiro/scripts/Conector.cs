@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Rota : object
+public struct Rota
 {
     public Transform conector;
+    [Range(0, 20)]
     public int qtdCasas;
 }
 
@@ -12,7 +13,7 @@ public class Conector : CasaBase
 {
     public List<Rota> rotas;
     [HideInInspector]
-    public int ultimoIndice = 0;
+    public int ultimaCor = 0;
 
     private void OnDrawGizmos()
     {

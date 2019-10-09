@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class GeraCarta : MonoBehaviour
 {
     public Image botao;
-    public Movimentacao _mov;
+    public Movimentacao jogador;
 
     public void GerarCarta()
     {
@@ -37,6 +37,6 @@ public class GeraCarta : MonoBehaviour
                 break;
         }
 
-        _mov.ProcuraCasa(rand);
+        jogador.ProcuraCasa(rand);
     }
 }
