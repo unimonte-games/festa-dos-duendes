@@ -3,14 +3,14 @@
 public class Movimentacao : MonoBehaviour
 {
     public Transform casaAtual;
-    public GameObject canvasCarta, canvasDirecao;
+    public EscolheRota _escolheRota;
     [HideInInspector]
     public int proximaCor;
 
     void Start()
     {
         setCasa(casaAtual);
-        canvasDirecao.SetActive(false);
+        _escolheRota.EstadoCanvasRota(false);
     }
 
     public void setCasa(Transform novaCasa)
@@ -37,9 +37,9 @@ public class Movimentacao : MonoBehaviour
                 {
                     achou = true;
                     proximaCor = corDesejada;
+                    setCasa(casaTemp);
 
-                    canvasDirecao.SetActive(true);
-                    canvasCarta.SetActive(false);
+                    _escolheRota.EstadoCanvasRota(true);
                 }
             }
             else if (corTemp == corDesejada)

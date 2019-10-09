@@ -4723,8 +4723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   casaAtual: {fileID: 263099492}
-  canvasCarta: {fileID: 1084763040}
-  canvasDirecao: {fileID: 2017685628}
+  _escolheRota: {fileID: 2017685633}
   proximaCor: 0
 --- !u!65 &1223503248
 BoxCollider:
@@ -8288,6 +8287,7 @@ MonoBehaviour:
   jogador: {fileID: 1223503246}
   canvasCarta: {fileID: 1084763040}
   canvasDirecao: {fileID: 2017685628}
+  setaObj: {fileID: 9131772947358017203, guid: a305d66da4f30b442bbb8a4ef237f057, type: 3}
 --- !u!1 &2036403370
 GameObject:
   m_ObjectHideFlags: 0
