@@ -19,7 +19,7 @@ namespace Componentes.Jogador {
                 case 3: jogadorID = JogadorID.J4; break;
             }
 
-            id++
+            id++;
         }
     }
 }

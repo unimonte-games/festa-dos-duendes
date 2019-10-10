@@ -4,12 +4,13 @@ namespace Identificadores
 
     public enum CenaID
     {
-        Tabuleiro           = 0,
-        QuebraBotao         = 1,
-        BaldeDasMacas       = 2,
-        PescaEscorrega      = 3,
-        TelaCarregamento    = 4,
-        MenuInicial         = 5,
+        Tabuleiro        = 0,
+        QuebraBotao      = 1,
+        BaldeDasMacas    = 2,
+        PescaEscorrega   = 3,
+        CogumeloQuente   = 4,
+        TelaCarregamento = 5,
+        MenuInicial      = 6,
         // TODO: Colocar outros aqui
     };
 }

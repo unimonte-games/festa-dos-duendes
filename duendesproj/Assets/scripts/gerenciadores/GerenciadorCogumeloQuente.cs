@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Componentes.Jogador;
@@ -6,16 +6,21 @@ using Identificadores;
 
 namespace Gerenciadores
 {
-    public class GerenciadorBaldeDasMacas : MonoBehaviour
+    public class GerenciadorCogumeloQuente : MonoBehaviour
     {
+        public GameObject cogumeloGbj;
+        public float intervaloPassar,
+                     velocidadeCogumelo;
+
         GerenciadorMJLib gerenciadorMJ;
-
-        public GameObject macaGbj;
-        public float intervaloInstanciacao;
-        public float velocidadeMov, velPulo, tamPulo;
-        public float limX;
-
         float tempoPartidaAtual;
+
+        ControladorCogumeloQuente[] controladores =
+            new ControladorCogumeloQuente[4];
+
+        CogumeloQuente_Cogumelo cogumeloComp;
+
+        int indiceComCogumelo;
 
         void Awake()
         {
@@ -28,7 +33,7 @@ namespace Gerenciadores
             gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
-        void Update()
+        void Update ()
         {
             bool partidaIniciada = gerenciadorMJ.partidaIniciada;
             bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
@@ -36,17 +41,23 @@ namespace Gerenciadores
             float diferencaTempo = tempoPartida - tempoPartidaAtual;
 
             if (partidaIniciada && !partidaEncerrada
-            && diferencaTempo >= intervaloInstanciacao)
+            && diferencaTempo >= intervaloPassar)
             {
                 tempoPartidaAtual = tempoPartida;
-                InstanciarMaca();
+                PassarCogumelo();
             }
         }
 
         void AoIniciar()
         {
-            AplicarControladorBaldeDasMacas();
+            AplicarControladorCogumeloQuente();
             tempoPartidaAtual = gerenciadorMJ.tempoPartida;
+
+            cogumeloComp = cogumeloGbj.GetComponent<CogumeloQuente_Cogumelo>();
+
+            cogumeloComp.DefinirAlvo(
+                controladores[indiceComCogumelo].GetComponent<Transform>()
+            );
         }
 
         void AoTerminar()
@@ -55,46 +66,47 @@ namespace Gerenciadores
             GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
         }
 
-        void AplicarControladorBaldeDasMacas()
+        void AplicarControladorCogumeloQuente()
         {
             Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
-                gbj_jogaodor.AddComponent<ControladorBaldeDasMacas>();
+                controladores[i] =
+                    gbj_jogaodor.AddComponent<ControladorCogumeloQuente>();
             }
-        }
-
-        void InstanciarMaca()
-        {
-            GameObject nova_maca = Instantiate<GameObject>(
-                macaGbj, Vector3.zero, Quaternion.identity
-            );
-
-            Transform tr_nova_maca = nova_maca.transform;
-            tr_nova_maca.localPosition = Vector3.zero;
         }
 
         JogadorID ObterCampeao()
         {
-            int qtdMaxMacas = -1;
             JogadorID jid_ganhador = JogadorID.J1;
 
             for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
             {
-                Transform tr_j = gerenciadorMJ.tr_jogadores[i];
-                var ctrl = tr_j.GetComponent<ControladorBaldeDasMacas>();
+                var ctrl_i = controladores[i];
 
-                if (ctrl.macasPegas >= qtdMaxMacas)
+                if (ctrl_i.vivo)
                 {
-                    qtdMaxMacas = ctrl.macasPegas;
-                    var id_comp = tr_j.GetComponent<IdentificadorJogador>();
+                    var id_comp = ctrl_i.GetComponent<IdentificadorJogador>();
                     jid_ganhador = id_comp.jogadorID;
+                    break;
                 }
             }
 
             return jid_ganhador;
+        }
+
+        void PassarCogumelo()
+        {
+            controladores[indiceComCogumelo].comCogumelo = false;
+            indiceComCogumelo = Mathf.Clamp(indiceComCogumelo + 1, 0, 3);
+            controladores[indiceComCogumelo].comCogumelo = true;
+
+            cogumeloComp.DefinirAlvo(
+                controladores[indiceComCogumelo].GetComponent<Transform>()
+            );
+
         }
     }
 }
