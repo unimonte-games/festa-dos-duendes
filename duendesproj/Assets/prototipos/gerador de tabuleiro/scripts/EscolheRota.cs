@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class EscolheRota : MonoBehaviour
 {
-    public Movimentacao jogador;
-    public GameObject canvasCarta, canvasDirecao, setaObj;
-    private int indice = 0;
+    public GerenciadorPartida _gerenPartida;
+    public Button botaoCarta;
+    public GameObject UIDirecao, setaObj;
 
+    private Movimentacao jogador;
+    private int indice = 0;
     private Vector3 setaPosi;
     private GameObject seta;
 
@@ -17,13 +20,14 @@ public class EscolheRota : MonoBehaviour
 
     public void EscolherRota(bool confirmacao)
     {
+        jogador = _gerenPartida.jogadorAtual;
         CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
         Transform casaTemp = _casaBase.casaSeguinte[indice];
 
         if (confirmacao)
         {
             EstadoCanvasRota(false); //Esconde os itens de escolha de rota
-            jogador.setCasa(casaTemp); //Avança na rota escolhida
+            jogador.SetCasa(casaTemp); //Avança na rota escolhida
             jogador.ProcuraCasa(jogador.proximaCor); //Avança para a cor certa        
         }
         else
@@ -41,12 +45,13 @@ public class EscolheRota : MonoBehaviour
 
         if (estado)
         {
+            jogador = _gerenPartida.jogadorAtual;
             CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
             seta.transform.position = _casaBase.casaSeguinte[indice].position;
         }
 
         seta.SetActive(estado);
-        canvasDirecao.SetActive(estado);
-        canvasCarta.SetActive(!estado);
+        UIDirecao.SetActive(estado);
+        botaoCarta.interactable = !estado;
     }
 }

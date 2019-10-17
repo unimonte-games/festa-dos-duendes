@@ -4,16 +4,17 @@ public class Movimentacao : MonoBehaviour
 {
     public Transform casaAtual;
     public EscolheRota _escolheRota;
+    public GerenciadorPartida _gerenPartida;
     [HideInInspector]
     public int proximaCor;
 
     void Start()
     {
-        setCasa(casaAtual);
+        SetCasa(casaAtual);
         _escolheRota.EstadoCanvasRota(false);
     }
 
-    public void setCasa(Transform novaCasa)
+    public void SetCasa(Transform novaCasa)
     {
         casaAtual = novaCasa;
         transform.position = casaAtual.position;
@@ -23,30 +24,40 @@ public class Movimentacao : MonoBehaviour
     {
         bool achou = false;
         Transform casaTemp = casaAtual;
-        int corTemp;
+        int corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
 
-        do
+        if (corTemp != 0 && corTemp == proximaCor)
         {
-            casaTemp = casaTemp.GetComponent<CasaBase>().casaSeguinte[0];
-            corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
-
-            if (corTemp == 0)
+            proximaCor = 0;
+            SetCasa(casaTemp); //Avança posição
+            _gerenPartida.NovaRodada();
+        }
+        else
+        {
+            do
             {
-                CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
-                if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
+                casaTemp = casaTemp.GetComponent<CasaBase>().casaSeguinte[0];
+                corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
+
+                if (corTemp == 0)
+                {
+                    CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
+                    if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
+                    {
+                        achou = true;
+                        proximaCor = corDesejada; //Salva cor desejada
+                        SetCasa(casaTemp); //Avança posição
+                        _escolheRota.EstadoCanvasRota(true);
+                    }
+                }
+                else if (corTemp == corDesejada || corTemp == proximaCor)
                 {
                     achou = true;
-                    proximaCor = corDesejada;
-                    setCasa(casaTemp);
-
-                    _escolheRota.EstadoCanvasRota(true);
+                    SetCasa(casaTemp); //Avança posição
+                    _gerenPartida.NovaRodada();
                 }
-            }
-            else if (corTemp == corDesejada)
-                achou = true;
 
-        } while (!achou);
-
-        setCasa(casaTemp); //Avança posição
+            } while (!achou);
+        }
     }
 }
