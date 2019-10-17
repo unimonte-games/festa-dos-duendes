@@ -21,6 +21,7 @@ namespace Gerenciadores
         CogumeloQuente_Cogumelo cogumeloComp;
 
         int indiceComCogumelo;
+        int microPartida;
 
         void Awake()
         {
@@ -38,9 +39,21 @@ namespace Gerenciadores
             bool partidaIniciada = gerenciadorMJ.partidaIniciada;
             bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
             float tempoPartida = gerenciadorMJ.tempoPartida;
-            float diferencaTempo = tempoPartida - tempoPartidaAtual;
+            float duracaoPartida = gerenciadorMJ.duracaoPartida;
 
-            if (partidaIniciada && !partidaEncerrada
+            float diferencaTempo = tempoPartida - tempoPartidaAtual;
+            int qtdJogadores = GerenciadorGeral.qtdJogadores;
+
+            if (
+                tempoPartida - ((duracaoPartida/qtdJogadores) * microPartida)
+                >= duracaoPartida/qtdJogadores
+                && microPartida < qtdJogadores-1
+            )
+            {
+                controladores[indiceComCogumelo].Queimar();
+                microPartida++;
+            }
+            else if (partidaIniciada && !partidaEncerrada
             && diferencaTempo >= intervaloPassar)
             {
                 tempoPartidaAtual = tempoPartida;
@@ -97,16 +110,19 @@ namespace Gerenciadores
             return jid_ganhador;
         }
 
-        void PassarCogumelo()
+        public void PassarCogumelo()
         {
-            controladores[indiceComCogumelo].comCogumelo = false;
-            indiceComCogumelo = Mathf.Clamp(indiceComCogumelo + 1, 0, 3);
-            controladores[indiceComCogumelo].comCogumelo = true;
+            do {
+                controladores[indiceComCogumelo].comCogumelo = false;
+                indiceComCogumelo = (indiceComCogumelo + 1) % 4;
+                controladores[indiceComCogumelo].comCogumelo = true;
+            } while(!controladores[indiceComCogumelo].vivo);
 
             cogumeloComp.DefinirAlvo(
                 controladores[indiceComCogumelo].GetComponent<Transform>()
             );
 
+            tempoPartidaAtual = gerenciadorMJ.tempoPartida;
         }
     }
 }

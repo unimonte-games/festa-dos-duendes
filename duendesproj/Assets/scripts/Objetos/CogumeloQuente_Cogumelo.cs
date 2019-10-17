@@ -17,11 +17,14 @@ public class CogumeloQuente_Cogumelo : MonoBehaviour
 
     void Update()
     {
-        tr.position = Vector3.Slerp(
-            tr.position,
-            alvo_tr.position,
-            gerenCQ.velocidadeCogumelo * Time.deltaTime
-        );
+        if (alvo_tr != null)
+        {
+            tr.position = Vector3.Slerp(
+                tr.position,
+                alvo_tr.position + Vector3.up,
+                gerenCQ.velocidadeCogumelo * Time.deltaTime
+            );
+        }
     }
 
     public void DefinirAlvo(Transform def)
