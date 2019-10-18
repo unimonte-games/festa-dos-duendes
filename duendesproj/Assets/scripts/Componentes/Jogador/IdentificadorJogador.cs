@@ -7,6 +7,8 @@ namespace Componentes.Jogador {
     public class IdentificadorJogador : MonoBehaviour
     {
         static int id;
+
+        /// <summary>A qual jogador esse personagem pertence.</summary>
         public JogadorID jogadorID;
 
         void Start()
