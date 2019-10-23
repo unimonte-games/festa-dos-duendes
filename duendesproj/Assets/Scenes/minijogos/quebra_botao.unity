@@ -120,6 +120,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1199162432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1893084017296013792, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_Name
+      value: Gerenciador_QuebraBotao
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893084017296013795, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fbfc9a2c3fd4f2d04ab51a7b23fb9111, type: 3}
 --- !u!1 &1819734485
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,81 +363,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2054145180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2054145182}
-  - component: {fileID: 2054145181}
-  - component: {fileID: 2054145183}
-  m_Layer: 0
-  m_Name: Gerenciador Quebra Botao
-  m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2054145181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054145180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c0bd7cd74583318cef782a942cbe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gerenciadorMJ: {fileID: 2054145183}
-  tamanhoPasso: 0.1
---- !u!4 &2054145182
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054145180}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.42, y: 0.29, z: 0.051962376}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2054145183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054145180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b74c805a7e1e2fb82e758be75675ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duendesPrefab:
-  - {fileID: 8680308246167709803, guid: d3f98104d87b5afb1b17633036c7f88e, type: 3}
-  - {fileID: 8680308246167709803, guid: 725c19bbc929662b095d130feb47fa8b, type: 3}
-  - {fileID: 8680308246167709803, guid: 299f4b1b190b30efc9eccb4e1d050f2e, type: 3}
-  - {fileID: 8680308246167709803, guid: 6a40be90fa8c195c9a90f3bb942d0805, type: 3}
-  duracaoPartida: 10
-  tr_jogadores: []
-  tempoPartida: 0
-  partidaIniciada: 0
-  partidaEncerrada: 0
-  evtAoIniciar:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  evtAoTerminar:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

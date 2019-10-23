@@ -28,16 +28,16 @@ namespace Gerenciadores {
 
         [Header("Não modifique pelo Inspector:")]
         /// <summary>
-        /// Componentes de transformação dos jogadores instanciados,
-        /// é gerenciado automaticamente e não deve ser modificado externamente.
-        /// </summary>
-        public Transform[] tr_jogadores;
-
-        /// <summary>
         /// É a diferença entre o tempo de jogo e o tempo do início da partida
         /// do minijogo; não deve ser modificada externamente.
         /// </summary>
         public float tempoPartida;
+
+        /// <summary>
+        /// Componentes de transformação dos jogadores instanciados,
+        /// é gerenciado automaticamente e não deve ser modificado externamente.
+        /// </summary>
+        [HideInInspector] public Transform[] tr_jogadores;
 
         /// <summary>
         /// Indica se a partida do minijogo foi iniciada;
@@ -52,10 +52,10 @@ namespace Gerenciadores {
         public bool partidaEncerrada;
 
         /// <summary>Evento que é chamado ao se iniciar a partida.</summary>
-        public UnityEvent evtAoIniciar;
+        [HideInInspector] public UnityEvent evtAoIniciar;
 
         /// <summary>Evento que é chamado ao se encerrar a partida</summary>
-        public UnityEvent evtAoTerminar;
+        [HideInInspector] public UnityEvent evtAoTerminar;
 
         void Start()
         {

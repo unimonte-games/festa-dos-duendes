@@ -203,81 +203,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1669444538
+--- !u!1001 &1131039718
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7089414024945378494, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955412, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_Name
-      value: proto cogumelo quente
+      value: Gerenciador_CogumeloQuente
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 194.40045
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 426.32043
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -247.87383
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7089414024945378437, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+    - target: {fileID: 5922565609109955415, guid: 0f041076fdd7b44729955b0fffeff82d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 28a90ee59256e4cdd8d9d78ad33886b8, type: 3}
---- !u!1 &1669444539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7089414024945378494, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1669444538}
-  m_PrefabAsset: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 0f041076fdd7b44729955b0fffeff82d, type: 3}
 --- !u!1 &1931893321
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,84 +361,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2042420411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2042420414}
-  - component: {fileID: 2042420413}
-  - component: {fileID: 2042420412}
-  m_Layer: 0
-  m_Name: Gerenciador Cogumelo Quente
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2042420412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042420411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b74c805a7e1e2fb82e758be75675ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duendesPrefab:
-  - {fileID: 8680308246167709803, guid: d3f98104d87b5afb1b17633036c7f88e, type: 3}
-  - {fileID: 8680308246167709803, guid: 725c19bbc929662b095d130feb47fa8b, type: 3}
-  - {fileID: 8680308246167709803, guid: 299f4b1b190b30efc9eccb4e1d050f2e, type: 3}
-  - {fileID: 8680308246167709803, guid: 6a40be90fa8c195c9a90f3bb942d0805, type: 3}
-  duracaoPartida: 20
-  tr_jogadores: []
-  tempoPartida: 0
-  partidaIniciada: 0
-  partidaEncerrada: 0
-  evtAoIniciar:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  evtAoTerminar:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &2042420413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042420411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 970afea8efefbb309b9f05b4197fd808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cogumeloGbj: {fileID: 1669444539}
-  intervaloPassar: 1
-  velocidadeCogumelo: 5
---- !u!4 &2042420414
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042420411}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.39845, y: 101.74485, z: 1.7333069}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
