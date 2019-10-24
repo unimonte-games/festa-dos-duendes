@@ -54,6 +54,7 @@ namespace Componentes.Tabuleiro
                     else if (corTemp == corDesejada || corTemp == proximaCor)
                     {
                         achou = true;
+                        proximaCor = 0;
                         SetCasa(casaTemp); //Avança posição
                     }
                 } while (!achou);

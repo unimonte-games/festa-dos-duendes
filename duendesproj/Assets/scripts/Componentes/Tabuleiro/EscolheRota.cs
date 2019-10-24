@@ -23,7 +23,8 @@ namespace Componentes.Tabuleiro
             {
                 EstadoCanvasRota(false); //Esconde os itens de escolha de rota
                 jogador.SetCasa(casaTemp); //Avança na rota escolhida
-                jogador.ProcuraCasa(jogador.proximaCor); //Avança para a cor certa        
+                jogador.ProcuraCasa(jogador.proximaCor); //Avança para a cor certa   
+                _gerenPartida.NovaRodada(); //Termina a rodada
             }
             else
             {
