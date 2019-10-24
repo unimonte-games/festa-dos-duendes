@@ -9,8 +9,9 @@ namespace Componentes.Tabuleiro
         public Transform paiConectores;
         [Tooltip("Pai onde ficarão as casas")]
         public Transform paiCasas;
-        [Tooltip("Prefabs de casas a serem instanciadas em ordem")]
-        public GameObject[] ordemCores;
+        [Tooltip("Ordem das cores de casas")]
+        public Material[] ordemCores;
+        public GameObject casaPrefab;
 
         private Transform ultimaCasa;
 
@@ -52,10 +53,11 @@ namespace Componentes.Tabuleiro
             }
         }
 
-        void Instanciador(Vector3 posicao, int i)
+        private void Instanciador(Vector3 posicao, int i)
         {
-            GameObject novaCasa = Instantiate(ordemCores[i], posicao, Quaternion.identity);
+            GameObject novaCasa = Instantiate(casaPrefab, posicao, Quaternion.identity);
             novaCasa.transform.parent = paiCasas;
+            novaCasa.GetComponent<Renderer>().material = ordemCores[i];
 
             //Última Casa aponta para a Nova
             ultimaCasa.GetComponent<CasaBase>().SetCasaSeguinte(novaCasa.transform);
@@ -68,7 +70,7 @@ namespace Componentes.Tabuleiro
         }
 
         [ContextMenu("Resetar Tabuleiro")]
-        void ResetTabuleiro()
+        private void ResetTabuleiro()
         {
             foreach (Transform conexao in paiConectores)
             {

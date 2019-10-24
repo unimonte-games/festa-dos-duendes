@@ -7,39 +7,21 @@ namespace Componentes.Tabuleiro
     {
         public Image botao;
         public GerenciadorPartida _gerenPartida;
+        public GeradorTabuleiro _geraTabuleiro;
+        private int qtdCasas;
+
+        private void Awake()
+        {
+            qtdCasas = _geraTabuleiro.ordemCores.Length;
+        }
 
         public void GerarCarta()
         {
-            int rand = Random.Range(1, 6);
+            int rand = Random.Range(0, qtdCasas);
 
-            switch (rand)
-            {
-                case 1:
-                    botao.color = Color.red;
-                    break;
+            botao.color = _geraTabuleiro.ordemCores[rand].color;
 
-                case 2:
-                    botao.color = Color.magenta;
-                    break;
-
-                case 3:
-                    botao.color = Color.yellow;
-                    break;
-
-                case 4:
-                    botao.color = Color.blue;
-                    break;
-
-                case 5:
-                    botao.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
-                    break;
-
-                case 6:
-                    botao.color = Color.green;
-                    break;
-            }
-
-            _gerenPartida.MoverJogador(rand);
+            _gerenPartida.MoverJogador(rand + 1);
         }
     }
 }
