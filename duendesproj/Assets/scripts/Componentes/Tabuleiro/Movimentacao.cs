@@ -64,30 +64,30 @@ public class Movimentacao : MonoBehaviour
                 destino = casaTemp.position;
                 Debug.Log(destino);
                 tempoInicio = Time.time;
-                StartCoroutine(Pulinho());
+                //StartCoroutine(Pulinho());
 
             } while (!achou);
         }
     }
 
-    public IEnumerator Pulinho()
-    {
-        Vector3 center = (transform.position + destino) * 0.5F;
-        center -= Vector3.up;
+    //public IEnumerator Pulinho()
+    //{
+    //    Vector3 center = (transform.position + destino) * 0.5F;
+    //    center -= Vector3.up;
 
-        Vector3 riseRelCenter = transform.position - center;
-        Vector3 setRelCenter = destino - center;
+    //    Vector3 riseRelCenter = transform.position - center;
+    //    Vector3 setRelCenter = destino - center;
 
-        float x = (Time.time - tempoInicio) / duracaoPulo;
+    //    float x = (Time.time - tempoInicio) / duracaoPulo;
 
-        transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, x);
-        transform.position += center;
+    //    transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, x);
+    //    transform.position += center;
 
-        yield return new WaitForSeconds(0.02f);
+    //    yield return new WaitForSeconds(0.02f);
 
-        if (x <= 1)
-            yield return StartCoroutine(Pulinho());
-        else
-            yield return null;
-    }
+    //    if (x <= 1)
+    //        yield return StartCoroutine(Pulinho());
+    //    else
+    //        yield return null;
+    //}
 }
