@@ -6,7 +6,7 @@ namespace Componentes.Jogador
 {
     public class ControladorFlautaHero : MonoBehaviour
     {
-        public int pontos;
+        public float pontos;
 
         Transform tr;
         Controlador ctrl;
@@ -31,7 +31,35 @@ namespace Componentes.Jogador
             Controlador.EntradaJogador entradaJogador =
                 ctrl.ObterEntradaJogador();
 
+            float eixoH = entradaJogador.eixoH;
+            float eixoV = entradaJogador.eixoV;
+            bool acao1 = entradaJogador.acao1;
 
+            if (acao1) {
+                CalcEAdicionaPonto();
+            }
+        }
+
+        void CalcEAdicionaPonto()
+        {
+            float temposAtual = gerenFH.tempos[gerenFH.temposAtual];
+            float tempoPartida  = gerenFH.gerenMJ.tempoPartida;
+            float diferencaTempo = tempoPartida - temposAtual;
+
+            if (!gerenFH.atualUtilizado)
+            {
+                gerenFH.atualUtilizado = true;
+                print(
+                    string.Concat(
+                        tempoPartida,
+                        "-",
+                        temposAtual,
+                        "=01(",
+                        Mathf.Clamp01(Mathf.Abs(diferencaTempo))
+                    )
+                );
+                pontos += 1 - Mathf.Clamp01(Mathf.Abs(diferencaTempo));
+            }
         }
     }
 }

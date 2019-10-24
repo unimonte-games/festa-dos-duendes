@@ -9,8 +9,9 @@ namespace Identificadores
         BaldeDasMacas    = 2,
         PescaEscorrega   = 3,
         CogumeloQuente   = 4,
-        TelaCarregamento = 5,
-        MenuInicial      = 6,
+        FlautaHero       = 5,
+        TelaCarregamento = 6,
+        MenuInicial      = 7,
         // TODO: Colocar outros aqui
     };
 }

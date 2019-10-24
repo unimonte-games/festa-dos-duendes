@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/minijogos/cogumelo_quente.unity
     guid: 4721ddb2cefdbeacd9ab6b8ed190a488
+  - enabled: 1
+    path: Assets/Scenes/minijogos/flauta_hero.unity
+    guid: f8e0519e0c054254284ad58e775dcb9d
   m_configObjects: {}
