@@ -12,13 +12,6 @@ namespace Componentes.Tabuleiro
         private Movimentacao jogador;
         private int indice = 0;
         private Vector3 setaPosi;
-        private GameObject seta;
-
-        private void Awake()
-        {
-            seta = Instantiate(setaObj);
-            seta.SetActive(false);
-        }
 
         public void EscolherRota(bool confirmacao)
         {
@@ -36,7 +29,7 @@ namespace Componentes.Tabuleiro
             {
                 indice = ++indice % _casaBase.casaSeguinte.Count;
                 casaTemp = _casaBase.casaSeguinte[indice];
-                seta.transform.position = casaTemp.position;
+                setaObj.transform.position = casaTemp.position;
             }
         }
 
@@ -49,10 +42,10 @@ namespace Componentes.Tabuleiro
             {
                 jogador = _gerenPartida.jogadorAtual;
                 CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
-                seta.transform.position = _casaBase.casaSeguinte[indice].position;
+                setaObj.transform.position = _casaBase.casaSeguinte[indice].position;
             }
 
-            seta.SetActive(estado);
+            setaObj.SetActive(estado);
             UIDirecao.SetActive(estado);
             botaoCarta.interactable = !estado;
         }

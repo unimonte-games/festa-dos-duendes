@@ -6,18 +6,15 @@ namespace Componentes.Tabuleiro
     public class Movimentacao : MonoBehaviour
     {
         public Transform casaAtual;
-        public float duracaoPulo;
-        public EscolheRota _escolheRota;
-        public GerenciadorPartida _gerenPartida;
         [HideInInspector]
         public int proximaCor;
         private Vector3 destino;
         private float tempoInicio;
+        private float duracaoPulo;
 
         void Start()
         {
             SetCasa(casaAtual);
-            _escolheRota.EstadoCanvasRota(false);
         }
 
         public void SetCasa(Transform novaCasa)
@@ -26,7 +23,7 @@ namespace Componentes.Tabuleiro
             transform.position = casaAtual.position;
         }
 
-        public void ProcuraCasa(int corDesejada)
+        public bool ProcuraCasa(int corDesejada)
         {
             bool achou = false;
             Transform casaTemp = casaAtual;
@@ -36,7 +33,6 @@ namespace Componentes.Tabuleiro
             {
                 proximaCor = 0;
                 SetCasa(casaTemp); //Avança posição
-                _gerenPartida.NovaRodada();
             }
             else
             {
@@ -50,26 +46,20 @@ namespace Componentes.Tabuleiro
                         CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
                         if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
                         {
-                            achou = true;
                             proximaCor = corDesejada; //Salva cor desejada
                             SetCasa(casaTemp); //Avança posição
-                            _escolheRota.EstadoCanvasRota(true);
+                            return false;
                         }
                     }
                     else if (corTemp == corDesejada || corTemp == proximaCor)
                     {
                         achou = true;
                         SetCasa(casaTemp); //Avança posição
-                        _gerenPartida.NovaRodada();
                     }
-
-                    destino = casaTemp.position;
-                    Debug.Log(destino);
-                    tempoInicio = Time.time;
-                    //StartCoroutine(Pulinho());
-
                 } while (!achou);
             }
+
+            return true;
         }
 
         //public IEnumerator Pulinho()

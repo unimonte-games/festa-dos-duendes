@@ -7,11 +7,9 @@ namespace Componentes.Tabuleiro
     {
         public Image botao;
         public GerenciadorPartida _gerenPartida;
-        private Movimentacao jogador;
 
         public void GerarCarta()
         {
-            jogador = _gerenPartida.jogadorAtual;
             int rand = Random.Range(1, 6);
 
             switch (rand)
@@ -41,7 +39,7 @@ namespace Componentes.Tabuleiro
                     break;
             }
 
-            jogador.ProcuraCasa(rand);
+            _gerenPartida.MoverJogador(rand);
         }
     }
 }

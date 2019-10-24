@@ -10,11 +10,13 @@ namespace Componentes.Tabuleiro
         public Text textoPartida;
         [HideInInspector]
         public Movimentacao jogadorAtual;
+        public EscolheRota _escolheRota;
         private int rodada = 1, turno = 0;
 
         private void Awake()
         {
             jogadorAtual = ordemJogadores[0].GetComponent<Movimentacao>();
+            _escolheRota.EstadoCanvasRota(false);
         }
 
         public void NovaRodada()
@@ -29,6 +31,14 @@ namespace Componentes.Tabuleiro
             jogadorAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
 
             textoPartida.text = "Jogador: " + (turno + 1) + "\nRodada: " + rodada;
+        }
+
+        public void MoverJogador(int casa)
+        {
+            if (jogadorAtual.ProcuraCasa(casa))
+                NovaRodada();
+            else
+                _escolheRota.EstadoCanvasRota(true);
         }
     }
 }
