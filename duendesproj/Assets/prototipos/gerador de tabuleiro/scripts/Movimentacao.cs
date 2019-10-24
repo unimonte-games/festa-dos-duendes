@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Movimentacao : MonoBehaviour
 {
     public Transform casaAtual;
+    public EscolheRota _escolheRota;
     [HideInInspector]
-    public int lado = 0;
+    public int proximaCor;
 
     void Start()
     {
         setCasa(casaAtual);
+        _escolheRota.EstadoCanvasRota(false);
     }
 
     public void setCasa(Transform novaCasa)
@@ -19,30 +19,34 @@ public class Movimentacao : MonoBehaviour
         transform.position = casaAtual.position;
     }
 
-    public void ProcuraCasa(int tipo)
+    public void ProcuraCasa(int corDesejada)
     {
         bool achou = false;
-        Transform proximaCasa = casaAtual;
-        int tipoCasa;
+        Transform casaTemp = casaAtual;
+        int corTemp;
 
         do
         {
-            proximaCasa = proximaCasa.GetComponent<CasaBase>().casaSeguinte[lado];
-            tipoCasa = proximaCasa.GetComponent<CasaBase>().tipoCasa;
+            casaTemp = casaTemp.GetComponent<CasaBase>().casaSeguinte[0];
+            corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
 
-            if (tipoCasa == 0)
+            if (corTemp == 0)
             {
-                CasaBase _casaBase = proximaCasa.GetComponent<CasaBase>();
-                //if (_casaBase.casaSeguinte.Count > 1)
+                CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
+                if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
+                {
+                    achou = true;
+                    proximaCor = corDesejada;
+                    setCasa(casaTemp);
+
+                    _escolheRota.EstadoCanvasRota(true);
+                }
             }
-            else if (tipoCasa == tipo)
-            {
+            else if (corTemp == corDesejada)
                 achou = true;
-                casaAtual = proximaCasa;
-            }
 
         } while (!achou);
 
-        setCasa(casaAtual);
+        setCasa(casaTemp); //Avança posição
     }
 }
