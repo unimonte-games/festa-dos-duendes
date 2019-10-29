@@ -16,11 +16,14 @@ namespace Componentes.Tabuleiro
         private void Awake()
         {
             jogadorAtual = ordemJogadores[0].GetComponent<Movimentacao>();
-            _escolheRota.EstadoCanvasRota(false);
+            _escolheRota.estadoUIRota(false);
+            _escolheRota.estadoUICarta(true);
         }
 
         public void NovaRodada()
         {
+            _escolheRota.estadoUICarta(true);
+
             turno++;
             if (turno == ordemJogadores.Count)
             {
@@ -35,10 +38,16 @@ namespace Componentes.Tabuleiro
 
         public void MoverJogador(int casa)
         {
-            if (jogadorAtual.ProcuraCasa(casa))
+            _escolheRota.estadoUICarta(false);
+            StartCoroutine(jogadorAtual.ProcuraCasa(casa));
+        }
+
+        public void fimMov(bool casaEncontrada)
+        {
+            if (casaEncontrada)
                 NovaRodada();
             else
-                _escolheRota.EstadoCanvasRota(true);
+                _escolheRota.estadoUIRota(true);
         }
     }
 }

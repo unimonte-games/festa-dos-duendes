@@ -1,29 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Componentes.Tabuleiro
 {
     public class Movimentacao : MonoBehaviour
     {
+        //Achar casa
+        public GerenciadorPartida _gerenPart;
         public Transform casaAtual;
         [HideInInspector]
         public int proximaCor;
-        private Vector3 destino;
-        private float tempoInicio;
-        private float duracaoPulo;
+
+        //Animar pulo
+        [HideInInspector]
+        public Queue<Vector3> fila = new Queue<Vector3>();
+        private Vector3 animAtual;
+        private float duracaoPulo = 0.25f;
 
         void Start()
         {
-            SetCasa(casaAtual);
+            animAtual = Vector3.zero;
+
+            SetCasaAtual(casaAtual);
         }
 
-        public void SetCasa(Transform novaCasa)
+        public void SetCasaAtual(Transform casa)
         {
-            casaAtual = novaCasa;
-            transform.position = casaAtual.position;
+            casaAtual = casa;
+            fila.Enqueue(casa.position);
+            if (animAtual == Vector3.zero)
+            {
+                animAtual = fila.Dequeue();
+                StartCoroutine(Pulinho(animAtual, Time.time));
+            }
         }
 
-        public bool ProcuraCasa(int corDesejada)
+        public IEnumerator ProcuraCasa(int corDesejada)
         {
             bool achou = false;
             Transform casaTemp = casaAtual;
@@ -31,8 +44,8 @@ namespace Componentes.Tabuleiro
 
             if (corTemp != 0 && corTemp == proximaCor)
             {
+                achou = true;
                 proximaCor = 0;
-                SetCasa(casaTemp); //Avança posição
             }
             else
             {
@@ -41,47 +54,60 @@ namespace Componentes.Tabuleiro
                     casaTemp = casaTemp.GetComponent<CasaBase>().casaSeguinte[0];
                     corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
 
+                    SetCasaAtual(casaTemp);
+
                     if (corTemp == 0)
                     {
                         CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
                         if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
                         {
                             proximaCor = corDesejada; //Salva cor desejada
-                            SetCasa(casaTemp); //Avança posição
-                            return false;
+                            break;
                         }
                     }
                     else if (corTemp == corDesejada || corTemp == proximaCor)
                     {
                         achou = true;
                         proximaCor = 0;
-                        SetCasa(casaTemp); //Avança posição
                     }
                 } while (!achou);
             }
 
-            return true;
+            while (fila.Count > 0)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            _gerenPart.fimMov(achou);
         }
 
-        //public IEnumerator Pulinho()
-        //{
-        //    Vector3 center = (transform.position + destino) * 0.5F;
-        //    center -= Vector3.up;
+        public IEnumerator Pulinho(Vector3 destino, float tempoInicio)
+        {
+            Vector3 centro = (transform.position + destino) * 0.5F;
+            centro -= Vector3.up;
 
-        //    Vector3 riseRelCenter = transform.position - center;
-        //    Vector3 setRelCenter = destino - center;
+            Vector3 inicioRel = transform.position - centro;
+            Vector3 finalRel = destino - centro;
 
-        //    float x = (Time.time - tempoInicio) / duracaoPulo;
+            float x = (Time.time - tempoInicio) / duracaoPulo;
 
-        //    transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, x);
-        //    transform.position += center;
+            transform.position = Vector3.Slerp(inicioRel, finalRel, x);
+            transform.position += centro;
 
-        //    yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.02f);
 
-        //    if (x <= 1)
-        //        yield return StartCoroutine(Pulinho());
-        //    else
-        //        yield return null;
-        //}
+            if (x <= 1)
+                StartCoroutine(Pulinho(destino, tempoInicio));
+            else
+            {
+                if (fila.Count > 0)
+                {
+                    animAtual = fila.Dequeue();
+                    StartCoroutine(Pulinho(animAtual, Time.time));
+                }
+                else
+                    animAtual = Vector3.zero;
+            }
+        }
     }
 }
