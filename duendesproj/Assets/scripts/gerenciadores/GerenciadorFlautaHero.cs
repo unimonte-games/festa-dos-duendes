@@ -13,9 +13,8 @@ namespace Gerenciadores {
         public GerenciadorMJLib gerenMJ;
 
         public float[] tempos = {
-            //05, 10, 15, 20, 25, 30, // cada linha tem 6 tempos
-            //35, 40, 45, 50, 55, 60
-            4, 10
+            05, 10, 15, 20, 25, 30, // cada linha tem 6 tempos
+            35, 40, 45, 50, 55, 60
         };
         public bool[] temposUtilizados;
 
