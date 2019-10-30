@@ -42,24 +42,7 @@ namespace Componentes.Jogador
 
         void CalcEAdicionaPonto()
         {
-            float temposAtual = gerenFH.tempos[gerenFH.temposAtual];
-            float tempoPartida  = gerenFH.gerenMJ.tempoPartida;
-            float diferencaTempo = tempoPartida - temposAtual;
-
-            if (!gerenFH.atualUtilizado)
-            {
-                gerenFH.atualUtilizado = true;
-                print(
-                    string.Concat(
-                        tempoPartida,
-                        "-",
-                        temposAtual,
-                        "=01(",
-                        Mathf.Clamp01(Mathf.Abs(diferencaTempo))
-                    )
-                );
-                pontos += 1 - Mathf.Clamp01(Mathf.Abs(diferencaTempo));
-            }
+            pontos += gerenFH.CalcPonto();
         }
     }
 }
