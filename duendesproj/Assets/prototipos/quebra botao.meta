@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 56542cf08492dc3fbbbd913cc1e3627f
+labels:
+- Quebra-botao
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

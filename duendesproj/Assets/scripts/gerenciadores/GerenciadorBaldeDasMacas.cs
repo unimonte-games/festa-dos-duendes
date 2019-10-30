@@ -4,10 +4,11 @@ using UnityEngine;
 using Componentes.Jogador;
 using Identificadores;
 
-namespace Gerenciadores {
+namespace Gerenciadores
+{
     public class GerenciadorBaldeDasMacas : MonoBehaviour
     {
-        public GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenciadorMJ;
 
         public GameObject macaGbj;
         public float intervaloInstanciacao;
@@ -32,10 +33,10 @@ namespace Gerenciadores {
             bool partidaIniciada = gerenciadorMJ.partidaIniciada;
             bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
             float tempoPartida = gerenciadorMJ.tempoPartida;
+            float diferencaTempo = tempoPartida - tempoPartidaAtual;
 
-            if (gerenciadorMJ.partidaIniciada &&
-            !gerenciadorMJ.partidaEncerrada &&
-            tempoPartida - tempoPartidaAtual >= intervaloInstanciacao)
+            if (partidaIniciada && !partidaEncerrada
+            && diferencaTempo >= intervaloInstanciacao)
             {
                 tempoPartidaAtual = tempoPartida;
                 InstanciarMaca();
@@ -77,7 +78,23 @@ namespace Gerenciadores {
 
         JogadorID ObterCampeao()
         {
-            return JogadorID.J1;
+            int qtdMaxMacas = -1;
+            JogadorID jid_ganhador = JogadorID.J1;
+
+            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+            {
+                Transform tr_j = gerenciadorMJ.tr_jogadores[i];
+                var ctrl = tr_j.GetComponent<ControladorBaldeDasMacas>();
+
+                if (ctrl.macasPegas >= qtdMaxMacas)
+                {
+                    qtdMaxMacas = ctrl.macasPegas;
+                    var id_comp = tr_j.GetComponent<IdentificadorJogador>();
+                    jid_ganhador = id_comp.jogadorID;
+                }
+            }
+
+            return jid_ganhador;
         }
     }
 }

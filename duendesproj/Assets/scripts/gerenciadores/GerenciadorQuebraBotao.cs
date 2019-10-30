@@ -8,7 +8,7 @@ namespace Gerenciadores
 {
     public class GerenciadorQuebraBotao : MonoBehaviour
     {
-        public GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenciadorMJ;
         public float tamanhoPasso;
 
         void Awake()

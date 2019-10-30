@@ -7,8 +7,22 @@ namespace Componentes.Jogador {
     {
         Transform tr;
 
+        /// <summary>
+        /// Velocidade de movimento; se é por sefundo ou por quadro
+        /// de jogo depende do usarDeltaTime.
+        /// </summary>
         public float velocidade;
+
+        /// <summary>
+        /// Direção do movimento; deve se tomar o cuidado
+        /// para deixar a magnitude = 1.
+        /// </summary>
         public Vector3 direcao;
+
+        /// <summary>
+        /// Define se a velocidade de movimento é por quadro ou por segundo,
+        /// por padrão é verdadeiro (por segundo)
+        /// </summary>
         public bool usarDeltaTime = true;
 
         void Awake ()

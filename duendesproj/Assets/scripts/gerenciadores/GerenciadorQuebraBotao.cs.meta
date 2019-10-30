@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: ed8c0bd7cd74583318cef782a942cbe7
+labels:
+- Quebra-botao
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
