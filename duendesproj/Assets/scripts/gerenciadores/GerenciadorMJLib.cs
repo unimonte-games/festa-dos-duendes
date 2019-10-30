@@ -37,7 +37,7 @@ namespace Gerenciadores {
         /// Componentes de transformação dos jogadores instanciados,
         /// é gerenciado automaticamente e não deve ser modificado externamente.
         /// </summary>
-        [HideInInspector] public Transform[] tr_jogadores;
+        public Transform[] tr_jogadores;
 
         /// <summary>
         /// Indica se a partida do minijogo foi iniciada;

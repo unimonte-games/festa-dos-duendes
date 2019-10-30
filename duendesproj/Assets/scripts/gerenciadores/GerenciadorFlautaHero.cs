@@ -8,6 +8,7 @@ namespace Gerenciadores {
     public class GerenciadorFlautaHero : MonoBehaviour
     {
         public float velocidadeMov;
+        public GameObject notaGbj;
 
         [HideInInspector]
         public GerenciadorMJLib gerenMJ;
@@ -16,7 +17,6 @@ namespace Gerenciadores {
             05, 10, 15, 20, 25, 30, // cada linha tem 6 tempos
             35, 40, 45, 50, 55, 60
         };
-        public bool[] temposUtilizados;
 
         public int temposAtual = 0;
 
@@ -29,9 +29,29 @@ namespace Gerenciadores {
 
         void Start ()
         {
-            temposUtilizados = new bool[tempos.Length];
             gerenMJ.evtAoIniciar.AddListener(AoIniciar);
             gerenMJ.evtAoTerminar.AddListener(AoTerminar);
+
+            for (int i = 0; i <  tempos.Length; i++)
+            {
+                for (int j = 0; j < GerenciadorGeral.qtdJogadores; j++)
+                {
+                    var novaNotaGbj = Instantiate<GameObject>(
+                        notaGbj,
+                        new Vector3(j*2f, 0, tempos[i]),
+                        Quaternion.identity
+                    );
+                    var notaCompo = novaNotaGbj.GetComponent<FlautaHero_Nota>();
+                    notaCompo.tempoIndice = i;
+                    switch (j)
+                    {
+                        case 0: notaCompo.jid = JogadorID.J1; break;
+                        case 1: notaCompo.jid = JogadorID.J2; break;
+                        case 2: notaCompo.jid = JogadorID.J3; break;
+                        case 3: notaCompo.jid = JogadorID.J4; break;
+                    }
+                }
+            }
         }
 
         void Update()
@@ -48,7 +68,7 @@ namespace Gerenciadores {
             }
         }
 
-        public float CalcPonto()
+        public float CalcPonto(ref bool[] temposUtilizados)
         {
             // (leia a observação no Update())
             // o que vale é o tempo mais próximo na faixa de 1s
@@ -83,9 +103,8 @@ namespace Gerenciadores {
                 temposProximo = tempos[temposAtual+1];
 
             // se não foi possível obter nenhum valor, retorna com 0 pontos
-            if (!podeAnterior && !podeCorrente && !podeProximo) {
+            if (!podeAnterior && !podeCorrente && !podeProximo)
                 return 0f;
-            }
 
             // calcula diferenças, se não foi possível obter o valor
             // então a diferença já será enorme graças ao 10000 acima;
@@ -102,21 +121,25 @@ namespace Gerenciadores {
             bool _podeProximo = podeProximo  ? (Mathf.Abs(difTP) <= 1f) : false;
 
             // se não há tempo próximo, retorna com 0
-            if (!_podeAnterior && !_podeCorrente && !_podeProximo) {
+            if (!_podeAnterior && !_podeCorrente && !_podeProximo)
                 return 0f;
-            }
 
             // obter diferença do tempos mais próximo, informando
             // também o índice utilizado, por padrão se usa o corrente
             float difTempos = difTA;
 
-            if (difTA > difTC && difTA > difTP && _podeAnterior) {
+            if (difTA > difTC && difTA > difTP && _podeAnterior)
+            {
                 difTempos = difTA;
                 indiceUtilizado = temposAtual-1;
-            } else if (difTC > difTA && difTC > difTP && _podeCorrente) {
+            }
+            else if (difTC > difTA && difTC > difTP && _podeCorrente)
+            {
                 difTempos = difTC;
                 indiceUtilizado = temposAtual;
-            } else if (difTP > difTA && difTP > difTC && _podeProximo) {
+            }
+            else if (difTP > difTA && difTP > difTC && _podeProximo)
+            {
                 difTempos = difTP;
                 indiceUtilizado = temposAtual+1;
             }

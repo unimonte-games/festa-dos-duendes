@@ -7,6 +7,7 @@ namespace Componentes.Jogador
     public class ControladorFlautaHero : MonoBehaviour
     {
         public float pontos;
+        public bool[] temposUtilizados;
 
         Transform tr;
         Controlador ctrl;
@@ -23,6 +24,7 @@ namespace Componentes.Jogador
 
         void Start ()
         {
+            temposUtilizados = new bool[gerenFH.tempos.Length];
             mov.velocidade = gerenFH.velocidadeMov;
         }
 
@@ -36,13 +38,8 @@ namespace Componentes.Jogador
             bool acao1 = entradaJogador.acao1;
 
             if (acao1) {
-                CalcEAdicionaPonto();
+                pontos += gerenFH.CalcPonto(ref temposUtilizados);
             }
-        }
-
-        void CalcEAdicionaPonto()
-        {
-            pontos += gerenFH.CalcPonto();
         }
     }
 }

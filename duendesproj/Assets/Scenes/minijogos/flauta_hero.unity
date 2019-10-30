@@ -192,6 +192,12 @@ PrefabInstance:
       propertyPath: duracaoPartida
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
+        type: 3}
+      propertyPath: notaGbj
+      value: 
+      objectReference: {fileID: 4869262665006845289, guid: 1196c2b7473cdbbbd84dbefea8a67b96,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88292bde0753a807b520d704c4452aa, type: 3}
 --- !u!1 &263371354
