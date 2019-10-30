@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6771139813867026148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6771139813867026151}
+  - component: {fileID: 1519670053420476547}
+  m_Layer: 0
+  m_Name: GerenciadorMJ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6771139813867026151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771139813867026148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519670053420476547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771139813867026148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b74c805a7e1e2fb82e758be75675ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duendesPrefab:
+  - {fileID: 282003894978587019, guid: d5abb12e3d0bd03d4840f1f437f6d36d, type: 3}
+  - {fileID: 1387674710170814974, guid: 7987021ed331bea3899e15cc99f9084d, type: 3}
+  - {fileID: 6719477048482742239, guid: b38f370bf27327e03b9c16997d66b320, type: 3}
+  - {fileID: 8909757019737583208, guid: a0daa7156bb7c04f584dbf6c1cec2bf6, type: 3}
+  duracaoPartida: 10
+  tr_jogadores: []
+  tempoPartida: 0
+  partidaIniciada: 0
+  partidaEncerrada: 0
+  evtAoIniciar:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  evtAoTerminar:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

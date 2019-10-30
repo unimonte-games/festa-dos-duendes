@@ -1,37 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[System.Serializable]
-public struct Rota
+namespace Componentes.Tabuleiro
 {
-    public Transform conector;
-    [Range(0, 20)]
-    public int qtdCasas;
-}
-
-public class Conector : CasaBase
-{
-    public List<Rota> rotas;
-    [HideInInspector]
-    public int ultimaCor = 0;
-
-    private void OnDrawGizmos()
+    [System.Serializable]
+    public struct Rota
     {
-        Gizmos.color = Color.white;
-        for (int i = 0; i < rotas.Count; i++)
-        {
-            if (rotas[i].conector != null)
-                Gizmos.DrawLine(transform.position, rotas[i].conector.position);
-        }
+        public Transform conector;
+        [Range(0, 20)]
+        public int qtdCasas;
     }
 
-    private void OnDrawGizmosSelected()
+    public class Conector : CasaBase
     {
-        Gizmos.color = Color.white;
-        for (int i = 0; i < rotas.Count; i++)
+        public List<Rota> rotas;
+        [HideInInspector]
+        public int ultimaCor = 0;
+
+        private void OnDrawGizmos()
         {
-            if (rotas[i].conector != null)
-                Gizmos.DrawWireSphere(rotas[i].conector.position, 0.3f);
+            Gizmos.color = Color.white;
+            for (int i = 0; i < rotas.Count; i++)
+            {
+                if (rotas[i].conector != null)
+                    Gizmos.DrawLine(transform.position, rotas[i].conector.position);
+            }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.white;
+            for (int i = 0; i < rotas.Count; i++)
+            {
+                if (rotas[i].conector != null)
+                    Gizmos.DrawWireSphere(rotas[i].conector.position, 0.3f);
+            }
         }
     }
 }

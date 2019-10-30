@@ -2,30 +2,52 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GerenciadorPartida : MonoBehaviour
+namespace Componentes.Tabuleiro
 {
-    public List<GameObject> ordemJogadores;
-    public Text textoPartida;
-    [HideInInspector]
-    public Movimentacao jogadorAtual;
-    private int rodada = 1, turno = 0;
-
-    private void Awake()
+    public class GerenciadorPartida : MonoBehaviour
     {
-        jogadorAtual = ordemJogadores[0].GetComponent<Movimentacao>();
-    }
+        public List<GameObject> ordemJogadores;
+        public Text textoPartida;
+        [HideInInspector]
+        public Movimentacao jogadorAtual;
+        public EscolheRota _escolheRota;
+        private int rodada = 1, turno = 0;
 
-    public void NovaRodada()
-    {
-        turno++;
-        if (turno == ordemJogadores.Count)
+        private void Awake()
         {
-            turno = 0;
-            rodada++;
+            jogadorAtual = ordemJogadores[0].GetComponent<Movimentacao>();
+            _escolheRota.estadoUIRota(false);
+            _escolheRota.estadoUICarta(true);
         }
 
-        jogadorAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
+        public void NovaRodada()
+        {
+            _escolheRota.estadoUICarta(true);
 
-        textoPartida.text = "Jogador: " + (turno+1) + "\nRodada: " + rodada;
+            turno++;
+            if (turno == ordemJogadores.Count)
+            {
+                turno = 0;
+                rodada++;
+            }
+
+            jogadorAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
+
+            textoPartida.text = "Jogador: " + (turno + 1) + "\nRodada: " + rodada;
+        }
+
+        public void MoverJogador(int casa)
+        {
+            _escolheRota.estadoUICarta(false);
+            StartCoroutine(jogadorAtual.ProcuraCasa(casa));
+        }
+
+        public void fimMov(bool casaEncontrada)
+        {
+            if (casaEncontrada)
+                NovaRodada();
+            else
+                _escolheRota.estadoUIRota(true);
+        }
     }
 }

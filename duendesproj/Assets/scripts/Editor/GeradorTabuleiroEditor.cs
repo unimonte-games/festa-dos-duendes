@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(GeradorTabuleiro))]
-public class GeradorTabuleiroEditor : Editor
+namespace Componentes.Tabuleiro
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(GeradorTabuleiro))]
+    public class GeradorTabuleiroEditor : Editor
     {
-        base.OnInspectorGUI();
-
-        GeradorTabuleiro gt = (GeradorTabuleiro)target;
-
-        if (GUILayout.Button("Gerar Tabuleiro"))
+        public override void OnInspectorGUI()
         {
-            Conector[] conectores = gt.paiConectores.GetComponentsInChildren<Conector>();
-            for (int i = 0; i < conectores.Length; i++)
-                EditorUtility.SetDirty(conectores[i]);
+            base.OnInspectorGUI();
 
-            gt.GerarCasas();
+            GeradorTabuleiro gt = (GeradorTabuleiro)target;
+
+            if (GUILayout.Button("Gerar Tabuleiro"))
+            {
+                Conector[] conectores = gt.paiConectores.GetComponentsInChildren<Conector>();
+                for (int i = 0; i < conectores.Length; i++)
+                    EditorUtility.SetDirty(conectores[i]);
+
+                gt.GerarCasas();
+            }
         }
     }
 }

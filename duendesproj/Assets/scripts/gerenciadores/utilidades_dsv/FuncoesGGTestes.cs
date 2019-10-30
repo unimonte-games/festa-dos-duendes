@@ -35,14 +35,16 @@ namespace Gerenciadores.DsvUtils
             txtEstadoDeJogo.text = estadoDeJogo_str;
 
             btCadastrarJogador.interactable = GerenciadorGeral.PodeCadastrar();
-            btDecadastrarJogador.interactable =  GerenciadorGeral.PodeDecadastrar();
+            btDecadastrarJogador.interactable = GerenciadorGeral.PodeDecadastrar();
         }
 
 #region abrir minijogos
 
-        public void AbrirMJ_QuebraBotao() { AbrirMJ(CenaID.QuebraBotao); }
-
-        public void AbrirMJ_BaldeDasMacas() { AbrirMJ(CenaID.BaldeDasMacas); }
+        public void AbrirMJ_QuebraBotao()    { AbrirMJ(CenaID.QuebraBotao); }
+        public void AbrirMJ_BaldeDasMacas()  { AbrirMJ(CenaID.BaldeDasMacas); }
+        public void AbrirMJ_PescaEscorrega() { AbrirMJ(CenaID.PescaEscorrega); }
+        public void AbrirMJ_CogumeloQuente() { AbrirMJ(CenaID.CogumeloQuente); }
+        public void AbrirMJ_FlautaHero() { AbrirMJ(CenaID.FlautaHero); }
 
         void AbrirMJ(CenaID cenaId)
         {

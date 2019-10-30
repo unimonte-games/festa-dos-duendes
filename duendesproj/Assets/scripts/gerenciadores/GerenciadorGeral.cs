@@ -8,8 +8,20 @@ namespace Gerenciadores
 {
     public class GerenciadorGeral : MonoBehaviour
     {
+        /// <summary>
+        /// Quantidade de jogadores em jogo,
+        /// apesar de possível, não o modifique externamente.
+        /// </summary>
         public static int qtdJogadores;
+        /// <summary>
+        /// Pontos para serem dados ao jogador que ganhar um minijogo.
+        ///</summary>
         public const  int PONTOS_POR_VENCEDOR_MJ = 10;
+
+        /// <summary>
+        /// inicializado com tamanho 4, armazena pontuação de cada jogador;
+        /// não o modifique externamente.
+        /// </summary>
         public static int[] pontuacao = new int[4];
 
 #region UNITY_EDITOR
@@ -27,15 +39,24 @@ namespace Gerenciadores
 
 #region (de)cadastramento de jogadores
 
+        /// <summary>
+        /// Retorna com uma booliana que diz se há espaço para mais um jogador.
+        /// </summary>
         public static bool PodeCadastrar()   { return qtdJogadores < 4;  }
+        /// <summary>
+        /// Retorna com uma booliana que diz se há um jogador que pode ser
+        /// descadastrado.
+        /// </summary>
         public static bool PodeDecadastrar() { return qtdJogadores > 0; }
 
+        /// <summary>Se possível, cadastra um jogador.</summary>
         public static void CadastrarJogador()
         {
             if (PodeCadastrar())
                 qtdJogadores += 1;
         }
 
+        /// <summary>Se possível, descadastra um jogador.</summary>
         public static void DecadastrarJogador()
         {
             if (PodeDecadastrar())
@@ -46,12 +67,19 @@ namespace Gerenciadores
 
 #region gerenciamento de cenas
 
+        /// <summary>
+        /// Pontua o jogador correspondente ao parâmetro
+        /// com PONTOS_POR_VENCEDOR_MJ pontos.
+        /// </summary>
         public static void PontuarCampeaoMJ(JogadorID jogadorID)
         {
             pontuacao[(int)jogadorID] += PONTOS_POR_VENCEDOR_MJ;
             instancia._TransitarPara(CenaID.Tabuleiro);
         }
 
+        /// <summary>
+        /// Transitará para a cena correspondente ao parâmetro
+        /// </summary>
         public static void TransitarParaMJ(CenaID cenaId)
         {
             instancia._TransitarPara(cenaId);

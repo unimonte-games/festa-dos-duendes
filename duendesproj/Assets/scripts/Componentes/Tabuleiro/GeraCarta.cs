@@ -1,44 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class GeraCarta : MonoBehaviour
+namespace Componentes.Tabuleiro
 {
-    public Image botao;
-    public GerenciadorPartida _gerenPartida;
-    private Movimentacao jogador;
-
-    public void GerarCarta()
+    public class GeraCarta : MonoBehaviour
     {
-        jogador = _gerenPartida.jogadorAtual;
-        int rand = Random.Range(1, 6);
+        public Image botao;
+        public GerenciadorPartida _gerenPartida;
+        public GeradorTabuleiro _geraTabuleiro;
+        private int qtdCasas;
 
-        switch (rand)
+        private void Awake()
         {
-            case 1:
-                botao.color = Color.red;
-                break;
-
-            case 2:
-                botao.color = Color.magenta;
-                break;
-
-            case 3:
-                botao.color = Color.yellow;
-                break;
-
-            case 4:
-                botao.color = Color.blue;
-                break;
-
-            case 5:
-                botao.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
-                break;
-
-            case 6:
-                botao.color = Color.green;
-                break;
+            qtdCasas = _geraTabuleiro.ordemCores.Length;
         }
 
-        jogador.ProcuraCasa(rand);
+        public void GerarCarta()
+        {
+            int rand = Random.Range(0, qtdCasas);
+
+            botao.color = _geraTabuleiro.ordemCores[rand].color;
+
+            _gerenPartida.MoverJogador(rand + 1);
+        }
     }
 }

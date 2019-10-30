@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/minijogos/baldes_das_macas.unity
     guid: 3758934efae82eff3b333390a108517a
+  - enabled: 1
+    path: Assets/Scenes/minijogos/pesca_escorrega.unity
+    guid: 4bbd7f4cdb782843390d93062163402c
+  - enabled: 1
+    path: Assets/Scenes/minijogos/cogumelo_quente.unity
+    guid: 4721ddb2cefdbeacd9ab6b8ed190a488
+  - enabled: 1
+    path: Assets/Scenes/minijogos/flauta_hero.unity
+    guid: f8e0519e0c054254284ad58e775dcb9d
   m_configObjects: {}

@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0d06b6688dc724549a07c9d9aef89e89, type: 2}
+  - {fileID: 2100000, guid: 26d5b0f9c24b3cc45a44de38e4e6ca7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,9 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b1d29f7a79ec945a34196d140e6290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proximaCasa: []
+  casaSeguinte: []
   casaAnterior: []
   tipoCasa: 0
-  conexoes: []
-  qtdCasas: 0
-  ultimoIndice: 0
+  rotas: []
+  ultimaCor: 0
