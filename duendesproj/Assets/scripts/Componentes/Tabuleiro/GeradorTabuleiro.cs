@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Linq;
-
 namespace Componentes.Tabuleiro
 {
     public class GeradorTabuleiro : MonoBehaviour

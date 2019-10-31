@@ -6,7 +6,7 @@ namespace Componentes.Tabuleiro
     public class GeraCarta : MonoBehaviour
     {
         public Image botao;
-        public GerenciadorPartida _gerenPartida;
+        public Gerenciadores.GerenciadorPartida _gerenPartida;
         public GeradorTabuleiro _geraTabuleiro;
         private int qtdCasas;
 

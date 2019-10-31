@@ -5,7 +5,7 @@ namespace Componentes.Tabuleiro
 {
     public class EscolheRota : MonoBehaviour
     {
-        public GerenciadorPartida _gerenPartida;
+        public Gerenciadores.GerenciadorPartida _gerenPartida;
         public Button botaoCarta;
         public GameObject UIDirecao, setaObj;
 
