@@ -18,7 +18,7 @@ MonoBehaviour:
   velocidadeMax: 50
   intervaloInstanciacao: 1
   limitePescadosAoMar: 10
-  pescadoGbj: {fileID: 7089414024945378494, guid: 51f64fe07ca114254b6751572ce57161,
+  pescadoGbj: {fileID: 1094470018479481545, guid: 62f39ef18d1e526e39eabd0e3aeee0b0,
     type: 3}
 --- !u!1001 &6805999078585822159
 PrefabInstance:

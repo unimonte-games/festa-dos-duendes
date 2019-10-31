@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970afea8efefbb309b9f05b4197fd808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cogumeloGbj: {fileID: 7089414024945378494, guid: 28a90ee59256e4cdd8d9d78ad33886b8,
+  cogumeloGbj: {fileID: 8220475244716734685, guid: 1e40c6c6cabafe9e9887560121b29a56,
     type: 3}
   intervaloPassar: 1
   velocidadeCogumelo: 5
