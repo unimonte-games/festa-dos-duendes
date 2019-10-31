@@ -9,7 +9,7 @@ namespace Componentes.Jogador
         public int macasPegas;
         bool emPulo;
 
-        Transform tr;
+        Transform tr, macaAnterior;
         Controlador ctrl;
         Movimentador mov;
         Gerenciadores.GerenciadorBaldeDasMacas gerenBM;
@@ -69,9 +69,12 @@ namespace Componentes.Jogador
             }
         }
 
-        public void PontuarMaca()
+        public Transform PontuarMaca(Transform proximaMaca)
         {
             macasPegas++;
+            Transform _macaAnterior = macaAnterior;
+            macaAnterior = proximaMaca;
+            return _macaAnterior;
         }
 
         IEnumerator Co_Pulo()

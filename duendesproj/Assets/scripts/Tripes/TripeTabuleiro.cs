@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Componentes.Tabuleiro;
+using Gerenciadores;
 
 public class TripeTabuleiro : MonoBehaviour
 {

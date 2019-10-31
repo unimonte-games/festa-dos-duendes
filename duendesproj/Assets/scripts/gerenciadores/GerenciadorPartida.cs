@@ -7,7 +7,7 @@ namespace Gerenciadores
 {
     public class GerenciadorPartida : MonoBehaviour
     {
-        public List<GameObject> ordemJogadores;
+        public List<Transform> ordemJogadores;
         public Text textoPartida;
         [HideInInspector]
         public Movimentacao jogadorAtual;
@@ -58,6 +58,10 @@ namespace Gerenciadores
                 _escolheRota.estadoUIRota(true);
         }
 
-        
+        public Transform ObterJogadorAtivo()
+        {
+            return ordemJogadores[turno];
+        }
+
     }
 }

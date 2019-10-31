@@ -38,7 +38,7 @@ namespace Gerenciadores {
                 {
                     var novaNotaGbj = Instantiate<GameObject>(
                         notaGbj,
-                        new Vector3(j*2f, 0, tempos[i]),
+                        new Vector3(j*2f, 0, -tempos[i]*velocidadeMov),
                         Quaternion.identity
                     );
                     var notaCompo = novaNotaGbj.GetComponent<FlautaHero_Nota>();

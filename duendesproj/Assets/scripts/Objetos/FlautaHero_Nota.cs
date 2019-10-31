@@ -38,8 +38,12 @@ public class FlautaHero_Nota : MonoBehaviour
             Destroy(gameObject);
         else
         {
+            float velocidadeMov = gerenFH.velocidadeMov;
+            float tempoPartida = gerenFH.gerenMJ.tempoPartida;
+            float tempo = gerenFH.tempos[tempoIndice];
+
             Vector3 pos = tr.position;
-            pos.z = gerenFH.gerenMJ.tempoPartida - gerenFH.tempos[tempoIndice];
+            pos.z = (tempoPartida * velocidadeMov) - (tempo * velocidadeMov);
             tr.position = pos;
         }
     }

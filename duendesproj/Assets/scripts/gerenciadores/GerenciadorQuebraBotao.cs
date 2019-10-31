@@ -8,18 +8,18 @@ namespace Gerenciadores
 {
     public class GerenciadorQuebraBotao : MonoBehaviour
     {
-        GerenciadorMJLib gerenciadorMJ;
+        public GerenciadorMJLib gerenMJ;
         public float tamanhoPasso;
 
         void Awake()
         {
-            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+            gerenMJ = GetComponent<GerenciadorMJLib>();
         }
 
         void Start()
         {
-            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
-            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
+            gerenMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
         void AoIniciar()
@@ -35,7 +35,7 @@ namespace Gerenciadores
 
         void AplicarControladorQuebraBotao ()
         {
-            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
@@ -46,13 +46,27 @@ namespace Gerenciadores
 
         JogadorID ObterCampeao()
         {
-            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
 
+            int maisLonge_i = ObterMaiorZ();
+
+            // Obtém o jogadorID do campeão
+            IdentificadorJogador idJogador =
+                tr_jogadores[maisLonge_i].GetComponent<IdentificadorJogador>();
+
+            // retorna jogadorID obtido
+            return idJogador.jogadorID;
+        }
+
+        // itera sobre todos os jogadores,
+        // vê quem está mais longe no eixo Z
+        public int ObterMaiorZ()
+        {
             float maisLonge = -100000;
             int maisLonge_i = -1;
 
-            // itera sobre todos os jogadores, vê quem está mais longe
-            // no eixo Z
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 float jogador_i_posz = tr_jogadores[i].position.z;
@@ -64,12 +78,7 @@ namespace Gerenciadores
                 }
             }
 
-            // Obtém o jogadorID do campeão
-            IdentificadorJogador idJogador =
-                tr_jogadores[maisLonge_i].GetComponent<IdentificadorJogador>();
-
-            // retorna jogadorID obtido
-            return idJogador.jogadorID;
+            return maisLonge_i;
         }
     }
 }

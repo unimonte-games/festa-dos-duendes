@@ -66,7 +66,11 @@ namespace Gerenciadores
             AplicarControladorCogumeloQuente();
             tempoPartidaAtual = gerenciadorMJ.tempoPartida;
 
-            cogumeloComp = cogumeloGbj.GetComponent<CogumeloQuente_Cogumelo>();
+            GameObject novoCogumeloGbj = Instantiate<GameObject>(
+                cogumeloGbj, Vector3.zero, Quaternion.identity
+            );
+
+            cogumeloComp = novoCogumeloGbj.GetComponent<CogumeloQuente_Cogumelo>();
 
             cogumeloComp.DefinirAlvo(
                 controladores[indiceComCogumelo].GetComponent<Transform>()
@@ -112,9 +116,11 @@ namespace Gerenciadores
 
         public void PassarCogumelo()
         {
+            int qtdJogadores = GerenciadorGeral.qtdJogadores;
+
             do {
                 controladores[indiceComCogumelo].comCogumelo = false;
-                indiceComCogumelo = (indiceComCogumelo + 1) % 4;
+                indiceComCogumelo = (indiceComCogumelo + 1) % qtdJogadores;
                 controladores[indiceComCogumelo].comCogumelo = true;
             } while(!controladores[indiceComCogumelo].vivo);
 

@@ -7,6 +7,12 @@ public class BaldeDasMacas_Maca : MonoBehaviour
 {
     public Vector3 posInicial;
     bool pego;
+    Transform tr, macaAnterior;
+
+    void Awake()
+    {
+        tr = GetComponent<Transform>();
+    }
 
     void Start()
     {
@@ -18,7 +24,18 @@ public class BaldeDasMacas_Maca : MonoBehaviour
             posInicial.x + gerenBM.limX
         );
 
-        transform.position = posInicial;
+        tr.position = posInicial;
+    }
+
+    void Update()
+    {
+        if (!pego)
+            return;
+
+        var pos = tr.position;
+        pos.x = macaAnterior.position.x;
+        pos.y = macaAnterior.position.y + 0.2f;
+        tr.position = pos;
     }
 
     void OnTriggerEnter(Collider col)
@@ -27,8 +44,12 @@ public class BaldeDasMacas_Maca : MonoBehaviour
         {
             pego = true;
             var ctrlMacas = col.GetComponent<ControladorBaldeDasMacas>();
-            ctrlMacas.PontuarMaca();
-            Destroy(gameObject);
+            macaAnterior = ctrlMacas.PontuarMaca(tr);
+
+            if (macaAnterior == null)
+                macaAnterior = ctrlMacas.GetComponent<Transform>();
+
+            Destroy(GetComponent<Rigidbody>());
         }
     }
 }
