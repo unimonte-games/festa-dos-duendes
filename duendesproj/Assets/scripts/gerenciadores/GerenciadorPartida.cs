@@ -49,7 +49,6 @@ namespace Gerenciadores
             {
                 Transform casaJogador = jogadorAtual.GetComponent<Movimentacao>().casaAtual;
                 EventosCasa _eventCasa = casaJogador.GetComponent<EventosCasa>();
-
                 if (_eventCasa != null)
                     _eventCasa.ativarCasa();
 
