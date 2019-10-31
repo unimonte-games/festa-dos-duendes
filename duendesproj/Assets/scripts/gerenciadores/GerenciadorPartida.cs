@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Componentes.Tabuleiro;
 
-namespace Componentes.Tabuleiro
+namespace Gerenciadores
 {
     public class GerenciadorPartida : MonoBehaviour
     {
@@ -45,9 +46,19 @@ namespace Componentes.Tabuleiro
         public void fimMov(bool casaEncontrada)
         {
             if (casaEncontrada)
+            {
+                Transform casaJogador = jogadorAtual.GetComponent<Movimentacao>().casaAtual;
+                EventosCasa _eventCasa = casaJogador.GetComponent<EventosCasa>();
+
+                if (_eventCasa != null)
+                    _eventCasa.ativarCasa();
+
                 NovaRodada();
+            }
             else
                 _escolheRota.estadoUIRota(true);
         }
+
+        
     }
 }

@@ -7,7 +7,7 @@ namespace Componentes.Tabuleiro
     public class Movimentacao : MonoBehaviour
     {
         //Achar casa
-        public GerenciadorPartida _gerenPart;
+        public Gerenciadores.GerenciadorPartida _gerenPart;
         public Transform casaAtual;
         [HideInInspector]
         public int proximaCor;
