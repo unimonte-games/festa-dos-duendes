@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
-namespace Componentes.Tabuleiro
+namespace Componentes.Jogador
 {
     public class Movimentacao : MonoBehaviour
     {
@@ -13,27 +12,17 @@ namespace Componentes.Tabuleiro
         public int proximaCor;
 
         //Animar pulo
-        [HideInInspector]
-        public Queue<Vector3> fila = new Queue<Vector3>();
-        private Vector3 animAtual;
         private float duracaoPulo = 0.25f;
 
         void Start()
         {
-            animAtual = Vector3.zero;
-
             SetCasaAtual(casaAtual);
         }
 
         public void SetCasaAtual(Transform casa)
         {
             casaAtual = casa;
-            fila.Enqueue(casa.position);
-            if (animAtual == Vector3.zero)
-            {
-                animAtual = fila.Dequeue();
-                StartCoroutine(Pulinho(animAtual, Time.time));
-            }
+            transform.position = casaAtual.position;
         }
 
         public IEnumerator ProcuraCasa(int corDesejada)
@@ -54,7 +43,7 @@ namespace Componentes.Tabuleiro
                     casaTemp = casaTemp.GetComponent<CasaBase>().casaSeguinte[0];
                     corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
 
-                    SetCasaAtual(casaTemp);
+                    yield return StartCoroutine(Pulinho(casaTemp.position, Time.time));
 
                     if (corTemp == 0)
                     {
@@ -62,22 +51,20 @@ namespace Componentes.Tabuleiro
                         if (_casaBase.casaSeguinte.Count > 1) //Se o conector tem multiplos caminhos
                         {
                             proximaCor = corDesejada; //Salva cor desejada
+                            casaAtual = casaTemp;
                             break;
                         }
                     }
                     else if (corTemp == corDesejada || corTemp == proximaCor)
                     {
                         achou = true;
+                        casaAtual = casaTemp;
                         proximaCor = 0;
                     }
                 } while (!achou);
             }
 
-            while (fila.Count > 0)
-            {
-                yield return new WaitForSeconds(0.1f);
-            }
-
+            yield return new WaitForSeconds(1f);
             _gerenPart.fimMov(achou);
         }
 
@@ -97,17 +84,7 @@ namespace Componentes.Tabuleiro
             yield return new WaitForSeconds(0.02f);
 
             if (x <= 1)
-                StartCoroutine(Pulinho(destino, tempoInicio));
-            else
-            {
-                if (fila.Count > 0)
-                {
-                    animAtual = fila.Dequeue();
-                    StartCoroutine(Pulinho(animAtual, Time.time));
-                }
-                else
-                    animAtual = Vector3.zero;
-            }
+                yield return StartCoroutine(Pulinho(destino, tempoInicio));
         }
     }
 }
