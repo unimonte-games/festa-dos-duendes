@@ -12,7 +12,7 @@ namespace Gerenciadores
         public float intervaloPassar,
                      velocidadeCogumelo;
 
-        GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenMJ;
         float tempoPartidaAtual;
 
         ControladorCogumeloQuente[] controladores =
@@ -25,21 +25,24 @@ namespace Gerenciadores
 
         void Awake()
         {
-            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+            gerenMJ = GetComponent<GerenciadorMJLib>();
         }
 
         void Start()
         {
-            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
-            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
+            gerenMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
         void Update ()
         {
-            bool partidaIniciada = gerenciadorMJ.partidaIniciada;
-            bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
-            float tempoPartida = gerenciadorMJ.tempoPartida;
-            float duracaoPartida = gerenciadorMJ.duracaoPartida;
+            if (!gerenMJ.partidaIniciada || gerenMJ.partidaEncerrada)
+                return;
+
+            bool partidaIniciada = gerenMJ.partidaIniciada;
+            bool partidaEncerrada = gerenMJ.partidaEncerrada;
+            float tempoPartida = gerenMJ.tempoPartida;
+            float duracaoPartida = gerenMJ.duracaoPartida;
 
             float diferencaTempo = tempoPartida - tempoPartidaAtual;
             int qtdJogadores = GerenciadorGeral.qtdJogadores;
@@ -64,7 +67,7 @@ namespace Gerenciadores
         void AoIniciar()
         {
             AplicarControladorCogumeloQuente();
-            tempoPartidaAtual = gerenciadorMJ.tempoPartida;
+            tempoPartidaAtual = gerenMJ.tempoPartida;
 
             GameObject novoCogumeloGbj = Instantiate<GameObject>(
                 cogumeloGbj, Vector3.zero, Quaternion.identity
@@ -79,19 +82,30 @@ namespace Gerenciadores
 
         void AoTerminar()
         {
-            JogadorID jogadorCampeao = ObterCampeao();
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            RetirarControladorCogumeloQuente();
+            gerenMJ.jogadorCampeao = ObterCampeao();
         }
 
         void AplicarControladorCogumeloQuente()
         {
-            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
-                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
                 controladores[i] =
-                    gbj_jogaodor.AddComponent<ControladorCogumeloQuente>();
+                    gbj_jogador.AddComponent<ControladorCogumeloQuente>();
+            }
+        }
+
+        void RetirarControladorCogumeloQuente()
+        {
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                Destroy(gbj_jogador.GetComponent<ControladorCogumeloQuente>());
             }
         }
 
@@ -128,7 +142,7 @@ namespace Gerenciadores
                 controladores[indiceComCogumelo].GetComponent<Transform>()
             );
 
-            tempoPartidaAtual = gerenciadorMJ.tempoPartida;
+            tempoPartidaAtual = gerenMJ.tempoPartida;
         }
     }
 }

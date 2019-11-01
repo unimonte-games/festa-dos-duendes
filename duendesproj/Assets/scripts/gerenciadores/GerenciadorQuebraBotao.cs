@@ -29,8 +29,8 @@ namespace Gerenciadores
 
         void AoTerminar()
         {
-            JogadorID jogadorCampeao = ObterCampeao();
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            RetiraControladorQuebraBotao();
+            gerenMJ.jogadorCampeao = ObterCampeao();
         }
 
         void AplicarControladorQuebraBotao ()
@@ -39,8 +39,19 @@ namespace Gerenciadores
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
-                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
-                gbj_jogaodor.AddComponent<ControladorQuebraBotao>();
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.AddComponent<ControladorQuebraBotao>();
+            }
+        }
+
+        void RetiraControladorQuebraBotao()
+        {
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                Destroy(gbj_jogador.GetComponent<ControladorQuebraBotao>());
             }
         }
 

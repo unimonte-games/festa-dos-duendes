@@ -56,6 +56,9 @@ namespace Gerenciadores {
 
         void Update()
         {
+            if (!gerenMJ.partidaIniciada || gerenMJ.partidaEncerrada)
+                return;
+
             // intervalo "[0, (tLen-1)[" ou "0 <= tA < (tLen-1)"
             if ( 0 <= temposAtual && temposAtual < tempos.Length - 1)
             {
@@ -163,8 +166,8 @@ namespace Gerenciadores {
 
         void AoTerminar()
         {
-            JogadorID jogadorCampeao = ObterCampeao();
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            RetirarControladorFlautaHero();
+            gerenMJ.jogadorCampeao = ObterCampeao();
         }
 
         void AplicarControladorFlautaHero()
@@ -175,6 +178,17 @@ namespace Gerenciadores {
             {
                 GameObject gbj_jogador = tr_jogadores[i].gameObject;
                 gbj_jogador.AddComponent<ControladorFlautaHero>();
+            }
+        }
+
+        void RetirarControladorFlautaHero()
+        {
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                Destroy(gbj_jogador.GetComponent<ControladorFlautaHero>());
             }
         }
 

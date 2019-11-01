@@ -17,29 +17,32 @@ namespace Gerenciadores {
 
         public GameObject pescadoGbj;
 
-        GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenMJ;
         public static int pescadosAoMar;
         float tempoPartidaAtual;
 
         void Awake ()
         {
-            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+            gerenMJ = GetComponent<GerenciadorMJLib>();
         }
 
         void Start ()
         {
-            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
-            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
+            gerenMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
         void Update()
         {
-            bool partidaIniciada = gerenciadorMJ.partidaIniciada;
-            bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
-            float tempoPartida = gerenciadorMJ.tempoPartida;
+            if (!gerenMJ.partidaIniciada || gerenMJ.partidaEncerrada)
+                return;
 
-            if (gerenciadorMJ.partidaIniciada &&
-            !gerenciadorMJ.partidaEncerrada &&
+            bool partidaIniciada = gerenMJ.partidaIniciada;
+            bool partidaEncerrada = gerenMJ.partidaEncerrada;
+            float tempoPartida = gerenMJ.tempoPartida;
+
+            if (gerenMJ.partidaIniciada &&
+            !gerenMJ.partidaEncerrada &&
             tempoPartida - tempoPartidaAtual >= intervaloInstanciacao &&
             pescadosAoMar <= limitePescadosAoMar)
             {
@@ -52,23 +55,34 @@ namespace Gerenciadores {
         void AoIniciar ()
         {
             AplicarControladoresPescaEscorrega();
-            tempoPartidaAtual = gerenciadorMJ.tempoPartida;
+            tempoPartidaAtual = gerenMJ.tempoPartida;
         }
 
         void AoTerminar ()
         {
-            JogadorID jogadorCampeao = ObterCampeao();
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            RetirarControladoresPescaEscorrega();
+            gerenMJ.jogadorCampeao = ObterCampeao();
         }
 
         void AplicarControladoresPescaEscorrega ()
         {
-            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
-                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
-                gbj_jogaodor.AddComponent<ControladorPescaEscorrega>();
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.AddComponent<ControladorPescaEscorrega>();
+            }
+        }
+
+        void RetirarControladoresPescaEscorrega ()
+        {
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                Destroy(gbj_jogador.GetComponent<ControladorPescaEscorrega>());
             }
         }
 
@@ -79,7 +93,7 @@ namespace Gerenciadores {
 
             for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
             {
-                Transform tr_j = gerenciadorMJ.tr_jogadores[i];
+                Transform tr_j = gerenMJ.tr_jogadores[i];
                 var ctrl = tr_j.GetComponent<ControladorPescaEscorrega>();
 
                 if (ctrl.pescados >= qtdMaxPescados)

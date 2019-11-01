@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 using Componentes.Jogador;
 using Identificadores;
@@ -9,6 +10,16 @@ using Identificadores;
 namespace Gerenciadores {
     public class GerenciadorMJLib : MonoBehaviour
     {
+        /// <summary>
+        /// Texto para fazer contagem regressiva e indicar jogador vencedor
+        /// </summary>
+        public Text txtTela;
+
+        /// <summary>
+        /// JogadorID do jogador vencedor;
+        /// </summary>
+        public JogadorID jogadorCampeao;
+
         /// <summary>
         /// Corresponde aos prefabs dos 4 personagens jogáveis que serão
         /// instanciados em jogo; deve ser preenchido na edição da
@@ -60,6 +71,7 @@ namespace Gerenciadores {
         void Start()
         {
             InstanciarJogadores();
+            StartCoroutine(IniciarPartida());
         }
 
         void Update()
@@ -72,7 +84,8 @@ namespace Gerenciadores {
 
             if (tempoPartida > duracaoPartida && !partidaEncerrada)
             {
-                EncerrarPartida();
+                partidaEncerrada = true;
+                StartCoroutine(EncerrarPartida());
             }
         }
 
@@ -92,18 +105,32 @@ namespace Gerenciadores {
             }
         }
 
-        [ContextMenu("Iniciar Partida")]
-        void IniciaPartida()
+        IEnumerator IniciarPartida()
         {
+            txtTela.text = "3";
+            yield return new WaitForSeconds(1);
+            txtTela.text = "2";
+            yield return new WaitForSeconds(1);
+            txtTela.text = "1";
+            yield return new WaitForSeconds(1);
+            txtTela.text = "";
+
             tempoInicialPartida = Time.time;
-            partidaIniciada = true;
             evtAoIniciar.Invoke(); // -> AplicarControlador();
+            partidaIniciada = true;
         }
 
-        void EncerrarPartida()
+        IEnumerator EncerrarPartida()
         {
-            partidaEncerrada = true;
             evtAoTerminar.Invoke();
+
+            txtTela.text = string.Concat(
+                "Jogador ", (int)jogadorCampeao + 1, " venceu!"
+            );
+
+            yield return new WaitForSeconds(3);
+
+            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
         }
     }
 }
