@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Componentes.Tabuleiro;
 
 namespace Componentes.Jogador
 {
@@ -64,7 +65,7 @@ namespace Componentes.Jogador
                 } while (!achou);
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             _gerenPart.fimMov(achou);
         }
 

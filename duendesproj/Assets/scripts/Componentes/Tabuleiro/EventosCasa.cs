@@ -9,6 +9,7 @@ namespace Componentes.Tabuleiro
     public class EventosCasa : MonoBehaviour
     {
         public string nomeEvento;
+        public int aux;
 
         public void ativarCasa()
         {
@@ -42,8 +43,7 @@ namespace Componentes.Tabuleiro
 
         public void Minijogo()
         {
-            int rand = Random.Range(1, 5);
-            Gerenciadores.GerenciadorGeral.TransitarParaMJ( (Identificadores.CenaID)rand );
+            Gerenciadores.GerenciadorGeral.TransitarParaMJ((Identificadores.CenaID)aux);
         }
 
         public void Portal()

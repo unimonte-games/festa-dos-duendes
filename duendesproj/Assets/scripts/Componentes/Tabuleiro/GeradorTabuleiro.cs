@@ -56,7 +56,7 @@ namespace Componentes.Tabuleiro
         {
             GameObject novaCasa = Instantiate(casaPrefab, posicao, Quaternion.identity);
             novaCasa.transform.parent = paiCasas;
-            novaCasa.GetComponent<Renderer>().material = ordemCores[i];
+            novaCasa.GetComponent<MeshRenderer>().material = ordemCores[i];
 
             //Última Casa aponta para a Nova
             ultimaCasa.GetComponent<CasaBase>().SetCasaSeguinte(novaCasa.transform);
