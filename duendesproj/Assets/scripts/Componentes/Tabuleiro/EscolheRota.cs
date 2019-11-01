@@ -9,7 +9,7 @@ namespace Componentes.Tabuleiro
         public Button botaoCarta;
         public GameObject UIDirecao, setaObj;
 
-        private Movimentacao jogador;
+        private Jogador.Movimentacao jogador;
         private int indice = 0;
         private Vector3 setaPosi;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Componentes.Jogador;
 using Componentes.Tabuleiro;
 
 namespace Gerenciadores
