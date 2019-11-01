@@ -161,6 +161,7 @@ namespace Gerenciadores {
 
         void AoIniciar()
         {
+            GetComponent<AudioSource>().Play();
             AplicarControladorFlautaHero();
         }
 

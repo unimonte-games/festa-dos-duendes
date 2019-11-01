@@ -12,7 +12,7 @@ namespace Gerenciadores
         /// Quantidade de jogadores em jogo,
         /// apesar de possível, não o modifique externamente.
         /// </summary>
-        public static int qtdJogadores;
+        public static int qtdJogadores = 4;
         /// <summary>
         /// Pontos para serem dados ao jogador que ganhar um minijogo.
         ///</summary>
