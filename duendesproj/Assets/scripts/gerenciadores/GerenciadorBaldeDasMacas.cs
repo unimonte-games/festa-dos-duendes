@@ -8,7 +8,7 @@ namespace Gerenciadores
 {
     public class GerenciadorBaldeDasMacas : MonoBehaviour
     {
-        GerenciadorMJLib gerenciadorMJ;
+        GerenciadorMJLib gerenMJ;
 
         public GameObject macaGbj;
         public float intervaloInstanciacao;
@@ -19,20 +19,23 @@ namespace Gerenciadores
 
         void Awake()
         {
-            gerenciadorMJ = GetComponent<GerenciadorMJLib>();
+            gerenMJ = GetComponent<GerenciadorMJLib>();
         }
 
         void Start()
         {
-            gerenciadorMJ.evtAoIniciar.AddListener(AoIniciar);
-            gerenciadorMJ.evtAoTerminar.AddListener(AoTerminar);
+            gerenMJ.evtAoIniciar.AddListener(AoIniciar);
+            gerenMJ.evtAoTerminar.AddListener(AoTerminar);
         }
 
         void Update()
         {
-            bool partidaIniciada = gerenciadorMJ.partidaIniciada;
-            bool partidaEncerrada = gerenciadorMJ.partidaEncerrada;
-            float tempoPartida = gerenciadorMJ.tempoPartida;
+            if (!gerenMJ.partidaIniciada || gerenMJ.partidaEncerrada)
+                return;
+
+            bool partidaIniciada = gerenMJ.partidaIniciada;
+            bool partidaEncerrada = gerenMJ.partidaEncerrada;
+            float tempoPartida = gerenMJ.tempoPartida;
             float diferencaTempo = tempoPartida - tempoPartidaAtual;
 
             if (partidaIniciada && !partidaEncerrada
@@ -46,23 +49,34 @@ namespace Gerenciadores
         void AoIniciar()
         {
             AplicarControladorBaldeDasMacas();
-            tempoPartidaAtual = gerenciadorMJ.tempoPartida;
+            tempoPartidaAtual = gerenMJ.tempoPartida;
         }
 
         void AoTerminar()
         {
-            JogadorID jogadorCampeao = ObterCampeao();
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            RetirarControladorBaldeDasMacas();
+            gerenMJ.jogadorCampeao = ObterCampeao();
         }
 
         void AplicarControladorBaldeDasMacas()
         {
-            Transform[] tr_jogadores = gerenciadorMJ.tr_jogadores;
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
 
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
-                GameObject gbj_jogaodor = tr_jogadores[i].gameObject;
-                gbj_jogaodor.AddComponent<ControladorBaldeDasMacas>();
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.AddComponent<ControladorBaldeDasMacas>();
+            }
+        }
+
+        void RetirarControladorBaldeDasMacas()
+        {
+            Transform[] tr_jogadores = gerenMJ.tr_jogadores;
+
+            for (int i = 0; i < tr_jogadores.Length; i++)
+            {
+                GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                Destroy(gbj_jogador.GetComponent<ControladorBaldeDasMacas>());
             }
         }
 
@@ -83,7 +97,7 @@ namespace Gerenciadores
 
             for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
             {
-                Transform tr_j = gerenciadorMJ.tr_jogadores[i];
+                Transform tr_j = gerenMJ.tr_jogadores[i];
                 var ctrl = tr_j.GetComponent<ControladorBaldeDasMacas>();
 
                 if (ctrl.macasPegas >= qtdMaxMacas)

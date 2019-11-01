@@ -23,7 +23,7 @@ public class FlautaHero_Nota : MonoBehaviour
 
     void Update()
     {
-        if (!gerenFH.gerenMJ.partidaIniciada)
+        if (!gerenFH.gerenMJ.partidaIniciada || gerenFH.gerenMJ.partidaEncerrada)
             return;
 
         if (ctrlFH == null)
