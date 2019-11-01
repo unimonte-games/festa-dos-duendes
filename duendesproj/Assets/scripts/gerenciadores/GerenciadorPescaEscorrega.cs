@@ -60,6 +60,7 @@ namespace Gerenciadores {
 
         void AoTerminar ()
         {
+
             RetirarControladoresPescaEscorrega();
             gerenMJ.jogadorCampeao = ObterCampeao();
         }
@@ -71,6 +72,11 @@ namespace Gerenciadores {
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                tr_jogadores[i]
+                    .Find("sprite")
+                    .GetComponent<SpriteLookAtCam>()
+                    .worldUp = (Vector3.forward+ Vector3.up).normalized;
+
                 gbj_jogador.AddComponent<ControladorPescaEscorrega>();
             }
         }
@@ -82,6 +88,7 @@ namespace Gerenciadores {
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.GetComponent<Movimentador>().velocidade = 0;
                 Destroy(gbj_jogador.GetComponent<ControladorPescaEscorrega>());
             }
         }

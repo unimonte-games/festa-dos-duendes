@@ -188,6 +188,7 @@ namespace Gerenciadores {
             for (int i = 0; i < tr_jogadores.Length; i++)
             {
                 GameObject gbj_jogador = tr_jogadores[i].gameObject;
+                gbj_jogador.GetComponent<Movimentador>().velocidade = 0;
                 Destroy(gbj_jogador.GetComponent<ControladorFlautaHero>());
             }
         }

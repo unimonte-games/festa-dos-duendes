@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpriteLookAtCam : MonoBehaviour
 {
+    public Vector3 worldUp = Vector3.up;
     Transform cam, tr;
 
     void Awake()
@@ -15,6 +16,6 @@ public class SpriteLookAtCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tr.LookAt(cam);
+        tr.LookAt(cam, worldUp);
     }
 }
