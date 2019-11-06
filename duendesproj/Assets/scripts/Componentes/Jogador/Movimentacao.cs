@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Componentes.Tabuleiro;
+using Identificadores;
 
 namespace Componentes.Jogador
 {
@@ -9,8 +10,7 @@ namespace Componentes.Jogador
         //Achar casa
         public Gerenciadores.GerenciadorPartida _gerenPart;
         public Transform casaAtual;
-        [HideInInspector]
-        public int proximaCor;
+        public TiposCasa proximaCor;
 
         //Animar pulo
         private float duracaoPulo = 0.25f;
@@ -26,11 +26,11 @@ namespace Componentes.Jogador
             transform.position = casaAtual.position;
         }
 
-        public IEnumerator ProcuraCasa(int corDesejada)
+        public IEnumerator ProcuraCasa(TiposCasa corDesejada)
         {
             bool achou = false;
             Transform casaTemp = casaAtual;
-            int corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
+            TiposCasa corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;
 
             if (corTemp != 0 && corTemp == proximaCor)
             {

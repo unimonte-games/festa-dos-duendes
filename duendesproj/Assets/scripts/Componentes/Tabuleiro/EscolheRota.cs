@@ -15,7 +15,7 @@ namespace Componentes.Tabuleiro
 
         public void EscolherRota(bool confirmacao)
         {
-            jogador = _gerenPartida.jogadorAtual;
+            jogador = _gerenPartida.movAtual;
             CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
             Transform casaTemp = _casaBase.casaSeguinte[indice];
 
@@ -37,7 +37,7 @@ namespace Componentes.Tabuleiro
         {
             if (estado)
             {
-                jogador = _gerenPartida.jogadorAtual;
+                jogador = _gerenPartida.movAtual;
                 CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
                 setaObj.transform.position = _casaBase.casaSeguinte[indice].position;
             }

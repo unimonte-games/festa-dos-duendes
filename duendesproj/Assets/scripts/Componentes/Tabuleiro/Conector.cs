@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Identificadores;
 
 namespace Componentes.Tabuleiro
 {
@@ -13,9 +14,15 @@ namespace Componentes.Tabuleiro
 
     public class Conector : CasaBase
     {
+        [SerializeField]
         public List<Rota> rotas;
-        [HideInInspector]
-        public int ultimaCor = 0;
+
+        [ContextMenu("Re-Gerar Rotas")]
+        public void GerarRota()
+        {
+            casaSeguinte.Clear();
+            FindObjectOfType<GeradorTabuleiro>().InstanciaRotas(transform);
+        }
 
         private void OnDrawGizmos()
         {

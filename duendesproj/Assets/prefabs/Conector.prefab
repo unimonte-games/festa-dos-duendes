@@ -93,6 +93,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   casaSeguinte: []
   casaAnterior: []
-  tipoCasa: 0
+  tipoCasa: 1
   rotas: []
-  ultimaCor: 0

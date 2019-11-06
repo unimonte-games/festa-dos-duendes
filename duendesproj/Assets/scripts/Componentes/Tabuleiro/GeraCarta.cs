@@ -6,22 +6,22 @@ namespace Componentes.Tabuleiro
     public class GeraCarta : MonoBehaviour
     {
         public Image botao;
-        public Gerenciadores.GerenciadorPartida _gerenPartida;
-        public GeradorTabuleiro _geraTabuleiro;
+        //public Gerenciadores.GerenciadorPartida _gerenPartida;
+        //public GeradorTabuleiro _geraTabuleiro;
         private int qtdCasas;
 
         private void Awake()
         {
-            qtdCasas = _geraTabuleiro.ordemCores.Length;
+            //qtdCasas = _geraTabuleiro.coresCasas.Count;
         }
 
         public void GerarCarta()
         {
             int rand = Random.Range(0, qtdCasas);
 
-            botao.color = _geraTabuleiro.ordemCores[rand].color;
+            //botao.color = _geraTabuleiro.coresCasas[rand].color;
 
-            _gerenPartida.MoverJogador(rand + 1);
+            //_gerenPartida.MoverJogador(rand + 1);
         }
     }
 }

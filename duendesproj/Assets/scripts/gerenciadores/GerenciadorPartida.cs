@@ -11,13 +11,16 @@ namespace Gerenciadores
         public List<Transform> ordemJogadores;
         public Text textoPartida;
         [HideInInspector]
-        public Movimentacao jogadorAtual;
         public EscolheRota _escolheRota;
         private int rodada = 1, turno = 0;
+        public Movimentacao movAtual;
+        public static Inventario InvAtual { get; set; }
 
         private void Awake()
         {
-            jogadorAtual = ordemJogadores[0].GetComponent<Movimentacao>();
+            movAtual = ordemJogadores[0].GetComponent<Movimentacao>();
+            InvAtual = ordemJogadores[0].GetComponent<Inventario>();
+
             _escolheRota.estadoUIRota(false);
             _escolheRota.estadoUICarta(true);
         }
@@ -33,7 +36,8 @@ namespace Gerenciadores
                 rodada++;
             }
 
-            jogadorAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
+            movAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
+            InvAtual = ordemJogadores[turno].GetComponent<Inventario>();
 
             textoPartida.text = "Jogador: " + (turno + 1) + "\nRodada: " + rodada;
         }
@@ -41,14 +45,14 @@ namespace Gerenciadores
         public void MoverJogador(int casa)
         {
             _escolheRota.estadoUICarta(false);
-            StartCoroutine(jogadorAtual.ProcuraCasa(casa));
+            StartCoroutine(movAtual.ProcuraCasa((Identificadores.TiposCasa)casa));
         }
 
         public void fimMov(bool casaEncontrada)
         {
             if (casaEncontrada)
             {
-                Transform casaJogador = jogadorAtual.GetComponent<Movimentacao>().casaAtual;
+                Transform casaJogador = movAtual.GetComponent<Movimentacao>().casaAtual;
                 EventosCasa _eventCasa = casaJogador.GetComponent<EventosCasa>();
                 if (_eventCasa != null)
                     _eventCasa.ativarCasa();
@@ -63,6 +67,5 @@ namespace Gerenciadores
         {
             return ordemJogadores[turno];
         }
-
     }
 }
