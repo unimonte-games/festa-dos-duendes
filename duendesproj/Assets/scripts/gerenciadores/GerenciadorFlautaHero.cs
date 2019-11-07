@@ -209,6 +209,7 @@ namespace Gerenciadores {
                 {
                     var id_comp = tr_j.GetComponent<IdentificadorJogador>();
                     jid_ganhador = id_comp.jogadorID;
+                    pontos = ctrl.pontos;
                 }
             }
 
