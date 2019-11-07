@@ -1,11 +1,10 @@
 ﻿using System.Reflection;
 using UnityEngine;
+using Componentes.Jogador;
+using Gerenciadores;
 
 namespace Componentes.Tabuleiro
 {
-    public enum Eventos
-    { Nada, Pote, Elementos, PowerUp, Acontecimento, Minijogo, Portal }
-
     public class EventosCasa : MonoBehaviour
     {
         public string nomeEvento;
@@ -23,7 +22,8 @@ namespace Componentes.Tabuleiro
 
         public void Pote()
         {
-            Debug.Log("Preso no pote");
+            Inventario _inventario = GerenciadorPartida.InvAtual;
+            _inventario.inv.Add(Itens.Pote);
         }
 
         public void Elementos()

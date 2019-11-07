@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Identificadores;
 
 namespace Componentes.Tabuleiro
 {
@@ -7,9 +8,7 @@ namespace Componentes.Tabuleiro
     {
         public List<Transform> casaSeguinte;
         public List<Transform> casaAnterior;
-
-        [HideInInspector]
-        public int tipoCasa;
+        public TiposCasa tipoCasa;
 
         public virtual void SetCasaSeguinte(Transform casa)
         {
@@ -19,6 +18,13 @@ namespace Componentes.Tabuleiro
         public virtual void SetCasaAnterior(Transform casa)
         {
             casaAnterior.Add(casa);
+        }
+
+        [ContextMenu("Atualizar Casa")]
+        public virtual void AtualizaCasa()
+        {
+            string matPath = "MatCasas/" + tipoCasa.ToString();
+            GetComponent<MeshRenderer>().material = (Material)Resources.Load(matPath);
         }
     }
 }

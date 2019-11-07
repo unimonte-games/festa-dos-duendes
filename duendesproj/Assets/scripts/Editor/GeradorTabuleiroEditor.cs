@@ -20,6 +20,15 @@ namespace Componentes.Tabuleiro
 
                 gt.GerarCasas();
             }
+
+            if (GUILayout.Button("Atualizar Casas"))
+            {
+                CasaBase[] casas = gt.paiConectores.GetComponentsInChildren<CasaBase>();
+                for (int i = 0; i < casas.Length; i++)
+                    EditorUtility.SetDirty(casas[i]);
+
+                gt.AtualizaCasas();
+            }
         }
     }
 }

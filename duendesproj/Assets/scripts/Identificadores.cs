@@ -14,4 +14,6 @@ namespace Identificadores
         MenuInicial      = 7,
         // TODO: Colocar outros aqui
     };
+
+    public enum TiposCasa { CasaBase, Conector, Moeda, BemMal, PowerUp, Garrafa, Acontecimento, MiniJogo };
 }
