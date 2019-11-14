@@ -55,6 +55,7 @@ namespace Gerenciadores
             {
                 controladores[indiceComCogumelo].Queimar();
                 microPartida++;
+                PassarCogumelo();
             }
             else if (partidaIniciada && !partidaEncerrada
             && diferencaTempo >= intervaloPassar)

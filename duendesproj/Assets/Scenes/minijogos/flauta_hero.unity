@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 7950224000292231161, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
       propertyPath: duracaoPartida
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7950224000292231161, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
       propertyPath: tempos.Array.size
-      value: 40
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
@@ -216,77 +216,77 @@ PrefabInstance:
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
       propertyPath: tempos.Array.data[0]
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
-        type: 3}
-      propertyPath: tempos.Array.data[1]
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[2]
+      propertyPath: tempos.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[3]
+      propertyPath: tempos.Array.data[2]
       value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[4]
+      propertyPath: tempos.Array.data[3]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[5]
+      propertyPath: tempos.Array.data[4]
       value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[6]
+      propertyPath: tempos.Array.data[5]
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[7]
+      propertyPath: tempos.Array.data[6]
       value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[8]
+      propertyPath: tempos.Array.data[7]
       value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[9]
+      propertyPath: tempos.Array.data[8]
       value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[10]
+      propertyPath: tempos.Array.data[9]
       value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[11]
+      propertyPath: tempos.Array.data[10]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[12]
+      propertyPath: tempos.Array.data[11]
       value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[13]
+      propertyPath: tempos.Array.data[12]
       value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}
-      propertyPath: tempos.Array.data[14]
+      propertyPath: tempos.Array.data[13]
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
+        type: 3}
+      propertyPath: tempos.Array.data[14]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7119904788664372155, guid: a88292bde0753a807b520d704c4452aa,
         type: 3}

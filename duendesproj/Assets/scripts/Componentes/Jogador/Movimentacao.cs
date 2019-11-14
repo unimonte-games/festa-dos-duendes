@@ -11,6 +11,7 @@ namespace Componentes.Jogador
         public Gerenciadores.GerenciadorPartida _gerenPart;
         public Transform casaAtual;
         public TiposCasa proximaCor;
+        public bool emPulinho;
         public bool paraFrente;
         public bool inicioMov;
 
@@ -88,6 +89,8 @@ namespace Componentes.Jogador
 
         public IEnumerator Pulinho(Vector3 destino, float tempoInicio)
         {
+            emPulinho = true;
+
             Vector3 centro = (transform.position + destino) * 0.5F;
             centro -= Vector3.up;
 
@@ -103,6 +106,8 @@ namespace Componentes.Jogador
 
             if (x <= 1)
                 yield return StartCoroutine(Pulinho(destino, tempoInicio));
+            else
+                emPulinho = false;
         }
     }
 }
