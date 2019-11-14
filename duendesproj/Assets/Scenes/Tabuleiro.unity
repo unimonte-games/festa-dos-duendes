@@ -166,8 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 2
 --- !u!114 &61310158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,8 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &63162624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,8 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 3
 --- !u!114 &87002218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,8 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &95338391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,8 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &105459667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,8 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &229544052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,8 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &233713659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,8 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &237639121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,8 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &255450522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,8 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &256145120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,6 +1914,16 @@ PrefabInstance:
       propertyPath: casaAnterior.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -6519737028682933088, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
+        type: 3}
+      propertyPath: rotas.Array.data[1].conector
+      value: 
+      objectReference: {fileID: 612478504}
+    - target: {fileID: -6519737028682933088, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
+        type: 3}
+      propertyPath: rotas.Array.data[1].qtdCasas
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef8c67633f9b9a45a8fbfe935e73486, type: 3}
 --- !u!4 &263099492 stripped
@@ -1978,8 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &264475767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,8 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &292319440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2257,7 +2255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333572651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0, z: 22.5}
+  m_LocalPosition: {x: 2.25, y: 0, z: 22.5}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1262663840}
@@ -2275,8 +2273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &333572654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,8 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &333876681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2532,6 +2528,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829784970046455946, guid: 0d93728186b295b999574d872749ea06,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.783
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829784970046455946, guid: 0d93728186b295b999574d872749ea06,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.803
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829784970046455946, guid: 0d93728186b295b999574d872749ea06,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d93728186b295b999574d872749ea06, type: 3}
@@ -2694,7 +2705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374042488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 23.666668}
+  m_LocalPosition: {x: 3.5, y: 0, z: 23.666668}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1262663840}
@@ -2712,8 +2723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &374042491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3255,8 +3265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 1
 --- !u!114 &443102217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3366,8 +3375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &449183145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3446,7 +3454,7 @@ PrefabInstance:
     - target: {fileID: 9074290466137041919, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 9074290466137041919, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
         type: 3}
@@ -4408,8 +4416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &574507852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5309,6 +5316,21 @@ PrefabInstance:
       propertyPath: casaAnterior.Array.data[1]
       value: 
       objectReference: {fileID: 1536897274}
+    - target: {fileID: -6519737028682933088, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
+        type: 3}
+      propertyPath: rotas.Array.data[1].conector
+      value: 
+      objectReference: {fileID: 263099492}
+    - target: {fileID: -6519737028682933088, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
+        type: 3}
+      propertyPath: rotas.Array.data[1].qtdCasas
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6519737028682933088, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
+        type: 3}
+      propertyPath: casaAnterior.Array.data[2]
+      value: 
+      objectReference: {fileID: 263099492}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef8c67633f9b9a45a8fbfe935e73486, type: 3}
 --- !u!4 &668109969 stripped
@@ -5363,8 +5385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &671452577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5689,8 +5710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &690625240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5966,8 +5986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &728918721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6077,8 +6096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &748718270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6368,8 +6386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &905694941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,8 +6496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 4
 --- !u!114 &932548270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6596,8 +6612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &938660230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6890,7 +6905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997029569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 26}
+  m_LocalPosition: {x: 5.8333, y: 0, z: 26}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1262663840}
@@ -6908,8 +6923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &997029572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7019,8 +7033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1042698024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7336,8 +7349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1055937584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7722,6 +7734,7 @@ MonoBehaviour:
   botaoCarta: {fileID: 1084763042}
   UIDirecao: {fileID: 2017685628}
   setaObj: {fileID: 798776065}
+  paraFrente: 0
 --- !u!114 &1089121051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7735,6 +7748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botao: {fileID: 1084763043}
+  _gerenPartida: {fileID: 973485006}
+  _geraTabuleiro: {fileID: 125928715}
 --- !u!1001 &1109770508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7906,8 +7921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1123437567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8232,8 +8246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1174498712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8548,8 +8561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1200963992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8731,7 +8743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204861966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 26}
+  m_LocalPosition: {x: 4.666, y: 0, z: 26}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1262663840}
@@ -8749,8 +8761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1204861969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8860,8 +8871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1206261675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9428,6 +9438,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.55
       objectReference: {fileID: 0}
+    - target: {fileID: -1282947914317285456, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -1282947914317285456, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -1282947914317285456, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958219048711303513, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958219048711303513, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958219048711303513, guid: bbd8b53ebf1a90e78827e276dd773a47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.46
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd8b53ebf1a90e78827e276dd773a47, type: 3}
 --- !u!4 &1228818796 stripped
@@ -9557,8 +9597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1252553304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9751,8 +9790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1262943990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10120,8 +10158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1328827455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10521,8 +10558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1470826171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10632,8 +10668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1481067937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,8 +11143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1536897276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11219,8 +11253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1557607008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11330,8 +11363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1600975444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11641,8 +11673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1625442652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11833,8 +11864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1644010770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11944,8 +11974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1649298127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12055,8 +12084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1687390545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12148,7 +12176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702187221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 24.833334}
+  m_LocalPosition: {x: 3.5, y: 0, z: 24.833334}
   m_LocalScale: {x: 0.9, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1262663840}
@@ -12166,8 +12194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1702187224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12334,8 +12361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1748271533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12678,8 +12704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1840002863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13293,8 +13318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1922781252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13613,8 +13637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &1953034110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14056,8 +14079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &2040765570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14136,7 +14158,7 @@ PrefabInstance:
     - target: {fileID: 9074290466137041919, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 9074290466137041919, guid: 3ef8c67633f9b9a45a8fbfe935e73486,
         type: 3}
@@ -14783,8 +14805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &2126243570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14894,8 +14915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
 --- !u!114 &2132502532
 MonoBehaviour:
   m_ObjectHideFlags: 0
