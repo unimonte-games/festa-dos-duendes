@@ -28,7 +28,7 @@ namespace Componentes.Jogador
         public void SetCasaAtual(Transform casa)
         {
             casaAtual = casa;
-            transform.position = casa.position;
+            StartCoroutine(Pulinho(casaAtual.position, Time.time));
         }
 
         public IEnumerator ProcuraCasa(TiposCasa corDesejada)
@@ -61,7 +61,7 @@ namespace Componentes.Jogador
 
                         yield return StartCoroutine(Pulinho(casaTemp.position, Time.time));
 
-                        if (corTemp == 0)
+                        if ((int)corTemp == 1)
                         {
                             CasaBase _casaBase = casaTemp.GetComponent<CasaBase>();
                             //Se o conector tem multiplos caminhos
