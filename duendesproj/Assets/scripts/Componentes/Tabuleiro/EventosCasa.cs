@@ -2,31 +2,29 @@
 using UnityEngine;
 using Componentes.Jogador;
 using Gerenciadores;
+using Identificadores;
 
 namespace Componentes.Tabuleiro
 {
     public class EventosCasa : MonoBehaviour
     {
-        public string nomeEvento;
-        public int aux;
+        public CenaID minijogo;
 
         public void ativarCasa()
         {
-            MethodInfo metodo = GetType().GetMethod(nomeEvento);
-            try
-            {
-                metodo.Invoke(this, null);
-            }
-            catch { }
+            TiposCasa evento = GetComponent<CasaBase>().tipoCasa;
+            MethodInfo metodo = GetType().GetMethod(evento.ToString());
+
+            try { metodo.Invoke(this, null); }
+            catch { Debug.LogError("Evento de Casa não encontrado"); }
         }
 
-        public void Pote()
+        public void Garrafa()
         {
-            Inventario _inventario = GerenciadorPartida.InvAtual;
-            _inventario.inv.Add(Itens.Pote);
+            Debug.Log("Garrafou");
         }
 
-        public void Elementos()
+        public void BemMal()
         {
             Debug.Log("Água, fogo, terra ou ar");
         }
@@ -41,14 +39,14 @@ namespace Componentes.Tabuleiro
             Debug.Log("Acontecimento aleatório");
         }
 
-        public void Minijogo()
+        public void MiniJogo()
         {
-            Gerenciadores.GerenciadorGeral.TransitarParaMJ((Identificadores.CenaID)aux);
+            Gerenciadores.GerenciadorGeral.TransitarParaMJ(minijogo);
         }
 
-        public void Portal()
+        public void Moeda()
         {
-            Debug.Log("Teleportar");
+            Debug.Log("Dinheiro");
         }
     }
 }
