@@ -54,13 +54,15 @@ namespace Gerenciadores
             {
                 Transform casaJogador = movAtual.GetComponent<Movimentacao>().casaAtual;
                 EventosCasa _eventCasa = casaJogador.GetComponent<EventosCasa>();
-                if (_eventCasa != null)
-                    _eventCasa.ativarCasa();
+                _eventCasa.ativarCasa();
 
                 NovaRodada();
             }
             else
+            {
+                _escolheRota.paraFrente = movAtual.paraFrente;
                 _escolheRota.estadoUIRota(true);
+            }
         }
 
         public Transform ObterJogadorAtivo()
