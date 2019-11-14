@@ -1,0 +1,607 @@
+fileFormatVersion: 2
+guid: 8b707a7690fa1a45594fc0194a333a6b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7291832460287931209
+    second: marisvaldo sprites_0
+  - first:
+      213: 9135654086466042140
+    second: marisvaldo sprites_1
+  - first:
+      213: -704560395471606611
+    second: marisvaldo sprites_2
+  - first:
+      213: 144339152277621466
+    second: marisvaldo sprites_3
+  - first:
+      213: 2189558817939683753
+    second: marisvaldo sprites_4
+  - first:
+      213: -996003511999038592
+    second: marisvaldo sprites_5
+  - first:
+      213: -5086562777235283581
+    second: marisvaldo sprites_6
+  - first:
+      213: -9124762822859654619
+    second: marisvaldo sprites_7
+  - first:
+      213: -5659677838112734160
+    second: marisvaldo sprites_8
+  - first:
+      213: 9154948314131865585
+    second: marisvaldo sprites_9
+  - first:
+      213: -3354666184666489504
+    second: marisvaldo sprites_10
+  - first:
+      213: -8236565567477014588
+    second: marisvaldo sprites_11
+  - first:
+      213: 5751747950654918969
+    second: marisvaldo sprites_12
+  - first:
+      213: -9117337988373902417
+    second: marisvaldo sprites_13
+  - first:
+      213: 1064883149690051022
+    second: marisvaldo sprites_14
+  - first:
+      213: 668424504805490362
+    second: marisvaldo sprites_15
+  - first:
+      213: 4522996362815583585
+    second: marisvaldo sprites_16
+  - first:
+      213: 7461277298076683454
+    second: marisvaldo sprites_17
+  - first:
+      213: -6381390762669567160
+    second: marisvaldo sprites_18
+  - first:
+      213: -3387043766127321698
+    second: marisvaldo sprites_19
+  - first:
+      213: 7544520492287115205
+    second: marisvaldo sprites_20
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: marisvaldo sprites_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 2544
+        width: 923
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a5553f03060c0b2b92bbcb30d8ab78
+      internalID: 7291832460287931209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_1
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 2520
+        width: 923
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2566ed0a8641d698c21880f4a600b5
+      internalID: 9135654086466042140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_2
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 1416
+        width: 923
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1202f17ba0f00897793866876cccc602
+      internalID: -704560395471606611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1445
+        width: 923
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cefc3e60545db71b871b8b504ae7cd1
+      internalID: 144339152277621466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_4
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 2811
+        width: 120
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ddc48490c4166968a5665a684711e84
+      internalID: 2189558817939683753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_5
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 2812
+        width: 120
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de999bafe625023a788128a78cb199a3
+      internalID: -996003511999038592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_6
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 2475
+        width: 120
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b99dc005b0bcdae8877e7c12c72553
+      internalID: -5086562777235283581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_7
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 2475
+        width: 120
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facd795f6c8d3f00e95fa2cfe4d2f3a5
+      internalID: -9124762822859654619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_8
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 2050
+        width: 116
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200f6011c0f2daf82adb08421e1b6778
+      internalID: -5659677838112734160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_9
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 2050
+        width: 116
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7c6d1a49945e747a78fa66a2bc4645
+      internalID: 9154948314131865585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_10
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 1779
+        width: 116
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e78a934aefce5e29b7e6d4321749964
+      internalID: -3354666184666489504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_11
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 1725
+        width: 116
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d4ba1d2c9e2590eb82e3a8c7f43160
+      internalID: -8236565567477014588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_12
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 1628
+        width: 100
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165df5d81f12dd31ca28fd864684b24f
+      internalID: 5751747950654918969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_13
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 1436
+        width: 100
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f7ca780f4148d7e833ad9e93e2c174
+      internalID: -9117337988373902417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_14
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 1191
+        width: 100
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017eea3a10440def69a5aa6cc99c1606
+      internalID: 1064883149690051022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_15
+      rect:
+        serializedVersion: 2
+        x: 2337
+        y: 1201
+        width: 100
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e43324be2e9fa8c783154c5a7c16023
+      internalID: 668424504805490362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_16
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 899
+        width: 278
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d29f2f94f135cb20a0ce6f5bb2e98d5
+      internalID: 4522996362815583585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_17
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 98
+        width: 468
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca43debe768b9cbd883bd597fc85578
+      internalID: 7461277298076683454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_18
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 98
+        width: 468
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b54f3a8e19c33c294cd6f8c33d474a
+      internalID: -6381390762669567160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_19
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 98
+        width: 468
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7844d55a51239c28a8b35636969ea816
+      internalID: -3387043766127321698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marisvaldo sprites_20
+      rect:
+        serializedVersion: 2
+        x: 1925
+        y: 99
+        width: 468
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0ecbe2bf62e25efbce9dfac099e299
+      internalID: 7544520492287115205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
