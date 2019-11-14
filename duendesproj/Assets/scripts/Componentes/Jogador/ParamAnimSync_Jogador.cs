@@ -31,8 +31,9 @@ namespace Componentes.Jogador
         {
             animator.SetBool("andando", EstaAndando());
 
-            if (ctrl.ObterEntradaJogador().acao1)
-                animator.SetTrigger("acao");
+            if (ctrl)
+                if (ctrl.ObterEntradaJogador().acao1)
+                    animator.SetTrigger("acao");
         }
 
         bool EstaAndando ()
