@@ -18,18 +18,20 @@ namespace Componentes.Tabuleiro
         public void EscolherRota(bool confirmacao)
         {
             jogador = _gerenPartida.movAtual;
-            CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
 
             if (confirmacao)
             {
                 indice = 0;
                 jogador.paraFrente = paraFrente;
-                jogador.casaAtual = casaTemp; //Avança na rota escolhida
-                StartCoroutine(jogador.ProcuraCasa(jogador.proximaCor)); //Avança para a cor certa   
+
+                jogador.SetCasaAtual(casaTemp);
+                StartCoroutine(jogador.ProcuraCasa(jogador.proximaCor));
+
                 estadoUIRota(false); //Esconde a escolha de rota
             }
             else
             {
+                CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
                 indice++;
 
                 if (paraFrente && indice == _casaBase.casaSeguinte.Count)

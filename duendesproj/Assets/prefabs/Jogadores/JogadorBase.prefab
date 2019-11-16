@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 8323972841552103753}
   - component: {fileID: 3329575412388593047}
   - component: {fileID: 5334187734111110629}
-  - component: {fileID: 7215190251751582522}
+  - component: {fileID: -3713313713511868729}
   m_Layer: 0
   m_Name: JogadorBase
   m_TagString: Untagged
@@ -144,6 +144,8 @@ MonoBehaviour:
   casaAtual: {fileID: 0}
   proximaCor: 0
   emPulinho: 0
+  paraFrente: 0
+  inicioMov: 0
 --- !u!95 &5334187734111110629
 Animator:
   serializedVersion: 3
@@ -163,7 +165,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7215190251751582522
+--- !u!114 &-3713313713511868729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,6 +174,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7826317525506834733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d32aae460f6b49fa6a93cea0e8f199, type: 3}
+  m_Script: {fileID: 11500000, guid: 43af438ae68b95743904b1d45ec7a2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moedas: 0
+  itens: 

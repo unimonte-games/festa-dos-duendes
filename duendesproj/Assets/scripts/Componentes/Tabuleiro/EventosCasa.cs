@@ -9,6 +9,7 @@ namespace Componentes.Tabuleiro
     public class EventosCasa : MonoBehaviour
     {
         public CenaID minijogo;
+        private Inventario invAtual;
 
         public void ativarCasa()
         {
@@ -21,7 +22,8 @@ namespace Componentes.Tabuleiro
 
         public void Garrafa()
         {
-            Debug.Log("Garrafou");
+            invAtual = GerenciadorPartida.InvAtual;
+            invAtual.itens.Add(Itens.Garrafa);
         }
 
         public void BemMal()
@@ -41,12 +43,15 @@ namespace Componentes.Tabuleiro
 
         public void MiniJogo()
         {
-            Gerenciadores.GerenciadorGeral.TransitarParaMJ(minijogo);
+            invAtual = GerenciadorPartida.InvAtual;
+            if (invAtual.moedas >= 25)
+                GerenciadorGeral.TransitarParaMJ(minijogo);
         }
 
         public void Moeda()
         {
-            Debug.Log("Dinheiro");
+            invAtual = GerenciadorPartida.InvAtual;
+            invAtual.moedas += 15;
         }
     }
 }

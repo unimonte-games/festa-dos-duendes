@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Identificadores;
 
 namespace Componentes.Jogador
 {
-    public enum Itens 
-        { Pote }
-
     public class Inventario : MonoBehaviour
     {
-        public List<Itens> inv = new List<Itens>();
+        public int moedas = 0;
+        public List<Itens> itens = new List<Itens>();
     }
 }
