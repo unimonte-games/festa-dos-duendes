@@ -17,7 +17,7 @@ namespace Componentes.Tabuleiro
             MethodInfo metodo = GetType().GetMethod(evento.ToString());
 
             try { metodo.Invoke(this, null); }
-            catch { Debug.LogError("Evento de Casa não encontrado"); }
+            catch(System.Exception e) { Debug.LogError(e); }
         }
 
         public void Garrafa()
@@ -26,6 +26,7 @@ namespace Componentes.Tabuleiro
             invAtual.itens.Add(Itens.Garrafa);
 
             invAtual.transform.GetChild(1).gameObject.SetActive(true);
+            invAtual.tirarGarrafa = false;
         }
 
         public void BemMal()

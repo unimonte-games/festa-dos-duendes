@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Componentes.Jogador;
 using Componentes.Tabuleiro;
 using Identificadores;
+using System.Collections;
 
 namespace Gerenciadores
 {
@@ -55,14 +56,37 @@ namespace Gerenciadores
 
             if (InvAtual.itens.Contains(Itens.Garrafa))
             {
-                InvAtual.itens.Remove(Itens.Garrafa);
-                //Transform garrafa = InvAtual.transform.GetChild(1);
-                //Destroy(garrafa.gameObject);
-
-                NovaRodada();
+                if (InvAtual.tirarGarrafa)
+                {
+                    //Com garrafa para retirar
+                    StartCoroutine(tiraGarrafa(1f));
+                }
+                else
+                {
+                    //Com garrafa sem retirar
+                    InvAtual.tirarGarrafa = true;
+                    StartCoroutine(waitNovaRodada(2.5f));
+                }
             }
             else
+                //Sem garrafa
                 _escolheRota.estadoUICarta(true);
+        }
+
+        public IEnumerator tiraGarrafa(float tempo)
+        {
+            yield return new WaitForSeconds(tempo);
+            InvAtual.transform.GetChild(1).gameObject.SetActive(false);
+            InvAtual.itens.Remove(Itens.Garrafa);
+
+            //Mostra Carta de movimentação para o Jogador
+            _escolheRota.estadoUICarta(true);
+        }
+
+        public IEnumerator waitNovaRodada(float tempo)
+        {
+            yield return new WaitForSeconds(tempo);
+            NovaRodada();
         }
 
         public void MoverJogador(int casa)

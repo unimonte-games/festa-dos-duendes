@@ -8,5 +8,6 @@ namespace Componentes.Jogador
     {
         public int moedas = 0;
         public List<Itens> itens = new List<Itens>();
+        public bool tirarGarrafa;
     }
 }
