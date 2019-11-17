@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Gerenciadores;
 using Identificadores;
+using Componentes.Jogador;
 
 namespace Telas
 {
@@ -98,11 +99,18 @@ namespace Telas
         {
             for (int i = 0; i < 4; i++)
             {
-                var duende = listaJogadores.GetChild(i);
-                Image duendeImg = duende.GetComponent<Image>();
-
                 var qtdJogadores = GerenciadorGeral.qtdJogadores;
-                duendeImg.color = i < qtdJogadores ? Color.white : Color.grey;
+                Color corFinal = i < qtdJogadores ? Color.white : Color.grey;
+
+                var duendeSprites = listaJogadores
+                                        .GetChild(i)
+                                        .GetChild(0)
+                                        .GetComponent<MudaSpritePorJogador>();
+
+                duendeSprites.cabeca.color = corFinal;
+                duendeSprites.corpo.color = corFinal;
+                duendeSprites.manga.color = corFinal;
+                duendeSprites.mao.color = corFinal;
             }
 
             adicionarJogador.interactable = GerenciadorGeral.PodeCadastrar();
