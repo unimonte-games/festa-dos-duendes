@@ -24,6 +24,8 @@ namespace Componentes.Tabuleiro
         {
             invAtual = GerenciadorPartida.InvAtual;
             invAtual.itens.Add(Itens.Garrafa);
+
+            invAtual.transform.GetChild(1).gameObject.SetActive(true);
         }
 
         public void BemMal()

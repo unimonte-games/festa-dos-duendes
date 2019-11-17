@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Gerenciadores;
 
 namespace Componentes.Tabuleiro
 {
     public class EscolheRota : MonoBehaviour
     {
-        public Gerenciadores.GerenciadorPartida _gerenPartida;
         public Button botaoCarta;
         public GameObject UIDirecao, setaObj;
         [HideInInspector]
@@ -17,7 +17,7 @@ namespace Componentes.Tabuleiro
 
         public void EscolherRota(bool confirmacao)
         {
-            jogador = _gerenPartida.movAtual;
+            jogador = GerenciadorPartida.MovAtual;
 
             if (confirmacao)
             {
@@ -58,7 +58,7 @@ namespace Componentes.Tabuleiro
         {
             if (estado)
             {
-                jogador = _gerenPartida.movAtual;
+                jogador = GerenciadorPartida.MovAtual;
                 CasaBase _casaBase = jogador.casaAtual.GetComponent<CasaBase>();
                 if (paraFrente)
                     casaTemp = _casaBase.casaSeguinte[indice];
