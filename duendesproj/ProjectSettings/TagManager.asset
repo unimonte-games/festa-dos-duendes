@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: casas
+    uniqueID: 2845513909
+    locked: 0
+  - name: personagem
+    uniqueID: 395459945
+    locked: 0
+  - name: 
+    uniqueID: 4172458531
+    locked: 0
