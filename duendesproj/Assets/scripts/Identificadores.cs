@@ -17,5 +17,5 @@ namespace Identificadores
 
     public enum TiposCasa { CasaBase, Conector, Moeda, BemMal, PowerUp, Garrafa, Acontecimento, MiniJogo };
 
-    public enum Itens { Garrafa };
+    public enum Itens { Cogumelo, Touca, Flauta, Flor, Pocao, Garrafa };
 }
