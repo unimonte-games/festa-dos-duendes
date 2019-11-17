@@ -30,6 +30,12 @@ namespace Gerenciadores
 
         static GerenciadorGeral instancia;
 
+        void Awake()
+        {
+            if (instancia != null)
+                Destroy(gameObject);
+        }
+
         void Start()
         {
             // eu acho que poderia escrever = this; mas não tenho certeza

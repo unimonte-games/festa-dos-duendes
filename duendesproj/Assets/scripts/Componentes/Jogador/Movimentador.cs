@@ -25,6 +25,11 @@ namespace Componentes.Jogador {
         /// </summary>
         public bool usarDeltaTime = true;
 
+        /// <summary>
+        /// Se a movimentação deve usar os eixos locais ou globais
+        /// </summary>
+        public bool relativoAoGlobal;
+
         void Awake ()
         {
             tr = GetComponent<Transform>();
@@ -33,7 +38,10 @@ namespace Componentes.Jogador {
         void Update ()
         {
             float dt = usarDeltaTime ? Time.deltaTime : 1f;
-            tr.Translate(direcao * velocidade * dt);
+            tr.Translate(
+                direcao * velocidade * dt,
+                relativoAoGlobal ? Space.World : Space.Self
+            );
         }
     }
 }
