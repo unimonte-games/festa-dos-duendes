@@ -11,7 +11,7 @@ namespace Gerenciadores
     public class GerenciadorPartida : MonoBehaviour
     {
         public Transform paiConectores;
-        public GameObject jogadorPrefab;
+        public GameObject[] jogadorPrefabs;
         public Text textoPartida;
         [HideInInspector]
         public EscolheRota _escolheRota;
@@ -25,7 +25,7 @@ namespace Gerenciadores
         {
             for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
             {
-                Transform jogador = Instantiate(jogadorPrefab).transform;
+                Transform jogador = Instantiate(jogadorPrefabs[i]).transform;
                 ordemJogadores.Add(jogador.transform);
 
                 Transform casa = paiConectores.GetChild(i);
