@@ -8,20 +8,19 @@ namespace Componentes.Jogador
     public class Movimentacao : MonoBehaviour
     {
         //Achar casa
-        public Gerenciadores.GerenciadorPartida _gerenPart;
         public Transform casaAtual;
         public TiposCasa proximaCor;
         public bool emPulinho;
         public bool paraFrente;
         public bool inicioMov;
+        private Gerenciadores.GerenciadorPartida _gerenPart;
 
         //Animar pulo
         private float duracaoPulo = 0.25f;
 
         void Start()
         {
-            inicioMov = false;
-            SetCasaAtual(casaAtual);
+            _gerenPart = FindObjectOfType<Gerenciadores.GerenciadorPartida>();
             inicioMov = true;
         }
 
