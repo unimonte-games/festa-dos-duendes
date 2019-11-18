@@ -107,5 +107,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeEvento: 
-  aux: 0
+  minijogo: 0
