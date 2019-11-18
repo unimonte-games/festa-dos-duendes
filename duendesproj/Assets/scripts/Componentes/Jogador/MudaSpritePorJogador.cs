@@ -74,11 +74,5 @@ namespace Componentes.Jogador
                     break;
             }
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }

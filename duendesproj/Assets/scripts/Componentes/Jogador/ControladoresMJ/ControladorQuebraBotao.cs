@@ -8,6 +8,7 @@ namespace Componentes.Jogador
     {
         Controlador ctrl;
         Movimentador mov;
+
         Gerenciadores.GerenciadorQuebraBotao gerenQB;
 
         void Awake ()
