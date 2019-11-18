@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f14b9ee1e7082dcba977e248305db0e1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - figMinijogo: {fileID: 5730296462886925972, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  - figMoeda: {fileID: -4897444044566142327, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  - figBemMal: {fileID: 6138381998153799509, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  - figPowerUp: {fileID: 6542639801407850155, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  - figGarrafa: {fileID: 4268414223548569407, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  - figAcontecimentoAleatorio: {fileID: -5378412113073399622, guid: 432ad48935e57f6058fd294a2c2bba3a,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
