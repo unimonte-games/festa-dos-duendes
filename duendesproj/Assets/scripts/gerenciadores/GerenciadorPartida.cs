@@ -54,6 +54,21 @@ namespace Gerenciadores
 
             textoPartida.text = "Jogador: " + (turno + 1) + "\nRodada: " + rodada;
 
+            if (InvAtual.itens.Contains(Itens.NaoPegaObj))
+            {
+                if (InvAtual.tirarNaoPegaObj)
+                {
+                    //Sem pegar obj para retirar
+                    InvAtual.tirarNaoPegaObj = false;
+                    InvAtual.itens.Remove(Itens.NaoPegaObj);
+                }
+                else
+                {
+                    //Sem pegar obj sem retirar
+                    InvAtual.tirarNaoPegaObj = true;
+                }
+            }
+
             if (InvAtual.itens.Contains(Itens.Garrafa))
             {
                 if (InvAtual.tirarGarrafa)
