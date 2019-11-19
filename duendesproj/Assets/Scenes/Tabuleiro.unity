@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -798,6 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125928714}
   - component: {fileID: 125928715}
+  - component: {fileID: 125928716}
   m_Layer: 0
   m_Name: Tabuleiro
   m_TagString: Untagged
@@ -818,6 +819,7 @@ Transform:
   m_Children:
   - {fileID: 1710024677}
   - {fileID: 1262663840}
+  - {fileID: 289879261}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -836,6 +838,30 @@ MonoBehaviour:
   paiConectores: {fileID: 1710024677}
   paiCasas: {fileID: 1262663840}
   casaPrefab: {fileID: 4262312202515046251, guid: cf5525ddc2e09c4409a22dbe2c745bd3,
+    type: 3}
+--- !u!114 &125928716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125928713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14b9ee1e7082dcba977e248305db0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  figMinijogo: {fileID: 5730296462886925972, guid: 432ad48935e57f6058fd294a2c2bba3a,
+    type: 3}
+  figMoeda: {fileID: -4897444044566142327, guid: 432ad48935e57f6058fd294a2c2bba3a,
+    type: 3}
+  figBemMal: {fileID: 6138381998153799509, guid: 432ad48935e57f6058fd294a2c2bba3a,
+    type: 3}
+  figPowerUp: {fileID: 6542639801407850155, guid: 432ad48935e57f6058fd294a2c2bba3a,
+    type: 3}
+  figGarrafa: {fileID: 4268414223548569407, guid: 432ad48935e57f6058fd294a2c2bba3a,
+    type: 3}
+  figAcontecimentoAleatorio: {fileID: -5378412113073399622, guid: 432ad48935e57f6058fd294a2c2bba3a,
     type: 3}
 --- !u!1 &126881639
 GameObject:
@@ -2078,6 +2104,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 288080446}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &289879260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289879261}
+  m_Layer: 0
+  m_Name: Figurinhas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &289879261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289879260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 125928714}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &314952137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6619,8 +6675,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paiConectores: {fileID: 1710024677}
-  jogadorPrefab: {fileID: 7826317525506834733, guid: cc91d2bfd893063418c43735e02fd48b,
-    type: 3}
+  jogadorPrefabs:
+  - {fileID: 915699735726360429, guid: 03fc812a344c00a4c961436dbeb4c90c, type: 3}
+  - {fileID: 4156284088030206387, guid: a84b52487b893234db9924342e0e5946, type: 3}
+  - {fileID: 2557649293468434675, guid: 2b8b682e6726acf40b62e04fcd0f211a, type: 3}
+  - {fileID: 8612671188624674371, guid: 3dc373a9c920d474caf827fb2b1d5137, type: 3}
   textoPartida: {fileID: 1043225130}
   _escolheRota: {fileID: 1089121050}
 --- !u!4 &973485007
