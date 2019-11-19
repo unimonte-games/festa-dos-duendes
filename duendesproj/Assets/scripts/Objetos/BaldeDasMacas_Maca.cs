@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Componentes.Jogador;
+using Identificadores;
 
 public class BaldeDasMacas_Maca : MonoBehaviour
 {
     public Vector3 posInicial;
     bool pego;
     Transform tr, macaAnterior;
+    public int maca;
+    public Material[] mats;
 
     void Awake()
     {
@@ -50,6 +53,10 @@ public class BaldeDasMacas_Maca : MonoBehaviour
                 macaAnterior = ctrlMacas.GetComponent<Transform>();
 
             Destroy(GetComponent<Rigidbody>());
+
+            MeshRenderer chapeuMR = tr.GetChild(0).GetComponent<MeshRenderer>();
+            JogadorID jid = col.GetComponent<IdentificadorJogador>().jogadorID;
+            chapeuMR.material = mats[(int)jid];
         }
     }
 }
