@@ -40,7 +40,13 @@ namespace Gerenciadores
         {
             // eu acho que poderia escrever = this; mas não tenho certeza
             instancia = GetComponent<GerenciadorGeral>();
+            ResetaEstaticos();
             DontDestroyOnLoad(gameObject);
+        }
+
+        void ResetaEstaticos()
+        {
+            CasaBase.contadorMiniJogo = 0;
         }
 
 #region (de)cadastramento de jogadores
