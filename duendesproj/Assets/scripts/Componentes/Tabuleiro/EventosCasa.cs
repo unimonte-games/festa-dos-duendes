@@ -31,7 +31,26 @@ namespace Componentes.Tabuleiro
 
         public void BemMal()
         {
-            Debug.Log("Água, fogo, terra ou ar");
+            MethodInfo[] metodos;
+            System.Type tipo;
+            float rand = Random.value;
+
+            if (rand < 0.5f)
+                tipo = typeof(Bencaos);
+            else
+                tipo = typeof(Maldicoes);
+
+            metodos = tipo.GetMethods(BindingFlags.DeclaredOnly |
+                                      BindingFlags.Static |
+                                      BindingFlags.Public);
+
+            int rd = Random.Range(0, metodos.Length);
+            try
+            {
+                MethodInfo metodoRand = metodos[rd];
+                metodoRand.Invoke(this, null);
+            }
+            catch (System.Exception e) { Debug.LogError(e); }
         }
 
         public void PowerUp()
