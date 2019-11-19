@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &272424
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &5811397
@@ -496,7 +496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.9999847}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64317542
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &64638604
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &111441735
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &122871622
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &289157501
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 0
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &302073749
@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &392503994
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &486936512
@@ -2072,7 +2072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.9999847, y: 0}
+  m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494652566
@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &524730899
@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &536140452
@@ -2510,7 +2510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.85}
   m_AnchorMax: {x: 0.2, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
+  m_AnchoredPosition: {x: 0, y: 5.000061}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644948863
@@ -2757,7 +2757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &707362911
@@ -2854,7 +2854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 0
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &830208900
@@ -2951,7 +2951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &836542316
@@ -3149,7 +3149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0}
   m_AnchorMax: {x: 0.8, y: 0.15}
-  m_AnchoredPosition: {x: 0, y: -5}
+  m_AnchoredPosition: {x: 0, y: -5.000061}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844814282
@@ -3292,7 +3292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &855627263
@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &929096605
@@ -3912,7 +3912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1167927833
@@ -3998,7 +3998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35, y: 0.85}
   m_AnchorMax: {x: 0.85, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
+  m_AnchoredPosition: {x: 0, y: 5.000061}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1244198726
@@ -4259,7 +4259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 0
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1274149634
@@ -4356,7 +4356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1292155745
@@ -4544,7 +4544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1388705212
@@ -4641,7 +4641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1432310930
@@ -4738,7 +4738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1438973513
@@ -4835,7 +4835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1459607984
@@ -5685,7 +5685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1670892793
@@ -5782,7 +5782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1692396398
@@ -6298,7 +6298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1918070587
@@ -6395,7 +6395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1920407065
@@ -6492,7 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1949997104
@@ -6589,7 +6589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &1952505294
@@ -6767,7 +6767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &2013638329
@@ -6998,7 +6998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1
-  direcao: {x: 1, y: -1, z: 0}
+  direcao: {x: 0, y: -1, z: 0}
   usarDeltaTime: 1
   relativoAoGlobal: 1
 --- !u!212 &2063362368
