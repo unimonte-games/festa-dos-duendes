@@ -983,6 +983,8 @@ GameObject:
   - component: {fileID: -3713313713511868729}
   - component: {fileID: 3681516346191066717}
   - component: {fileID: 7407179971970227482}
+  - component: {fileID: 1830430121501411471}
+  - component: {fileID: 2052464903489675178}
   m_Layer: 0
   m_Name: JogadorBase
   m_TagString: Untagged
@@ -1056,6 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moedas: 0
   itens: 
+  tirarGarrafa: 0
 --- !u!114 &3681516346191066717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1116,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jogadorID: 0
+--- !u!114 &1830430121501411471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826317525506834733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d32aae460f6b49fa6a93cea0e8f199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2052464903489675178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826317525506834733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2db519ece521933bf1b5988afa847d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7939390527455879545
 GameObject:
   m_ObjectHideFlags: 0
