@@ -88,7 +88,15 @@ namespace Gerenciadores
         /// </summary>
         public static void TransitarParaMJ(CenaID cenaId)
         {
-            instancia._TransitarPara(cenaId);
+            if (Telas.Preminijogo.cenaMJ != cenaId)
+            {
+                Telas.Preminijogo.cenaMJ = cenaId;
+                instancia._TransitarPara(CenaID.PreMiniJogo);
+            }
+            else
+            {
+                instancia._TransitarPara(cenaId);
+            }
         }
 
         void _TransitarPara(CenaID cenaId)
@@ -106,30 +114,21 @@ namespace Gerenciadores
             }
 #endif
             SceneManager.LoadScene((int)cenaId);
-            //StartCoroutine(TransitarPara(cenaId));
         }
 
-        // ALERTA: Por hora esse código é "teórico", ainda preciso testar
-        IEnumerator TransitarPara(CenaID cenaId)
+        public static CenaID ReconhecerCena(int idx)
         {
-            // abre cena de transição, isso já fechará o tabuleiro, talvez
-            // dê uma travadinha, se ficar irritante mudaremos para
-            // Async também
-            SceneManager.LoadScene((int)CenaID.TelaCarregamento);
-
-            // pega o número da cenaId
-            int cena_num = (int)cenaId;
-
-            // Carrega a cena assincronamente
-            AsyncOperation cenaAsync = SceneManager.LoadSceneAsync(cena_num);
-
-            // Enquanto o sujeito não carrega
-            while (!cenaAsync.isDone)
+            switch (idx)
             {
-                // "Descansa" a co-rotina por 1 segundo independete do
-                // Time.timescale
-                yield return new WaitForSecondsRealtime(1);
+                case (int)CenaID.Tabuleiro:      return CenaID.Tabuleiro;
+                case (int)CenaID.QuebraBotao:    return CenaID.QuebraBotao;
+                case (int)CenaID.BaldeDasMacas:  return CenaID.BaldeDasMacas;
+                case (int)CenaID.PescaEscorrega: return CenaID.PescaEscorrega;
+                case (int)CenaID.CogumeloQuente: return CenaID.CogumeloQuente;
+                case (int)CenaID.FlautaHero:     return CenaID.FlautaHero;
+                case (int)CenaID.PreMiniJogo:    return CenaID.PreMiniJogo;
             }
+            return CenaID.Tabuleiro;
         }
 
 #endregion gerenciamento de cenas

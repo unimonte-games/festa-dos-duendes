@@ -12,6 +12,7 @@ namespace Identificadores
         FlautaHero       = 5,
         TelaCarregamento = 6,
         MenuInicial      = 7,
+        PreMiniJogo      = 8,
         // TODO: Colocar outros aqui
     };
 

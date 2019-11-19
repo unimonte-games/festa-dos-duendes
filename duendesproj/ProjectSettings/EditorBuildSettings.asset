@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cenas de teste/GGTest.unity
     guid: f6ee22ca55ea588ac9204cfb21040fc0
+  - enabled: 1
+    path: Assets/Scenes/Telas/Menu Principal.unity
+    guid: a5063fcb331fbbcedb13cafb7cd19d19
+  - enabled: 1
+    path: Assets/Scenes/Telas/Menu Preminijogo.unity
+    guid: 42573da745ee52a21b5990f4ee0dcdf1
   m_configObjects: {}
