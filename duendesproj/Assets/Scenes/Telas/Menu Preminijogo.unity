@@ -1727,14 +1727,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 5.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5505972395109080649, guid: e841bad9ce696f390be2c059a06834f8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5505972395528966241, guid: e841bad9ce696f390be2c059a06834f8,
         type: 3}
       propertyPath: m_FillCenter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505972395109080649, guid: e841bad9ce696f390be2c059a06834f8,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

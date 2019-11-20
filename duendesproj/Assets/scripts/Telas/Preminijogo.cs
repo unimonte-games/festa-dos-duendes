@@ -39,23 +39,36 @@ namespace Telas
             {
                 case CenaID.QuebraBotao:
                     return string.Concat(
-                        "Descrição para QuebraBotao"
+                        "Quem será o mais rápido?", "\n",
+                        "Quem estiver mais próximo da garrafa de vidro, ",
+                        "ganhará este minijogo, para isso, dê o máximo ",
+                        "de passos possíveis!"
                     );
                 case CenaID.BaldeDasMacas:
                     return string.Concat(
-                        "Descrição para BaldeDasMacas"
+                        "Quem será o mais charmoso?", "\n",
+                        "Quem tiver mais chapéus vestidos ganhará este ",
+                        "minijogo, para isso, corra e pule atrás dos chapéus ",
+                        "que estão caindo como chuva!"
+
                     );
                 case CenaID.PescaEscorrega:
                     return string.Concat(
-                        "Descrição para PescaEscorrega"
+                        "Quem será o mais perfumado?", "\n",
+                        "Quem tiver a maior colheita de flores ganhará ",
+                        "este minijogo!"
                     );
                 case CenaID.CogumeloQuente:
                     return string.Concat(
-                        "Descrição para CogumeloQuente"
+                        "Quem sobreviverá ao cogumelo quente?", "\n",
+                        "Esse cogumelo tá pegando fogo bicho! Passe ",
+                        "para o próximo jogador para sobreviver a ele!"
                     );
                 case CenaID.FlautaHero:
                     return string.Concat(
-                        "Descrição para FlautaHero"
+                        "Quem terá o melhor ritmo?", "\n",
+                        "Cate as flautas no ritmo mais preciso possível ",
+                        "para ganhar este minijogo!"
                     );
             }
 
@@ -68,23 +81,36 @@ namespace Telas
             {
                 case CenaID.QuebraBotao:
                     return string.Concat(
-                        "Controles para QuebraBotao"
+                        "Controles:", "\n", "\n",
+                        "Use o <b>botão de ação</b> para dar um <b>passo</b>"
                     );
                 case CenaID.BaldeDasMacas:
                     return string.Concat(
-                        "Controles para BaldeDasMacas"
+                        "Controles:", "\n", "\n",
+                        "Movimentação é <b>horizontal</b>", "\n",
+                        "Use o <b>botão de ação></b> para pular, entretanto ",
+                        "não poderá mudar a direção do seu movimento ",
+                        "enquanto estiver no ar."
                     );
                 case CenaID.PescaEscorrega:
                     return string.Concat(
-                        "Controles para PescaEscorrega"
+                        "Controles:", "\n", "\n",
+                        "Movimentação é <b>horizontal</b> e <b>vertical</b>",
+                        "\n",
+                        "Use o <b>botão de ação></b> para colher uma flor."
                     );
                 case CenaID.CogumeloQuente:
                     return string.Concat(
-                        "Controles para CogumeloQuente"
+                        "Controles:", "\n", "\n",
+                        "Use o <b>botão de ação></b> para passar o cogumelo ",
+                        "quente para o próximo jogador."
                     );
                 case CenaID.FlautaHero:
                     return string.Concat(
-                        "Controles para FlautaHero"
+                        "Controles:", "\n", "\n",
+                        "Use o <b>botão de ação></b> para catar a flauta, ",
+                        "tente ao máximo catar a flauta no ritmo da música ",
+                        "(ocorre quando a flauta está no personagem)."
                     );
             }
 
@@ -96,7 +122,7 @@ namespace Telas
             switch (cenaMJ)
             {
                 case CenaID.QuebraBotao:    return "Corrida dos Passinhos";
-                case CenaID.BaldeDasMacas:  return "Veste Chapéu";
+                case CenaID.BaldeDasMacas:  return "Chuva de Chapéus";
                 case CenaID.PescaEscorrega: return "Colheita das Flores";
                 case CenaID.CogumeloQuente: return "Cogumelo Quente";
                 case CenaID.FlautaHero:     return "Cata-Flauta";
