@@ -13,6 +13,10 @@ namespace Componentes.Jogador
         Controlador ctrl;
         Transform spriteTr, tr;
 
+        float escalaXAlvo;
+        float xDiff, zDiff;
+        int lado = 1;
+
         void Awake()
         {
             animator = GetComponent<Animator>();
@@ -29,7 +33,8 @@ namespace Componentes.Jogador
                 "cena atual", SceneManager.GetActiveScene().buildIndex
             );
 
-            StartCoroutine(AjustadorDeLado());
+            StartCoroutine(ReconhecedorDeLado());
+            escalaXAlvo = tr.localScale.x;
         }
 
         void Update()
@@ -39,6 +44,8 @@ namespace Componentes.Jogador
             if (ctrl)
                 if (ctrl.ObterEntradaJogador().acao1)
                     animator.SetTrigger("acao");
+
+            AjustarEscala();
         }
 
         bool EstaAndando ()
@@ -58,12 +65,11 @@ namespace Componentes.Jogador
             return false;
         }
 
-        IEnumerator AjustadorDeLado()
+        IEnumerator ReconhecedorDeLado()
         {
             // 1: antes; 2: agora
             float x1 = 0f, x2 = 0f, z1 = 0f, z2 = 0f;
-            Vector3 escalaOriginal = tr.localScale;
-            Vector3 escala = escalaOriginal;
+            float escala_x = tr.localScale.x;
 
             while (true)
             {
@@ -75,20 +81,29 @@ namespace Componentes.Jogador
                 x2 = tr.position.x;
                 z2 = tr.position.z;
 
-                float xDiff = x2 - x1;
-                float zDiff = z2 - z1;
-                float lado = 0f;
+                xDiff = x2 - x1;
+                zDiff = z2 - z1;
 
                 if (xDiff < -0.01f || zDiff < -0.01f)
-                    lado = -1f;
+                    lado = -1;
                 else if (xDiff > 0.01f || zDiff > 0.01f)
-                    lado = 1f;
+                    lado = 1;
 
-                float ladoAbs = Mathf.Abs(lado);
-
-                escala.x = escalaOriginal.x * (ladoAbs > 0.2f ? lado : 1f);
-                tr.localScale = escala;
+                escalaXAlvo = escala_x * lado;
             }
+        }
+
+        void AjustarEscala()
+        {
+            Vector3 escala = tr.localScale;
+
+            escala.x = Mathf.Lerp(
+                escala.x,
+                escalaXAlvo,
+                Time.deltaTime * 4
+            );
+
+            tr.localScale = escala;
         }
     }
 }
