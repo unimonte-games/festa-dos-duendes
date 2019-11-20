@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijogo: 0
+  minijogo: 4
 --- !u!114 &64354557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijogo: 0
+  minijogo: 5
 --- !u!114 &153097482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3575,7 +3575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijogo: 0
+  minijogo: 3
 --- !u!114 &446169696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3592,7 +3592,7 @@ MonoBehaviour:
   - {fileID: 1870161284}
   casaAnterior:
   - {fileID: 1511307931}
-  tipoCasa: 2
+  tipoCasa: 7
 --- !u!23 &446169697
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3610,7 +3610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 14d0918d369d9ee40bae975e23629d95, type: 2}
+  - {fileID: 2100000, guid: 54608f9d4f420bf4094812bfb5247c26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7126,7 +7126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijogo: 0
+  minijogo: 2
 --- !u!114 &943871769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14229,7 +14229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35d2d12471bc9b48a9235349781a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minijogo: 0
+  minijogo: 1
 --- !u!114 &1808894279
 MonoBehaviour:
   m_ObjectHideFlags: 0
