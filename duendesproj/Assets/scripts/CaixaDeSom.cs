@@ -17,11 +17,8 @@ public class CaixaDeSom : MonoBehaviour
     {
         AudioClip efeitoAudio = ObterAudio(efeito);
         if (efeitoAudio != null) {
-            GameObject novaCaixa = Instantiate<GameObject>(
-                new GameObject("Caixa de som " + efeito.ToString()),
-                Vector3.zero,
-                Quaternion.identity
-            );
+            GameObject novaCaixa =
+                new GameObject("Caixa de som " + efeito.ToString());
 
             AudioSource novaCaixa_as = novaCaixa.AddComponent<AudioSource>();
             novaCaixa_as.loop = false;

@@ -4,6 +4,7 @@ namespace Identificadores
 
     public enum CenaID
     {
+        Nenhum = -1,
         Tabuleiro        = 0,
         QuebraBotao      = 1,
         BaldeDasMacas    = 2,

@@ -29,6 +29,12 @@ namespace Gerenciadores
 #endregion
 
         static GerenciadorGeral instancia;
+        public static GameObject tabuleiroRaiz;
+
+        public static GerenciadorGeral ObterInstancia()
+        {
+            return instancia;
+        }
 
         void Awake()
         {
@@ -90,6 +96,7 @@ namespace Gerenciadores
         {
             if (Telas.Preminijogo.cenaMJ != cenaId)
             {
+                TabuleiroRaiz.Desativar();
                 Telas.Preminijogo.cenaMJ = cenaId;
                 instancia._TransitarPara(CenaID.PreMiniJogo);
             }
@@ -126,9 +133,10 @@ namespace Gerenciadores
                 case (int)CenaID.PescaEscorrega: return CenaID.PescaEscorrega;
                 case (int)CenaID.CogumeloQuente: return CenaID.CogumeloQuente;
                 case (int)CenaID.FlautaHero:     return CenaID.FlautaHero;
+                case (int)CenaID.MenuInicial:    return CenaID.MenuInicial;
                 case (int)CenaID.PreMiniJogo:    return CenaID.PreMiniJogo;
             }
-            return CenaID.Tabuleiro;
+            return CenaID.Nenhum;
         }
 
 #endregion gerenciamento de cenas
