@@ -21,5 +21,9 @@ namespace Identificadores
 
     public enum Objetos { Cogumelo, Touca, Flauta, Flor, Pocao };
 
-    public enum PowerUps { MiniJogoGratis, Outros };
+    public enum PowerUps 
+    { 
+        GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, Emprestador, 
+        LadraoDeBanco, PilhaDeFolhas, PausaParaBanheiro, SuperEspanador, SuperEmprestador, SuperPilhaDeFolhas 
+    };
 }

@@ -23,7 +23,7 @@ namespace Componentes.Tabuleiro
         public static void PresenteInesperado()
         {
             GerenciadorPartida.descricaoCarta =
-                "Pelos esforços de vocês, todos ganharão um melhoramento aleatório.";
+                "Pelos esforços de vocês, todos ganharão 1 melhoramento aleatório.";
 
             foreach (Transform jogador in GerenciadorPartida.OrdemJogadores)
             {
@@ -51,7 +51,7 @@ namespace Componentes.Tabuleiro
         public static void TeleportAleatorio()
         {
             GerenciadorPartida.descricaoCarta =
-                "Parece que todos vão dar uma caminhadinha. Os duendes serão movidos para espaços aleatórios no tabuleiro.";
+                "Parece que todos vão dar uma caminhadinha. Os duendes serão movidos para espaços aleatórios.";
 
             GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
             gp.StartCoroutine(gp.TeleportAleatorio());

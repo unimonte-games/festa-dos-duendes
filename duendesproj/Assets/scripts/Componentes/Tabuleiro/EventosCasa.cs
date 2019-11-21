@@ -17,6 +17,9 @@ namespace Componentes.Tabuleiro
 
             try { metodo.Invoke(this, null); }
             catch(System.Exception e) { Debug.LogError(e); }
+
+            GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
+            gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
         }
 
         public void Garrafa()
@@ -41,7 +44,13 @@ namespace Componentes.Tabuleiro
 
         public void PowerUp()
         {
-            Debug.Log("PowerUp aleatório");
+            int qtd = System.Enum.GetNames(typeof(Identificadores.PowerUps)).Length;
+            int rand = Random.Range(0, qtd);
+
+            if (GerenciadorPartida.InvAtual.powerUps.Count < 3)
+            {
+                GerenciadorPartida.InvAtual.powerUps.Add((Identificadores.PowerUps)rand);
+            }
         }
 
         public void Acontecimento()
@@ -57,7 +66,7 @@ namespace Componentes.Tabuleiro
 
         public void Moeda()
         {
-            GerenciadorPartida.InvAtual.moedas += 15;
+            GerenciadorPartida.InvAtual.moedas += 5;
         }
 
         private void ExecMetodoRand(System.Type tipo)

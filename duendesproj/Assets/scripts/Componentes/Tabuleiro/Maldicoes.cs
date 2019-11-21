@@ -17,7 +17,7 @@ namespace Componentes.Tabuleiro
         {
             GerenciadorPartida.InvAtual.powerUps.Clear();
             GerenciadorPartida.descricaoCarta =
-                "Você resolve caminhar pela floresta e deixa uma trilha de melhoramentos para não se perder. Agora você não tem mais nenhum. Talvez não tenha sido uma boa ideia.";
+                "Caminhando pela floresta você deixa uma trilha de melhoramentos para não se perder. Agora você não tem mais nenhum. Talvez não tenha sido uma boa ideia.";
         }
 
         public static void MemoriaCurta()

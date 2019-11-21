@@ -1,27 +1,26 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using Componentes.Jogador;
 using Componentes.Tabuleiro;
 using Identificadores;
-using System.Collections;
 
 namespace Gerenciadores
 {
     public class GerenciadorPartida : MonoBehaviour
     {
         public Transform paiConectores;
-        public GameObject[] jogadorPrefabs;
         public PainelCartas _painelCartas;
+        public Telas.TabuleiroHUD _tabuleiroHUD;
+        public GameObject[] jogadorPrefabs;
+        public static string descricaoCarta;
+        public static Movimentacao MovAtual;
+        public static Inventario InvAtual;
+        public static List<Transform> OrdemJogadores = new List<Transform>();
 
         [HideInInspector]
         public EscolheRota _escolheRota;
 
-        public static string descricaoCarta;
-        public static Movimentacao MovAtual { get; set; }
-        public static Inventario InvAtual { get; set; }
-
-        public static List<Transform> OrdemJogadores = new List<Transform>();
         private int rodada = 1, turno = 0;
 
         private void Start()
@@ -43,11 +42,15 @@ namespace Gerenciadores
 
                 _escolheRota.estadoUIRota(false);
                 _escolheRota.estadoUICarta(true);
+
+                _tabuleiroHUD.fundos[turno].color = Color.green;
             }
         }
 
         public void NovaRodada()
         {
+            _tabuleiroHUD.fundos[turno].color = Color.gray;
+
             turno++;
             if (turno == OrdemJogadores.Count)
             {
@@ -59,16 +62,24 @@ namespace Gerenciadores
             MovAtual = OrdemJogadores[turno].GetComponent<Movimentacao>();
             InvAtual = OrdemJogadores[turno].GetComponent<Inventario>();
 
+            _tabuleiroHUD.fundos[turno].color = Color.green;
+
             //Jogador atual joga caso não esteja preso
             if (InvAtual.rodadasPreso > 0)
             {
-                StartCoroutine(diminuiRodadasPreso(0.5f, 2.5f));
+                StartCoroutine(diminuiRodadasPreso(1f, 3f));
             }
             else
                 _escolheRota.estadoUICarta(true);
 
             if (InvAtual.rodadasSemObj > 0)
                 InvAtual.rodadasSemObj--;
+        }
+
+        public IEnumerator WaitNovaRodada(float tempo)
+        {
+            yield return new WaitForSeconds(tempo);
+            NovaRodada();
         }
 
         public IEnumerator diminuiRodadasPreso(float tempoAnda, float tempoPara)
@@ -103,10 +114,8 @@ namespace Gerenciadores
                 _eventCasa.ativarCasa();
 
                 TiposCasa tipo = casaJogador.GetComponent<CasaBase>().tipoCasa;
-                if (tipo != TiposCasa.Garrafa || tipo != TiposCasa.Moeda)
+                if (tipo != TiposCasa.Garrafa && tipo != TiposCasa.Moeda)
                     _painelCartas.MudaDescricao(tipo, descricaoCarta);
-
-                NovaRodada();
             }
             else
             {
