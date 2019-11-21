@@ -122,7 +122,8 @@ namespace Gerenciadores
                 _eventCasa.ativarCasa();
 
                 TiposCasa tipo = casaJogador.GetComponent<CasaBase>().tipoCasa;
-                if (tipo != TiposCasa.Garrafa && tipo != TiposCasa.Moeda)
+
+                if (tipo == TiposCasa.BemMal || tipo == TiposCasa.Acontecimento)
                     _painelCartas.MudaDescricao(tipo, descricaoCarta);
             }
             else

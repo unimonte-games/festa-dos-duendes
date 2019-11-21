@@ -42,8 +42,6 @@ namespace Componentes.Tabuleiro
             float t = 0f;
             float dtvel = Time.deltaTime * vel;
 
-            
-
             while (true)
             {
                 t = Mathf.Clamp01(t + dtvel);
