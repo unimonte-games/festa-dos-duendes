@@ -121,6 +121,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 568674820, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5730296462886925972, guid: 432ad48935e57f6058fd294a2c2bba3a,
+        type: 3}
     - target: {fileID: 213790933, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
       propertyPath: m_Text
       value: Minijogo
