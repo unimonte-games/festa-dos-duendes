@@ -42,6 +42,8 @@ namespace Componentes.Tabuleiro
             float t = 0f;
             float dtvel = Time.deltaTime * vel;
 
+            
+
             while (true)
             {
                 t = Mathf.Clamp01(t + dtvel);
@@ -66,6 +68,27 @@ namespace Componentes.Tabuleiro
 
                 if (t >= 1)
                     break;
+            }
+        }
+
+        public void MudaDescricao(TiposCasa casa, string descricao)
+        {
+            int i = -1;
+
+            switch (casa)
+            {
+                case TiposCasa.Moeda: i = 0; break;
+                case TiposCasa.BemMal: i = 1; break;
+                case TiposCasa.PowerUp: i = 2; break;
+                case TiposCasa.Garrafa: i = 3; break;
+                case TiposCasa.Acontecimento: i = 4; break;
+                case TiposCasa.MiniJogo: i = 5; break;
+            }
+
+            if (i >= 0)
+            {
+                Text textoCarta = cartas[i].GetComponentInChildren<Text>();
+                textoCarta.text = descricao;
             }
         }
     }

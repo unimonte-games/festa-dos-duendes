@@ -12,96 +12,80 @@ namespace Gerenciadores
     {
         public Transform paiConectores;
         public GameObject[] jogadorPrefabs;
-        public Text textoPartida;
+        public PainelCartas _painelCartas;
+
         [HideInInspector]
         public EscolheRota _escolheRota;
+
+        public static string descricaoCarta;
         public static Movimentacao MovAtual { get; set; }
         public static Inventario InvAtual { get; set; }
 
-        private List<Transform> ordemJogadores = new List<Transform>();
+        public static List<Transform> OrdemJogadores = new List<Transform>();
         private int rodada = 1, turno = 0;
 
         private void Start()
         {
-            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+            if (OrdemJogadores.Count == 0)
             {
-                Transform jogador = Instantiate(jogadorPrefabs[i]).transform;
-                ordemJogadores.Add(jogador.transform);
+                for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+                {
+                    Transform jogador = Instantiate(jogadorPrefabs[i]).transform;
+                    OrdemJogadores.Add(jogador.transform);
 
-                Transform casa = paiConectores.GetChild(i);
-                jogador.transform.position = casa.position;
-                jogador.GetComponent<Movimentacao>().casaAtual = casa;
+                    Transform casa = paiConectores.GetChild(i);
+                    jogador.transform.position = casa.position;
+                    jogador.GetComponent<Movimentacao>().casaAtual = casa;
+                }
+
+                MovAtual = OrdemJogadores[0].GetComponent<Movimentacao>();
+                InvAtual = OrdemJogadores[0].GetComponent<Inventario>();
+
+                _escolheRota.estadoUIRota(false);
+                _escolheRota.estadoUICarta(true);
             }
-
-            MovAtual = ordemJogadores[0].GetComponent<Movimentacao>();
-            InvAtual = ordemJogadores[0].GetComponent<Inventario>();
-
-            _escolheRota.estadoUIRota(false);
-            _escolheRota.estadoUICarta(true);
         }
 
         public void NovaRodada()
         {
             turno++;
-            if (turno == ordemJogadores.Count)
+            if (turno == OrdemJogadores.Count)
             {
                 turno = 0;
                 rodada++;
             }
 
-            MovAtual = ordemJogadores[turno].GetComponent<Movimentacao>();
-            InvAtual = ordemJogadores[turno].GetComponent<Inventario>();
+            //Altera jogador atual
+            MovAtual = OrdemJogadores[turno].GetComponent<Movimentacao>();
+            InvAtual = OrdemJogadores[turno].GetComponent<Inventario>();
 
-            textoPartida.text = "Jogador: " + (turno + 1) + "\nRodada: " + rodada;
-
-            if (InvAtual.itens.Contains(Itens.NaoPegaObj))
+            //Jogador atual joga caso não esteja preso
+            if (InvAtual.rodadasPreso > 0)
             {
-                if (InvAtual.tirarNaoPegaObj)
-                {
-                    //Sem pegar obj para retirar
-                    InvAtual.tirarNaoPegaObj = false;
-                    InvAtual.itens.Remove(Itens.NaoPegaObj);
-                }
-                else
-                {
-                    //Sem pegar obj sem retirar
-                    InvAtual.tirarNaoPegaObj = true;
-                }
-            }
-
-            if (InvAtual.itens.Contains(Itens.Garrafa))
-            {
-                if (InvAtual.tirarGarrafa)
-                {
-                    //Com garrafa para retirar
-                    StartCoroutine(tiraGarrafa(1f));
-                }
-                else
-                {
-                    //Com garrafa sem retirar
-                    InvAtual.tirarGarrafa = true;
-                    StartCoroutine(waitNovaRodada(2.5f));
-                }
+                StartCoroutine(diminuiRodadasPreso(0.5f, 2.5f));
             }
             else
-                //Sem garrafa
                 _escolheRota.estadoUICarta(true);
+
+            if (InvAtual.rodadasSemObj > 0)
+                InvAtual.rodadasSemObj--;
         }
 
-        public IEnumerator tiraGarrafa(float tempo)
+        public IEnumerator diminuiRodadasPreso(float tempoAnda, float tempoPara)
         {
-            yield return new WaitForSeconds(tempo);
-            InvAtual.transform.GetChild(1).gameObject.SetActive(false);
-            InvAtual.itens.Remove(Itens.Garrafa);
+            if (--InvAtual.rodadasPreso == 0)
+            {
+                yield return new WaitForSeconds(tempoAnda);
+                InvAtual.transform.GetChild(1).gameObject.SetActive(false);
 
-            //Mostra Carta de movimentação para o Jogador
-            _escolheRota.estadoUICarta(true);
-        }
-
-        public IEnumerator waitNovaRodada(float tempo)
-        {
-            yield return new WaitForSeconds(tempo);
-            NovaRodada();
+                //Mostra Carta de movimentação para o Jogador
+                _escolheRota.estadoUICarta(true);
+            }
+            else
+            {
+                yield return new WaitForSeconds(tempoPara);
+                NovaRodada();
+            }
         }
 
         public void MoverJogador(int casa)
@@ -118,6 +102,10 @@ namespace Gerenciadores
                 EventosCasa _eventCasa = casaJogador.GetComponent<EventosCasa>();
                 _eventCasa.ativarCasa();
 
+                TiposCasa tipo = casaJogador.GetComponent<CasaBase>().tipoCasa;
+                if (tipo != TiposCasa.Garrafa || tipo != TiposCasa.Moeda)
+                    _painelCartas.MudaDescricao(tipo, descricaoCarta);
+
                 NovaRodada();
             }
             else
@@ -129,7 +117,32 @@ namespace Gerenciadores
 
         public Transform ObterJogadorAtivo()
         {
-            return ordemJogadores[turno];
+            return OrdemJogadores[turno];
+        }
+
+        public IEnumerator VoltaParaInicio()
+        {
+            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+            {
+                Transform casa = paiConectores.GetChild(i);
+                Movimentacao mov = OrdemJogadores[i].GetComponent<Movimentacao>();
+                mov.casaAtual = casa;
+                yield return StartCoroutine(mov.Pulinho(casa.position, Time.time));
+            }
+        }
+
+        public IEnumerator TeleportAleatorio()
+        {
+            int qtdCasas = paiConectores.childCount;
+            foreach (Transform jogador in OrdemJogadores)
+            {
+                int rand = Random.Range(0, qtdCasas);
+                Transform casa = paiConectores.GetChild(rand);
+
+                Movimentacao mov = jogador.GetComponent<Movimentacao>();
+                mov.casaAtual = casa;
+                yield return StartCoroutine(mov.Pulinho(casa.position, Time.time));
+            }
         }
     }
 }

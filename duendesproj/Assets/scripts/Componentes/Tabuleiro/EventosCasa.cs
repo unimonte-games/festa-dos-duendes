@@ -28,7 +28,6 @@ namespace Componentes.Tabuleiro
 
         public void BemMal()
         {
-            MethodInfo[] metodos;
             System.Type tipo;
             float rand = Random.value;
 
@@ -36,6 +35,34 @@ namespace Componentes.Tabuleiro
                 tipo = typeof(Bencaos);
             else
                 tipo = typeof(Maldicoes);
+
+            ExecMetodoRand(tipo);
+        }
+
+        public void PowerUp()
+        {
+            Debug.Log("PowerUp aleatório");
+        }
+
+        public void Acontecimento()
+        {
+            ExecMetodoRand(typeof(Acontecimentos));
+        }
+
+        public void MiniJogo()
+        {
+            if (GerenciadorPartida.InvAtual.moedas >= 25)
+                GerenciadorGeral.TransitarParaMJ(minijogo);
+        }
+
+        public void Moeda()
+        {
+            GerenciadorPartida.InvAtual.moedas += 15;
+        }
+
+        private void ExecMetodoRand(System.Type tipo)
+        {
+            MethodInfo[] metodos;
 
             metodos = tipo.GetMethods(BindingFlags.DeclaredOnly |
                                       BindingFlags.Static |
@@ -48,27 +75,6 @@ namespace Componentes.Tabuleiro
                 metodoRand.Invoke(this, null);
             }
             catch (System.Exception e) { Debug.LogError(e); }
-        }
-
-        public void PowerUp()
-        {
-            Debug.Log("PowerUp aleatório");
-        }
-
-        public void Acontecimento()
-        {
-            Debug.Log("Acontecimento aleatório");
-        }
-
-        public void MiniJogo()
-        {
-            if (GerenciadorPartida.InvAtual.moedas >= 25)
-                GerenciadorGeral.TransitarParaMJ(minijogo);
-        }
-
-        public void Moeda()
-        {
-            GerenciadorPartida.InvAtual.moedas += 15;
         }
     }
 }

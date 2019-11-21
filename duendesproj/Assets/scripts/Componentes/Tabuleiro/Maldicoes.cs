@@ -6,50 +6,62 @@ namespace Componentes.Tabuleiro
 {
     public class Maldicoes : MonoBehaviour
     {
-        public static void Preso2Turnos()
+        public static void ArmadilhaDeDuende()
         {
             GerenciadorPartida.InvAtual.rodadasPreso = 3;
-            Debug.Log("Ficou preso por 2 turnos");
+            GerenciadorPartida.descricaoCarta =
+                "Ah não! Você caiu em uma armadilha e ficou engarrafado. Fique 2 turnos preso.";
         }
 
-        public static void PerdePowerUps()
+        public static void TrilhaPelaFloresta()
         {
             GerenciadorPartida.InvAtual.powerUps.Clear();
-            Debug.Log("Perdeu todos os PowerUps");
+            GerenciadorPartida.descricaoCarta =
+                "Você resolve caminhar pela floresta e deixa uma trilha de melhoramentos para não se perder. Agora você não tem mais nenhum. Talvez não tenha sido uma boa ideia.";
         }
 
-        public static void PerdeObjeto()
+        public static void MemoriaCurta()
         {
             Inventario inv = GerenciadorPartida.InvAtual;
-            int rand = Random.Range(0, inv.objetos.Count);
 
-            inv.objetos.RemoveAt(rand);
-            Debug.Log("Perdeu 1 objeto aleatório");
+            if (inv.objetos.Count > 0)
+            {
+                int rand = Random.Range(0, inv.objetos.Count);
+
+                inv.objetos.RemoveAt(rand);
+                GerenciadorPartida.descricaoCarta =
+                    "Você acaba de notar que seu bolso está mais leve. Você perdeu 1 objeto aleatório. Onde será que ele caiu?";
+            }
         }
 
-        public static void PerdeMoedas()
+        public static void CogumeloEstragado()
         {
-            GerenciadorPartida.InvAtual.moedas -= 10;
+            GerenciadorPartida.InvAtual.moedas -= 15;
             GerenciadorPartida.InvAtual.moedas %= 1;
-            Debug.Log("Perdeu 10 moedas");
+            GerenciadorPartida.descricaoCarta =
+                "Acho que os cogumelos não fizeram muito bem pra alguém... De repente você nota que perdeu 15 moedas. Uma pena, não?";
         }
 
-        //public static void PerdeMoedasParaJogador()
-        //{
-        //    Inventario jogador1, jogador2;
-        //    jogador1 = GerenciadorPartida.InvAtual;
+        public static void DivisaoJusta()
+        {
+            foreach (var jogador in GerenciadorPartida.OrdemJogadores)
+            {
+                Inventario inv = jogador.GetComponent<Inventario>();
+                inv.moedas += 2;
+            }
 
-        //    do
-        //    {
-        //        int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
-        //    } while (jogador1 != jogador2);
-        //    Debug.Log("");
-        //}
+            GerenciadorPartida.InvAtual.moedas -= 2 * GerenciadorGeral.qtdJogadores;
+            GerenciadorPartida.InvAtual.moedas %= 1;
 
-        public static void SemPegarObj()
+            GerenciadorPartida.descricaoCarta =
+                "Você tem moedas demais. Divida com seus amigos; dê 2 moedas para cada um!";
+        }
+
+        public static void AlergiaBraba()
         {
             GerenciadorPartida.InvAtual.rodadasSemObj = 2;
-            Debug.Log("Não pode pegar objetos por 1 rodada");
+            GerenciadorPartida.descricaoCarta =
+                "Parece que alguém cheirou flores demais. Fique 1 turno sem poder pegar objetos, você estará ocupado demais limpando o narigão."; 
         }
     }
 }
