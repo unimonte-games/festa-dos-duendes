@@ -496,7 +496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.9999695}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64317542
@@ -1154,6 +1154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596768617480978505, guid: d5abb12e3d0bd03d4840f1f437f6d36d,
+        type: 3}
+      propertyPath: viewIdField
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5abb12e3d0bd03d4840f1f437f6d36d, type: 3}
@@ -2466,6 +2471,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2396383152571801660, guid: 7987021ed331bea3899e15cc99f9084d,
+        type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7987021ed331bea3899e15cc99f9084d, type: 3}
 --- !u!4 &591904188 stripped
@@ -2510,7 +2520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.85}
   m_AnchorMax: {x: 0.2, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5.000061}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644948863
@@ -3105,6 +3115,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5307065282408466346, guid: a0daa7156bb7c04f584dbf6c1cec2bf6,
+        type: 3}
+      propertyPath: viewIdField
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0daa7156bb7c04f584dbf6c1cec2bf6, type: 3}
 --- !u!4 &839585293 stripped
@@ -3149,7 +3164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0}
   m_AnchorMax: {x: 0.8, y: 0.15}
-  m_AnchoredPosition: {x: 0, y: -5.000061}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844814282
@@ -3998,7 +4013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35, y: 0.85}
   m_AnchorMax: {x: 0.85, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5.000061}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1244198726
@@ -4063,7 +4078,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 72
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -4071,7 +4086,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cr\xE9ditos: feito por umas pessoas ai"
+  m_Text: "Cr\xE9ditos:\n  Andr\xE9 Luiz Alvares: Programa\xE7\xE3o, gest\xE3o do
+    Github, documenta\xE7\xE3o do GDD na Wiki.\n\n  Nicolas Andalaft: Programa\xE7\xE3o.\n\n
+    \ Aurora Carvalho: Ilustra\xE7\xE3o, projeto de jogo, documenta\xE7\xE3o GDD.\n\n
+    \ Victor Hugo Possentt: Modelagem 3D e documenta\xE7\xE3o do Paper.\n\n\nSons
+    utilizados:\nEste jogo esses sons vindos da Freesound:\n\npassoGrama:\n\"SlowStepsOnGrass02\"
+    modificado (recorte), originalmente por falcospizaetus (https://freesound.org/people/falcospizaetus/),
+    licenciado sob CC-0.\n\nFonte utilizada: \nSoft Marshmallow, de Galdino Otten\nc\xF3pia
+    da licen\xE7a dispon\xEDvel em:\nhttps://github.com/unimonte-games/festa-dos-duendes/blob/master/duendesproj/Assets/Fontes/Soft%20Marshmallow.pdf\n\nLicen\xE7a
+    CC-0 dispon\xEDvel em:\nhttps://creativecommons.org/publicdomain/zero/1.0/\n"
 --- !u!222 &1244198729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6050,6 +6073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017475830604600861, guid: b38f370bf27327e03b9c16997d66b320,
+        type: 3}
+      propertyPath: viewIdField
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38f370bf27327e03b9c16997d66b320, type: 3}
