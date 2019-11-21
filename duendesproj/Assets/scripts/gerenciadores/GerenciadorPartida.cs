@@ -25,11 +25,19 @@ namespace Gerenciadores
 
         private void Start()
         {
+            GameObject tronco_gbj = FindObjectOfType<TabuleiroRaiz>().tronco_gbj;
+
             if (OrdemJogadores.Count == 0)
             {
                 for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
                 {
-                    Transform jogador = Instantiate(jogadorPrefabs[i]).transform;
+                    Transform jogador = Instantiate(
+                        jogadorPrefabs[i],
+                        Vector3.zero,
+                        Quaternion.identity,
+                        tronco_gbj.transform
+                        ).transform;
+
                     OrdemJogadores.Add(jogador.transform);
 
                     Transform casa = paiConectores.GetChild(i);
