@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Gerenciadores;
-using Identificadores;
 using Componentes.Jogador;
 
 namespace Componentes.Tabuleiro
@@ -9,7 +8,7 @@ namespace Componentes.Tabuleiro
     {
         public static void Preso2Turnos()
         {
-            //TODO: prender por 2 turnos
+            GerenciadorPartida.InvAtual.rodadasPreso = 3;
             Debug.Log("Ficou preso por 2 turnos");
         }
 
@@ -31,19 +30,26 @@ namespace Componentes.Tabuleiro
         public static void PerdeMoedas()
         {
             GerenciadorPartida.InvAtual.moedas -= 10;
+            GerenciadorPartida.InvAtual.moedas %= 1;
             Debug.Log("Perdeu 10 moedas");
         }
 
-        public static void PerdeMoedasParaJogador()
-        {
-            //TODO: isso
-            Debug.Log("");
-        }
+        //public static void PerdeMoedasParaJogador()
+        //{
+        //    Inventario jogador1, jogador2;
+        //    jogador1 = GerenciadorPartida.InvAtual;
+
+        //    do
+        //    {
+        //        int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
+        //    } while (jogador1 != jogador2);
+        //    Debug.Log("");
+        //}
 
         public static void SemPegarObj()
         {
-            GerenciadorPartida.InvAtual.itens.Add(Itens.NaoPegaObj);
-            Debug.Log("Não pode pegar objetos por 1 turno");
+            GerenciadorPartida.InvAtual.rodadasSemObj = 2;
+            Debug.Log("Não pode pegar objetos por 1 rodada");
         }
     }
 }

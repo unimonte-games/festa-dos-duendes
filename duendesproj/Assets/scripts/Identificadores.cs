@@ -22,6 +22,4 @@ namespace Identificadores
     public enum Objetos { Cogumelo, Touca, Flauta, Flor, Pocao };
 
     public enum PowerUps { MiniJogoGratis, Outros };
-
-    public enum Itens { Garrafa, NaoPegaObj }
 }

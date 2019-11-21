@@ -48,7 +48,7 @@ namespace Componentes.Tabuleiro
         {
             Inventario inv = GerenciadorPartida.InvAtual;
 
-            if (!inv.itens.Contains(Itens.NaoPegaObj))
+            if (inv.rodadasSemObj == 0)
             {
                 int rand = Random.Range(0, inv.objetos.Count);
                 inv.objetos.Add((Objetos)rand);
@@ -60,9 +60,14 @@ namespace Componentes.Tabuleiro
 
         public static void GanhaMinijogo()
         {
-            GerenciadorPartida.InvAtual.powerUps.Add(PowerUps.MiniJogoGratis);
-
-            Debug.Log("Ganhou 1 Minijogo gratis");
+            Inventario inv = GerenciadorPartida.InvAtual;
+            if (inv.powerUps.Count < 3)
+            {
+                inv.powerUps.Add(PowerUps.MiniJogoGratis);
+                Debug.Log("Ganhou 1 Minijogo gratis");
+            }
+            else
+                Debug.Log("Não pode pegar outro PowerUp");
         }
     }
 }
