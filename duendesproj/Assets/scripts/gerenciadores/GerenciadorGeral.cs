@@ -25,6 +25,8 @@ namespace Gerenciadores
         /// </summary>
         public static int[] pontuacao = new int[4];
 
+        public static bool modoOnline;
+
 #region UNITY_EDITOR
         public bool usandoGGTest;
 #endregion
