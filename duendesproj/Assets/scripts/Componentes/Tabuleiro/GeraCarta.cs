@@ -28,6 +28,7 @@ namespace Componentes.Tabuleiro
             else
                 carta = TiposCasa.MiniJogo;
 
+            PainelCartas.MostrarCarta(carta);
             Debug.Log(carta);
 
             _gerenPartida.MoverJogador((int)carta);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Identificadores;
+using Componentes.Tabuleiro;
 
 namespace Gerenciadores
 {
