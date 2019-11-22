@@ -31,10 +31,10 @@ namespace Componentes.Tabuleiro
 
                 if (inv.powerUps.Count < 3)
                 {
-                    int qtd = System.Enum.GetValues(typeof(Identificadores.PowerUps)).Length; ;
+                    int qtd = System.Enum.GetValues(typeof(Identificadores.PowerUp)).Length; ;
                     int rand = Random.Range(0, qtd);
 
-                    inv.powerUps.Add((Identificadores.PowerUps)rand);
+                    inv.powerUps.Add((Identificadores.PowerUp)rand);
                 }
             }
         }

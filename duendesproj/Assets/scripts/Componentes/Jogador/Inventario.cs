@@ -8,7 +8,7 @@ namespace Componentes.Jogador
     {
         public int moedas = 0;
         public List<Objetos> objetos = new List<Objetos>();
-        public List<PowerUps> powerUps = new List<PowerUps>();
+        public List<PowerUp> powerUps = new List<PowerUp>();
         public int rodadasPreso = 0;
         public int rodadasSemObj = 0;
     }

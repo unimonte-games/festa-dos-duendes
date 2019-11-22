@@ -12,13 +12,14 @@ namespace Componentes.Tabuleiro
             Inventario inv = GerenciadorPartida.InvAtual;
             int rand = Random.Range(0, inv.powerUps.Count);
             
-            inv.moedas += 10;
+            TabuleiroHUD.AlteraMoeda(+10);
             GerenciadorPartida.descricaoCarta =
                 "Que chique, hein? Uma carteira novinha em folha e com 10 moedas dentro";
 
             if (inv.powerUps.Count < 3)
             {
-                inv.powerUps.Add((Identificadores.PowerUps)rand);
+                TabuleiroHUD.AlteraPowerUp(1, true);
+                inv.powerUps.Add((Identificadores.PowerUp)rand);
                 GerenciadorPartida.descricaoCarta +=
                     " e um melhoramento!";
             }
@@ -26,7 +27,7 @@ namespace Componentes.Tabuleiro
 
         public static void MoedaNoChapeu()
         {
-            GerenciadorPartida.InvAtual.moedas += 10;
+            TabuleiroHUD.AlteraMoeda(+10);
 
             GerenciadorPartida.descricaoCarta =
                     "Você tira seu chapéu para refrescar a cabeça e encontra 10 moedas perdidas lá dentro. Não é ótimo?";
@@ -38,8 +39,9 @@ namespace Componentes.Tabuleiro
 
             if (inv.powerUps.Count < 3)
             {
+                TabuleiroHUD.AlteraPowerUp(1, true);
                 int rand = Random.Range(0, inv.powerUps.Count);
-                inv.powerUps.Add((Identificadores.PowerUps)rand);
+                inv.powerUps.Add((Identificadores.PowerUp)rand);
 
                 GerenciadorPartida.descricaoCarta =
                     "Você anda bem sortudo, hein? Aqui está: 1 melhoramento para dar um empurrãozinho na sua jornada.";
@@ -70,7 +72,8 @@ namespace Componentes.Tabuleiro
             Inventario inv = GerenciadorPartida.InvAtual;
             if (inv.powerUps.Count < 3)
             {
-                inv.powerUps.Add(Identificadores.PowerUps.GincanaGratis);
+                TabuleiroHUD.AlteraPowerUp(1, true);
+                inv.powerUps.Add(Identificadores.PowerUp.GincanaGratis);
                 GerenciadorPartida.descricaoCarta =
                     "O Duende foi abençoado pela Fadinha Festeira com 1 gincana grátis! Agradeça à Fadinha!";
             }

@@ -44,12 +44,13 @@ namespace Componentes.Tabuleiro
 
         public void PowerUp()
         {
-            int qtd = System.Enum.GetNames(typeof(Identificadores.PowerUps)).Length;
+            int qtd = System.Enum.GetNames(typeof(Identificadores.PowerUp)).Length;
             int rand = Random.Range(0, qtd);
 
             if (GerenciadorPartida.InvAtual.powerUps.Count < 3)
             {
-                GerenciadorPartida.InvAtual.powerUps.Add((Identificadores.PowerUps)rand);
+                TabuleiroHUD.AlteraPowerUp(1, true);
+                GerenciadorPartida.InvAtual.powerUps.Add((Identificadores.PowerUp)rand);
             }
         }
 
@@ -66,7 +67,7 @@ namespace Componentes.Tabuleiro
 
         public void Moeda()
         {
-            GerenciadorPartida.InvAtual.moedas += 5;
+            TabuleiroHUD.AlteraMoeda(+5);
         }
 
         private void ExecMetodoRand(System.Type tipo)
