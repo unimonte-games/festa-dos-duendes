@@ -11,6 +11,21 @@ TextureImporter:
   - first:
       213: -7384044580708910839
     second: assets menu inventario_2
+  - first:
+      213: 6061809393739316022
+    second: assets menu inventario_3
+  - first:
+      213: 4225409750362852540
+    second: assets menu inventario_4
+  - first:
+      213: -2183069543370795182
+    second: assets menu inventario_5
+  - first:
+      213: 6593138082010338307
+    second: assets menu inventario_6
+  - first:
+      213: -5731513611996152443
+    second: assets menu inventario_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +99,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,10 +125,10 @@ TextureImporter:
       name: assets menu inventario_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 587
-        width: 402
-        height: 199
+        x: 15
+        y: 567
+        width: 479
+        height: 219
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +146,8 @@ TextureImporter:
       name: assets menu inventario_1
       rect:
         serializedVersion: 2
-        x: 463
-        y: 618
+        x: 52
+        y: 51
         width: 297
         height: 96
       alignment: 0
@@ -153,6 +180,111 @@ TextureImporter:
       bones: []
       spriteID: 9a54f4e0628ef0a3f9f61fc6ff8a3b01
       internalID: -7384044580708910839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets menu inventario_3
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 734
+        width: 149
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94be1f2d069c0414bb15ce11f2daa7f6
+      internalID: 6061809393739316022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets menu inventario_4
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 734
+        width: 149
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ff40b41d16df047878c6772d51828f
+      internalID: 4225409750362852540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets menu inventario_5
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 667
+        width: 149
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec482b30ba8772640927bf71d321d3c1
+      internalID: -2183069543370795182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets menu inventario_6
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 667
+        width: 149
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f54f7e8bba85e4881a15cdda688063
+      internalID: 6593138082010338307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets menu inventario_7
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 600
+        width: 149
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1842eece0c92d884584722a6d65c1e4a
+      internalID: -5731513611996152443
       vertices: []
       indices: 
       edges: []

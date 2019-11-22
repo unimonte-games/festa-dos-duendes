@@ -117,18 +117,19 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1618297216, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 568674820, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4498b829b9840b843ab40d4293bc2bdc,
         type: 3}
-    - target: {fileID: 1618297216, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 213790933, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
       propertyPath: m_Text
-      value: moeda
+      value: "Voc\xEA viu algo brilhando no ch\xE3o. Parou um momentinho pra observar
+        e notou que encontrou uma pilha de moedas! Receba cinco moedas."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ab70ec7e61521538b9255cc72bbd8d, type: 3}
