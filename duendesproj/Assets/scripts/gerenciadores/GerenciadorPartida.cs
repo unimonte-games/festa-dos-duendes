@@ -11,7 +11,6 @@ namespace Gerenciadores
     {
         public Transform paiConectores;
         public PainelCartas _painelCartas;
-        public Telas.TabuleiroHUD _tabuleiroHUD;
         public GameObject[] jogadorPrefabs;
         public static string descricaoCarta;
         public static Movimentacao MovAtual;
@@ -21,7 +20,7 @@ namespace Gerenciadores
         [HideInInspector]
         public EscolheRota _escolheRota;
 
-        private int rodada = 1, turno = 0;
+        public static int Turno = 0;
 
         private void Start()
         {
@@ -51,26 +50,22 @@ namespace Gerenciadores
                 _escolheRota.estadoUIRota(false);
                 _escolheRota.estadoUICarta(true);
 
-                _tabuleiroHUD.fundos[turno].color = Color.green;
+                TabuleiroHUD.AlteraFundo(Color.green);
             }
         }
 
         public void NovaRodada()
         {
-            _tabuleiroHUD.fundos[turno].color = Color.gray;
+            TabuleiroHUD.AlteraFundo(Color.gray);
 
-            turno++;
-            if (turno == OrdemJogadores.Count)
-            {
-                turno = 0;
-                rodada++;
-            }
+            //Aumenta turno
+            Turno = ++Turno % OrdemJogadores.Count;
 
             //Altera jogador atual
-            MovAtual = OrdemJogadores[turno].GetComponent<Movimentacao>();
-            InvAtual = OrdemJogadores[turno].GetComponent<Inventario>();
+            MovAtual = OrdemJogadores[Turno].GetComponent<Movimentacao>();
+            InvAtual = OrdemJogadores[Turno].GetComponent<Inventario>();
 
-            _tabuleiroHUD.fundos[turno].color = Color.green;
+            TabuleiroHUD.AlteraFundo(Color.green);
 
             //Jogador atual joga caso não esteja preso
             if (InvAtual.rodadasPreso > 0)
@@ -135,7 +130,7 @@ namespace Gerenciadores
 
         public Transform ObterJogadorAtivo()
         {
-            return OrdemJogadores[turno];
+            return OrdemJogadores[Turno];
         }
 
         public IEnumerator VoltaParaInicio()
