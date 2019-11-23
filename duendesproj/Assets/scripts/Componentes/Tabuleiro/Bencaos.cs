@@ -7,62 +7,79 @@ namespace Componentes.Tabuleiro
 {
     public class Bencaos : MonoBehaviour
     {
-        public static void GanhaMoedaPowerUp()
+        public static void CarteiraNova()
         {
             Inventario inv = GerenciadorPartida.InvAtual;
             int rand = Random.Range(0, inv.powerUps.Count);
             
-            inv.moedas += 10;
-            Debug.Log("Ganhou 10 moedas");
+            TabuleiroHUD.AlteraMoeda(+10);
+            GerenciadorPartida.descricaoCarta =
+                "Que chique, hein? Uma carteira novinha em folha e com 10 moedas dentro";
 
             if (inv.powerUps.Count < 3)
             {
-                inv.powerUps.Add((PowerUps)rand);
-                Debug.Log("E 1 PowerUp");
+                TabuleiroHUD.AlteraPowerUp(1, true);
+                inv.powerUps.Add((Identificadores.PowerUp)rand);
+                GerenciadorPartida.descricaoCarta +=
+                    " e um melhoramento!";
             }
         }
 
-        public static void GanhaMoeda()
+        public static void MoedaNoChapeu()
         {
-            GerenciadorPartida.InvAtual.moedas += 10;
+            TabuleiroHUD.AlteraMoeda(+10);
 
-            Debug.Log("Ganhou 10 moedas");
+            GerenciadorPartida.descricaoCarta =
+                    "Você tira seu chapéu para refrescar a cabeça e encontra 10 moedas perdidas lá dentro. Não é ótimo?";
         }
 
-        public static void GanhaPowerUp()
+        public static void MelhoramentoGratis()
         {
             Inventario inv = GerenciadorPartida.InvAtual;
 
             if (inv.powerUps.Count < 3)
             {
+                TabuleiroHUD.AlteraPowerUp(1, true);
                 int rand = Random.Range(0, inv.powerUps.Count);
-                inv.powerUps.Add((PowerUps)rand);
+                inv.powerUps.Add((Identificadores.PowerUp)rand);
 
-                Debug.Log("Ganhou 1 powerup");
+                GerenciadorPartida.descricaoCarta =
+                    "Você anda bem sortudo, hein? Aqui está: 1 melhoramento para dar um empurrãozinho na sua jornada.";
             }
             else
-                Debug.Log("Sem espaço para mais PowerUps");
+                GerenciadorPartida.descricaoCarta =
+                    "Aqui está: 1 melhoramento só para você! O que? Está com os bolsos cheios? Mas que mal agradecido...";
         }
 
-        public static void GanhaObjeto()
+        public static void SorteGrande()
         {
             Inventario inv = GerenciadorPartida.InvAtual;
 
-            if (!inv.itens.Contains(Itens.NaoPegaObj))
+            if (inv.rodadasSemObj == 0)
             {
                 int rand = Random.Range(0, inv.objetos.Count);
                 inv.objetos.Add((Objetos)rand);
-                Debug.Log("Ganhou 1 objeto");
+                GerenciadorPartida.descricaoCarta =
+                    "Você vai caminhando no tabuleiro quando, de repente, tropeça em algo. Você acaba de ganhar 1 objeto! Parabéns!";
             }
             else
-                Debug.Log("Não pode pegar outro objeto");
+                GerenciadorPartida.descricaoCarta =
+                    "Você caminha pelo tabuleiro e tropeça em 1 objeto! Mas você não enxerga e sai andando direto...";
         }
 
-        public static void GanhaMinijogo()
+        public static void GincanaGratis()
         {
-            GerenciadorPartida.InvAtual.powerUps.Add(PowerUps.MiniJogoGratis);
-
-            Debug.Log("Ganhou 1 Minijogo gratis");
+            Inventario inv = GerenciadorPartida.InvAtual;
+            if (inv.powerUps.Count < 3)
+            {
+                TabuleiroHUD.AlteraPowerUp(1, true);
+                inv.powerUps.Add(Identificadores.PowerUp.GincanaGratis);
+                GerenciadorPartida.descricaoCarta =
+                    "O Duende foi abençoado pela Fadinha Festeira com 1 gincana grátis! Agradeça à Fadinha!";
+            }
+            else
+                GerenciadorPartida.descricaoCarta =
+                    "A Fadinha Festeira lhe entrega 1 gincana grátis... mas opa, você não tem mais espaço.";
         }
     }
 }

@@ -86,9 +86,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9014510300738030439}
+  - {fileID: 528835988883438162}
   - {fileID: 7991154495070760685}
   - {fileID: 8326075708014870764}
-  - {fileID: 528835988883438162}
   - {fileID: 3996719649634732175}
   - {fileID: 2513768044943533235}
   m_Father: {fileID: 607010743705955591}
@@ -279,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 8926311139905712453, guid: 022f369d0ffab8cf49b094b1731e3564,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8926311139905712453, guid: 022f369d0ffab8cf49b094b1731e3564,
         type: 3}
@@ -366,11 +366,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 607010744934878569}
     m_Modifications:
-    - target: {fileID: 1483464696834777623, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
-        type: 3}
-      propertyPath: m_Name
-      value: carta garrafa
-      objectReference: {fileID: 0}
     - target: {fileID: 1097264816787872295, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 1097264816787872295, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1097264816787872295, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
         type: 3}
@@ -475,6 +470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483464696834777623, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
+        type: 3}
+      propertyPath: m_Name
+      value: carta garrafa
       objectReference: {fileID: 0}
     - target: {fileID: 5146217523585078131, guid: 4a07f53cbf9e1bc1198e9c8420c110ea,
         type: 3}
@@ -669,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 7388931043610875600, guid: 982815853aabb7cf58578ecfbcb97d35,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7388931043610875600, guid: 982815853aabb7cf58578ecfbcb97d35,
         type: 3}

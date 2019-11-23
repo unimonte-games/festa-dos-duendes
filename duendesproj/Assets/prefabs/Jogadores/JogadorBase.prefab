@@ -1001,7 +1001,7 @@ Transform:
   m_GameObject: {fileID: 7826317525506834733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 754778925408730832}
   - {fileID: 8511549550571292954}
@@ -1057,8 +1057,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moedas: 0
-  itens: 
-  tirarGarrafa: 0
+  objetos: 
+  powerUps: 
+  rodadasPreso: 0
+  rodadasSemObj: 0
 --- !u!114 &3681516346191066717
 MonoBehaviour:
   m_ObjectHideFlags: 0
