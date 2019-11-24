@@ -14,11 +14,12 @@ namespace Componentes.Tabuleiro
         {
             TiposCasa evento = GetComponent<CasaBase>().tipoCasa;
             MethodInfo metodo = GetType().GetMethod(evento.ToString());
+            GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
 
             metodo.Invoke(this, null);
 
-            GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
-            gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
+            if (gp.enabled)
+                gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
         }
 
         public void Garrafa()
@@ -43,15 +44,14 @@ namespace Componentes.Tabuleiro
 
         public void PowerUp()
         {
-            int qtd = System.Enum.GetNames(typeof(PowerUp)).Length;
+            int qtd = System.Enum.GetNames(typeof(TipoPowerUps)).Length;
             int rand = Random.Range(0, qtd);
 
             Inventario inv = GerenciadorPartida.InvAtual;
 
             if (inv.powerUps.Count < 3)
             {
-                inv.AlteraPowerUp(1, true);
-                inv.powerUps.Add((PowerUp)rand);
+                inv.AddPowerUp((TipoPowerUps)rand);
             }
         }
 

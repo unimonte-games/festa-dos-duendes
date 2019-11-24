@@ -2,12 +2,15 @@
 using System.IO;
 using System.Linq;
 
-public class LeitorDescr : MonoBehaviour
+namespace Componentes.Tabuleiro
 {
-    private static string path = @"./Assets/Info/PowerUpsDescr.txt";
-
-    public static string LeLinha(int posi)
+    public class LeitorDescr : MonoBehaviour
     {
-        return File.ReadLines(path).Skip(posi).Take(1).First();
+        private static string path = @"./Assets/Info/PowerUpsDescr.txt";
+
+        public static string LeLinha(int posi)
+        {
+            return File.ReadLines(path, System.Text.Encoding.GetEncoding("iso-8859-1")).Skip(posi - 1).Take(1).First();
+        }
     }
 }

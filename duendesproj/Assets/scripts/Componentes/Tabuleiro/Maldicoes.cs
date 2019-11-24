@@ -15,7 +15,7 @@ namespace Componentes.Tabuleiro
 
         public static void TrilhaPelaFloresta()
         {
-            GerenciadorPartida.InvAtual.AlteraPowerUp(3, false);
+            GerenciadorPartida.InvAtual.RemovePowerUp(3);
             GerenciadorPartida.InvAtual.powerUps.Clear();
             GerenciadorPartida.descricaoCarta =
                 "Caminhando pela floresta você deixa uma trilha de melhoramentos para não se perder. Agora você não tem mais nenhum. Talvez não tenha sido uma boa ideia.";
@@ -29,7 +29,7 @@ namespace Componentes.Tabuleiro
             {
                 int rand = Random.Range(0, inv.objetos.Count);
 
-                inv.AlteraPowerUp(1, false);
+                inv.RemovePowerUp(1);
                 inv.objetos.RemoveAt(rand);
                 GerenciadorPartida.descricaoCarta =
                     "Você acaba de notar que seu bolso está mais leve. Você perdeu 1 objeto aleatório. Onde será que ele caiu?";

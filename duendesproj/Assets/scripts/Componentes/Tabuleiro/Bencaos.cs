@@ -18,8 +18,7 @@ namespace Componentes.Tabuleiro
 
             if (inv.powerUps.Count < 3)
             {
-                inv.AlteraPowerUp(1, true);
-                inv.powerUps.Add((Identificadores.PowerUp)rand);
+                inv.AddPowerUp((TipoPowerUps)rand);
                 GerenciadorPartida.descricaoCarta +=
                     " e um melhoramento!";
             }
@@ -39,9 +38,8 @@ namespace Componentes.Tabuleiro
 
             if (inv.powerUps.Count < 3)
             {
-                inv.AlteraPowerUp(1, true);
                 int rand = Random.Range(0, inv.powerUps.Count);
-                inv.powerUps.Add((Identificadores.PowerUp)rand);
+                inv.AddPowerUp((TipoPowerUps)rand);
 
                 GerenciadorPartida.descricaoCarta =
                     "Você anda bem sortudo, hein? Aqui está: 1 melhoramento para dar um empurrãozinho na sua jornada.";
@@ -72,8 +70,7 @@ namespace Componentes.Tabuleiro
             Inventario inv = GerenciadorPartida.InvAtual;
             if (inv.powerUps.Count < 3)
             {
-                inv.AlteraPowerUp(1, true);
-                inv.powerUps.Add(Identificadores.PowerUp.GincanaGratis);
+                inv.AddPowerUp(TipoPowerUps.GincanaGratis);
                 GerenciadorPartida.descricaoCarta =
                     "O Duende foi abençoado pela Fadinha Festeira com 1 gincana grátis! Agradeça à Fadinha!";
             }

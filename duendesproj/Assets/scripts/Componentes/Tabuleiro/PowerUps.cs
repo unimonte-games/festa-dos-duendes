@@ -1,21 +1,62 @@
 ﻿using UnityEngine;
 using System.Reflection;
 using Identificadores;
+using Gerenciadores;
+using Componentes.Jogador;
+using System.Linq;
+using UnityEngine.UI;
 
 namespace Componentes.Tabuleiro
 {
     public class PowerUps : MonoBehaviour
     {
+        public GameObject pnlEscolherJogador;
+        public Text textoBtn;
+        private int jogadorEscolhido = -1;
+        private TipoPowerUps powerUpEscolhido;
+
+        private void Start()
+        {
+            textoBtn = pnlEscolherJogador.GetComponentInChildren<Text>();
+        }
+
+        public void escolheJogador()
+        {
+            int qtdJogadores = GerenciadorGeral.qtdJogadores;
+
+            jogadorEscolhido++;
+            jogadorEscolhido %= qtdJogadores;
+
+            if (jogadorEscolhido == GerenciadorPartida.Turno)
+                jogadorEscolhido = ++jogadorEscolhido % qtdJogadores;
+
+            textoBtn.text = "Jogador " + (jogadorEscolhido+1);
+        }
+
         public void AtivarPowerUp(int powerUp)
         {
-            MethodInfo metodo = GetType().GetMethod(
-                ((PowerUp)powerUp).ToString());
-
-            try
+            if (jogadorEscolhido != -1)
             {
+                MethodInfo metodo = GetType().GetMethod(((TipoPowerUps)powerUp).ToString());
+
                 metodo.Invoke(this, null);
+
+                GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
+                gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
             }
-            catch (System.Exception e) { Debug.LogError(e); }
+        }
+
+        public void AtivarEscolha(int i)
+        {
+            Inventario inv = GerenciadorPartida.InvAtual;
+            if (i < inv.powerUps.Count)
+            {
+                jogadorEscolhido = -1;
+                textoBtn.text = "Escolher Jogador";
+                powerUpEscolhido = inv.powerUps[i].tipo;
+                pnlEscolherJogador.SetActive(true);
+                Debug.Log(powerUpEscolhido);
+            }
         }
 
         public static void GincanaGratis()
@@ -25,13 +66,23 @@ namespace Componentes.Tabuleiro
 
         public static void TrocaTudo()
         {
-            Debug.Log("Teste");
+            //TODO: escolher jogador
+            int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
 
+            Inventario jogador = GerenciadorPartida.OrdemJogadores[rand-1].GetComponent<Inventario>();
+
+            PowerUp[] tempList = jogador.powerUps.ToArray();
+            jogador.powerUps = GerenciadorPartida.InvAtual.powerUps;
+            GerenciadorPartida.InvAtual.powerUps = tempList.ToList();
         }
 
         public static void PoeiraNosOlhos()
         {
-            Debug.Log("Teste");
+            //TODO: escolher jogador
+            int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
+
+            Inventario jogador = GerenciadorPartida.OrdemJogadores[rand-1].GetComponent<Inventario>();
+
 
         }
 
