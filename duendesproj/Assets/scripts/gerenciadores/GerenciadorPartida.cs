@@ -78,7 +78,6 @@ namespace Gerenciadores
 
                 _escolheRota.estadoUIRota(false);
                 _escolheRota.estadoUICarta(true);
-                _escolheRota.estadoPowerUps(false);
 
                 TabuleiroHUD.AlteraFundo(Color.green);
             }
@@ -90,6 +89,8 @@ namespace Gerenciadores
                 return;
 
             TabuleiroHUD.AlteraFundo(Color.gray);
+            _escolheRota.estadoPowerUp = true;
+            _escolheRota.AlteraEstadoPowerUps(Turno);
 
             //Aumenta turno
             Turno = ++Turno % OrdemJogadores.Count;

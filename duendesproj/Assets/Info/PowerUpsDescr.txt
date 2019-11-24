@@ -1,0 +1,13 @@
+Gincana Grátis;Você ganhou uma entrada franca para jogar uma gincana! Agora você pode se divertir sem precisar colocar a mão no bolso!
+Troca Tudo;Você tem a chance de passar os outros duendes para trás! Escolha um duende à sua escolha para trocar os seus melhoramentos com ele. (Independe do número de melhoramentos)
+Poeira nos Olhos;Parece que a ventania está forte nesta tarde, hein? Direcione-a para um duende e faça-o ficar sem pegar objetos e melhoramentos por um turno.
+Teletransporte;Rapidez é essencial! Use este melhoramento para trocar de lugar com um duende à sua escolha!
+Espanador;Sabemos que muitos duendes têm mania de limpeza. Aproveite essa desculpa e espane um melhoramento de um duende à sua escolha!
+Mão Escorregadia;Será que você sabe ser discreto? Esperamos que sim. Utilize esse melhoramento para roubar um melhoramento de um duende à sua escolha.
+Emprestador;Pegar as coisas emprestadas e não devolver é um pouco de falta de educação. Nesse caso iremos ignorar isso. Pegue “emprestado” um objeto à sua escolha de um de seus companheiros duendes.
+Ladrão de Banco;Pega ladrão! Brincadeirinha, iremos te ajudar nesse momento. Pegue dez moedas de um duende à sua escolha.
+Pilha de Folhas;Alguns duendes limpam suas casas no início do outono e guardam as folhas que caem. Pegue sua reserva de folhas e coloque-a, por um turno, num espaço do tabuleiro à sua escolha!
+Pausa para o Banheiro;Existem situações extremas onde sacrifícios são necessários. Ajude um amigo duende à sua escolha a sacrificar um turno de jogada para fazer uma pausa para ir ao banheiro.
+Super Espanador;Nesse caso você apenas terá um pouco mais de paciência durante sua limpeza. Espane dois melhoramentos de um duende à sua escolha.
+Super Emprestador;Lembra-se do que eu disse sobre ignorarmos a falta de educação? Aproveite a boa vontade e roube dois objetos de um duende à sua escolha.
+Super Pilha de Folhas;Parece que você estocou folhas demais. Aproveite e coloque-as, por um turno, em dois espaços diferentes do tabuleiro à sua escolha.

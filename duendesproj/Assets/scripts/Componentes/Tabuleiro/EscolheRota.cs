@@ -10,6 +10,7 @@ namespace Componentes.Tabuleiro
         public GameObject UIJogada, UIDirecao, UIPowerUps, setaObj;
         [HideInInspector]
         public bool paraFrente;
+        public bool estadoPowerUp = false;
 
         private Transform casaTemp;
         private Jogador.Movimentacao jogador;
@@ -83,9 +84,11 @@ namespace Componentes.Tabuleiro
             UIJogada.SetActive(estado);
         }
 
-        public void estadoPowerUps(bool estado)
+        public void AlteraEstadoPowerUps(int i = -1)
         {
-            UIPowerUps.SetActive(estado);
+            if (i < 0) i = GerenciadorPartida.Turno;
+            estadoPowerUp = !estadoPowerUp;
+            UIPowerUps.transform.GetChild(i).gameObject.SetActive(estadoPowerUp);
         }
     }
 }

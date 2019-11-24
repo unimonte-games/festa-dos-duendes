@@ -22,9 +22,16 @@ namespace Identificadores
 
     public enum Objetos { Cogumelo, Touca, Flauta, Flor, Pocao };
 
-    public enum PowerUp
+    public enum TipoPowerUps
     {
         GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, Emprestador,
         LadraoDeBanco, PilhaDeFolhas, PausaParaBanheiro, SuperEspanador, SuperEmprestador, SuperPilhaDeFolhas
     };
+
+    public struct PowerUp
+    {
+        public TipoPowerUps tipo;
+        public string titulo;
+        public string descricao;
+    }
 }

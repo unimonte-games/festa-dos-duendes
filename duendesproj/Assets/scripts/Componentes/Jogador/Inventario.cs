@@ -25,19 +25,41 @@ namespace Componentes.Jogador
             txtMoedas.GetComponentInChildren<Text>().text = moedas + " moedas";
         }
 
-        public void AlteraPowerUp(int qtd, bool estado, int i = -1)
+        public void AddPowerUp(TipoPowerUps novoPowerUp, int i = -1)
+        {
+            if (i < 0) i = GerenciadorPartida.Turno;
+
+            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(GerenciadorPartida.Turno);
+
+            string txt = LeitorDescr.LeLinha((int)novoPowerUp);
+
+            PowerUp pw = new PowerUp();
+            pw.tipo = novoPowerUp;
+            pw.titulo = txt.Split(';')[0];
+            pw.descricao = txt.Split(';')[1];
+
+            powerUps.Add(pw);
+            pnlDescricao = pnlDescricao.GetChild(powerUps.Count-1);
+
+            pnlDescricao.Find("titulo").GetComponentInChildren<Text>().text = pw.titulo;
+            pnlDescricao.Find("conteudo").GetComponentInChildren<Text>().text = pw.descricao;
+        }
+
+        public void RemovePowerUp(int qtd, int i = -1)
         {
             if (i < 0) i = GerenciadorPartida.Turno;
 
             Transform pnlPowerUp = TabuleiroHUD.Paineis[i].transform.Find("Painel PowerUps");
+            Text pnlDescricao = TabuleiroHUD.PnlDescricoes.GetComponentInChildren<Text>();
 
-            for (int j = 0; j < qtd; j++)
+            if (qtd <= powerUps.Count)
             {
-                Image fundo = pnlPowerUp.transform.GetChild(j).GetComponent<Image>();
-                fundo.color = estado ? Color.green : Color.black;
-
-                //Text txt = TabuleiroHUD.PnlDescricoes.GetComponentInChildren<Text>();
-                //txt.text = LeitorDescr.LeLinha((int)powerUps[powerUps.Count-1]);
+                for (int j = qtd; j >= 0; j--)
+                {
+                    powerUps.RemoveAt(j);
+                    Image fundo = pnlPowerUp.transform.GetChild(j).GetComponent<Image>();
+                    fundo.color = Color.black;
+                }
             }
         }
 
