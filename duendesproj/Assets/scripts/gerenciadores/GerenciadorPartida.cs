@@ -4,6 +4,8 @@ using System.Collections;
 using Componentes.Jogador;
 using Componentes.Tabuleiro;
 using Identificadores;
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace Gerenciadores
 {
@@ -22,26 +24,53 @@ namespace Gerenciadores
 
         public static int Turno = 0;
 
+        bool jaInicializado, autoridade;
+
         private void Start()
         {
             GameObject tronco_gbj = FindObjectOfType<TabuleiroRaiz>().tronco_gbj;
+            jaInicializado = OrdemJogadores.Count != 0;
 
-            if (OrdemJogadores.Count == 0)
+            autoridade = GerenciadorGeral.modoOnline
+                            ? PhotonNetwork.IsMasterClient
+                            : true;
+
+            if (!autoridade)
+                return;
+
+            if (!jaInicializado)
             {
                 for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
                 {
-                    Transform jogador = Instantiate(
-                        jogadorPrefabs[i],
-                        Vector3.zero,
-                        Quaternion.identity,
-                        tronco_gbj.transform
+                    Transform jogador;
+
+                    if (!GerenciadorGeral.modoOnline)
+                    {
+                        jogador = Instantiate(
+                            jogadorPrefabs[i],
+                            Vector3.zero,
+                            Quaternion.identity,
+                            tronco_gbj.transform
                         ).transform;
+                    }
+                    else
+                    {
+                        jogador = PhotonNetwork.InstantiateSceneObject(
+                            jogadorPrefabs[i].name,
+                            Vector3.zero,
+                            Quaternion.identity
+                        ).transform;
+                        jogador.SetParent(tronco_gbj.transform);
+
+                        if (i > 0)
+                        {
+                            var jogador_pv = jogador.GetComponent<PhotonView>();
+                            var player = PhotonNetwork.CurrentRoom.Players[i+1];
+                            jogador_pv.TransferOwnership(player);
+                        }
+                    }
 
                     OrdemJogadores.Add(jogador.transform);
-
-                    Transform casa = paiConectores.GetChild(i);
-                    jogador.transform.position = casa.position;
-                    jogador.GetComponent<Movimentacao>().casaAtual = casa;
                 }
 
                 MovAtual = OrdemJogadores[0].GetComponent<Movimentacao>();
@@ -57,6 +86,9 @@ namespace Gerenciadores
 
         public void NovaRodada()
         {
+            if (!autoridade)
+                return;
+
             TabuleiroHUD.AlteraFundo(Color.gray);
 
             //Aumenta turno
@@ -105,12 +137,18 @@ namespace Gerenciadores
 
         public void MoverJogador(int casa)
         {
+            if (!autoridade)
+                return;
+
             _escolheRota.estadoUICarta(false);
             StartCoroutine(MovAtual.ProcuraCasa((TiposCasa)casa));
         }
 
         public void fimMov(bool casaEncontrada)
         {
+            if (!autoridade)
+                return;
+
             if (casaEncontrada)
             {
                 Transform casaJogador = MovAtual.GetComponent<Movimentacao>().casaAtual;
@@ -157,6 +195,25 @@ namespace Gerenciadores
                 mov.casaAtual = casa;
                 yield return StartCoroutine(mov.Pulinho(casa.position, Time.time));
             }
+        }
+
+        public static PhotonView ObterPVLocal()
+        {
+            Player jogadorLocal = PhotonNetwork.LocalPlayer;
+            GameObject[] jogadores = GameObject.FindGameObjectsWithTag("Player");
+
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                PhotonView pv = jogadores[i].GetComponent<PhotonView>();
+
+                if (pv.Owner != null)
+                {
+                    if (pv.Owner.ActorNumber == jogadorLocal.ActorNumber)
+                        return pv;
+                }
+            }
+
+            return null;
         }
     }
 }

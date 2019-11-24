@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Gerenciadores;
+using Photon.Pun;
 
 namespace Componentes.Tabuleiro
 {
@@ -16,6 +17,13 @@ namespace Componentes.Tabuleiro
 
         public void EscolherRota(bool confirmacao)
         {
+            if (GerenciadorGeral.modoOnline && !PhotonNetwork.IsMasterClient)
+            {
+                PhotonView pvLocal = GerenciadorPartida.ObterPVLocal();
+                pvLocal.RPC("RPC_EscolherRota", RpcTarget.MasterClient, confirmacao);
+                return;
+            }
+
             jogador = GerenciadorPartida.MovAtual;
 
             if (confirmacao)

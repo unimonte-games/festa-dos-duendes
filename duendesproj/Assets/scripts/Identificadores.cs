@@ -5,14 +5,14 @@ namespace Identificadores
     public enum CenaID
     {
         Nenhum = -1,
-        Tabuleiro        = 0,
-        QuebraBotao      = 1,
-        BaldeDasMacas    = 2,
-        PescaEscorrega   = 3,
-        CogumeloQuente   = 4,
-        FlautaHero       = 5,
-        TelaCarregamento = 6,
-        MenuInicial      = 7,
+        MenuInicial      = 0,
+        Tabuleiro        = 1,
+        QuebraBotao      = 2,
+        BaldeDasMacas    = 3,
+        PescaEscorrega   = 4,
+        CogumeloQuente   = 5,
+        FlautaHero       = 6,
+        TelaCarregamento = 7,
         PreMiniJogo      = 8,
         // TODO: Colocar outros aqui
     };
@@ -21,9 +21,9 @@ namespace Identificadores
 
     public enum Objetos { Cogumelo, Touca, Flauta, Flor, Pocao };
 
-    public enum PowerUp 
-    { 
-        GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, Emprestador, 
-        LadraoDeBanco, PilhaDeFolhas, PausaParaBanheiro, SuperEspanador, SuperEmprestador, SuperPilhaDeFolhas 
+    public enum PowerUp
+    {
+        GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, Emprestador,
+        LadraoDeBanco, PilhaDeFolhas, PausaParaBanheiro, SuperEspanador, SuperEmprestador, SuperPilhaDeFolhas
     };
 }
