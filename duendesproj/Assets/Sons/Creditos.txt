@@ -1,7 +1,0 @@
-Este jogo esses sons vindos da Freesound:
-
-passoGrama:
-"SlowStepsOnGrass02" modificado, originalmente por falcospizaetus (https://freesound.org/people/falcospizaetus/), licenciado sob CC-0
-
-Licença CC-0 disponível em:
-https://creativecommons.org/publicdomain/zero/1.0/

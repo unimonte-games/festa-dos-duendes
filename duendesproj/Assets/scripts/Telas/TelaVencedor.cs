@@ -14,5 +14,10 @@ namespace Telas
         {
             jogadores[(int)GerenciadorGeral.vencedorID].SetActive(true);
         }
+
+        public void Finalizar()
+        {
+            Application.Quit();
+        }
     }
 }
