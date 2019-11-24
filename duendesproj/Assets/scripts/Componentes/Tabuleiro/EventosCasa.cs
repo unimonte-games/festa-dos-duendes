@@ -80,12 +80,9 @@ namespace Componentes.Tabuleiro
                                       BindingFlags.Public);
 
             int rd = Random.Range(0, metodos.Length);
-            try
-            {
-                MethodInfo metodoRand = metodos[rd];
-                metodoRand.Invoke(this, null);
-            }
-            catch (System.Exception e) { Debug.LogError(e); }
+
+            MethodInfo metodoRand = metodos[rd];
+            metodoRand.Invoke(this, null);
         }
     }
 }
