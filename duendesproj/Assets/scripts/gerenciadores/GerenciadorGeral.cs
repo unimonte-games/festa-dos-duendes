@@ -33,6 +33,7 @@ namespace Gerenciadores
 
         static GerenciadorGeral instancia;
         public static GameObject tabuleiroRaiz;
+        public static JogadorID vencedorID;
 
         public static GerenciadorGeral ObterInstancia() { return instancia; }
 

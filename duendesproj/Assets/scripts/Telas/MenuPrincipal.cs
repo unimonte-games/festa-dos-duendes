@@ -28,14 +28,6 @@ namespace Telas
 
         void Start()
         {
-            for (int i = 0; i < circulos.childCount; i++)
-            {
-                Transform circulo = circulos.GetChild(i);
-                var mov =
-                    circulo.GetComponent<Componentes.Jogador.Movimentador>();
-                mov.velocidade = Random.Range(0.5f, 1f);
-            }
-
             AtualizaListaVisualJogadores();
         }
 
