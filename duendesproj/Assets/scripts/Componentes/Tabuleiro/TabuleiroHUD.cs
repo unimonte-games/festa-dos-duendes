@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Gerenciadores;
-using Componentes.Jogador;
-using UnityEngine.U2D;
 
 namespace Componentes.Tabuleiro
 {
@@ -31,36 +29,11 @@ namespace Componentes.Tabuleiro
             }
         }
 
-        public static void AlteraMoeda(int qtd, bool substitui = false, Inventario inv = null)
-        {
-            if (inv == null) inv = GerenciadorPartida.InvAtual;
-
-            inv.moedas = substitui ? qtd : qtd + inv.moedas;
-            if (inv.moedas < 0) inv.moedas = 0;
-
-            int i = GerenciadorPartida.Turno;
-            Transform moedas = Paineis[i].transform.Find("Painel Moedas");
-            moedas.GetComponentInChildren<Text>().text = inv.moedas + " moedas";
-        }
-
         public static void AlteraFundo(Color cor)
         {
             int i = GerenciadorPartida.Turno;
             Transform fundo = Paineis[i].transform.Find("Fundo Jogador");
             fundo.GetComponent<Image>().color = cor;
-        }
-
-        public static void AlteraPowerUp(int qtd, bool estado, int i = -1)
-        {
-            if (i < 0) i = GerenciadorPartida.Turno;
-
-            Transform painel = Paineis[i].transform.Find("Painel PowerUps");
-
-            for (int j = 0; j < qtd; j++)
-            {
-                Image fundo = painel.transform.GetChild(j).GetComponent<Image>();
-                fundo.color = estado ? Color.green : Color.black;
-            }
         }
     }
 }
