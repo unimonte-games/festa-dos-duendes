@@ -68,6 +68,8 @@ namespace Gerenciadores {
         /// <summary>Evento que é chamado ao se encerrar a partida</summary>
         [HideInInspector] public UnityEvent evtAoTerminar;
 
+        public Objetos objetoDoMJ;
+
         void Start()
         {
             InstanciarJogadores();
@@ -130,7 +132,7 @@ namespace Gerenciadores {
 
             yield return new WaitForSeconds(3);
 
-            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao);
+            GerenciadorGeral.PontuarCampeaoMJ(jogadorCampeao, objetoDoMJ);
         }
     }
 }

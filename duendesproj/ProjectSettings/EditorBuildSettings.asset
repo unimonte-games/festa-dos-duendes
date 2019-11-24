@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Telas/Menu Preminijogo.unity
     guid: 42573da745ee52a21b5990f4ee0dcdf1
+  - enabled: 1
+    path: Assets/Scenes/Telas/Vencedor.unity
+    guid: d94d402f494fdec859dfea8dedb0c6a5
   m_configObjects: {}

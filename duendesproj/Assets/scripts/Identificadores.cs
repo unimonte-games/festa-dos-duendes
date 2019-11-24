@@ -14,6 +14,7 @@ namespace Identificadores
         FlautaHero       = 6,
         TelaCarregamento = 7,
         PreMiniJogo      = 8,
+        Vencedor         = 9,
         // TODO: Colocar outros aqui
     };
 

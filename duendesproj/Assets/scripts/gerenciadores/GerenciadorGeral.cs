@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Identificadores;
 using Componentes.Tabuleiro;
+using Componentes.Jogador;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -86,10 +87,22 @@ namespace Gerenciadores
         /// Pontua o jogador correspondente ao parâmetro
         /// com PONTOS_POR_VENCEDOR_MJ pontos.
         /// </summary>
-        public static void PontuarCampeaoMJ(JogadorID jogadorID)
+        public static void PontuarCampeaoMJ(JogadorID jogadorID, Objetos objMJ)
         {
             pontuacao[(int)jogadorID] += PONTOS_POR_VENCEDOR_MJ;
-            instancia._TransitarPara(CenaID.Tabuleiro);
+
+            Inventario inventarioJogador = GerenciadorPartida
+                                            .OrdemJogadores[(int)jogadorID]
+                                            .GetComponent<Inventario>();
+
+            inventarioJogador.AlteraObjeto(objMJ, true);
+
+            if (inventarioJogador.VerificaSeGanhou()) {
+                vencedorID = jogadorID;
+                instancia._TransitarPara(CenaID.Vencedor);
+            }
+            else
+                instancia._TransitarPara(CenaID.Tabuleiro);
         }
 
         /// <summary>
@@ -98,6 +111,7 @@ namespace Gerenciadores
         public static void TransitarParaMJ(CenaID cenaId)
         {
             if (cenaId != CenaID.Tabuleiro &&
+                cenaId != CenaID.Vencedor &&
                 Telas.Preminijogo.cenaMJ != cenaId)
             {
                 TabuleiroRaiz.Desativar();

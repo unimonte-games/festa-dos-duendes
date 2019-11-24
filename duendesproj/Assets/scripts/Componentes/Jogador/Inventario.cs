@@ -46,20 +46,21 @@ namespace Componentes.Jogador
             {
                 objetos.Add(obj);
                 //TODO: mudar cor do icone
-
-                int index = 0;
-                while (objetos.Contains((Objetos)index)) { index++; }
-
-                if (index == 5)
-                {
-                    //TODO: jogador ganhou
-                }
             }
             else
             {
                 objetos.Remove(obj);
                 //TODO: mudar cor do icone
             }
+        }
+
+        public bool VerificaSeGanhou()
+        {
+            int index = 0;
+            while (objetos.Contains((Objetos)index))
+                index++;
+
+            return index == 5;
         }
     }
 }
