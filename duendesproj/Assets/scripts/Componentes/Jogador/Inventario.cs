@@ -36,7 +36,8 @@ namespace Componentes.Jogador
                 Image fundo = pnlPowerUp.transform.GetChild(j).GetComponent<Image>();
                 fundo.color = estado ? Color.green : Color.black;
 
-                //pnlDescricao.GetComponentInChildren<Text>().text = GerenciadorPartida.descricaoCarta;
+                //Text txt = TabuleiroHUD.PnlDescricoes.GetComponentInChildren<Text>();
+                //txt.text = LeitorDescr.LeLinha((int)powerUps[powerUps.Count-1]);
             }
         }
 

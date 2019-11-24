@@ -7,9 +7,10 @@ namespace Componentes.Tabuleiro
     public class TabuleiroHUD : MonoBehaviour
     {
         public Sprite[] spritesCabecas;
-        public RectTransform painelPrincipal;
+        public Transform painelPrincipal;
         public GameObject painelPrefab;
-        public static RectTransform[] Paineis = new RectTransform[GerenciadorGeral.qtdJogadores];
+        public static Transform PnlDescricoes;
+        public static Transform[] Paineis = new Transform[GerenciadorGeral.qtdJogadores];
 
         private void Start()
         {
@@ -27,6 +28,8 @@ namespace Componentes.Tabuleiro
                     rosto.GetComponent<Image>().sprite = spritesCabecas[i];
                 }
             }
+
+            PnlDescricoes = transform.Find("Painel Descricoes");
         }
 
         public static void AlteraFundo(Color cor)
