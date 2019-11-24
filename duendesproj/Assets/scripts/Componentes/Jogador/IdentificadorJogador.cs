@@ -12,15 +12,15 @@ namespace Componentes.Jogador {
 
         void Start()
         {
-            var jogadores = FindObjectsOfType<IdentificadorJogador>();
-
-            switch(jogadores.Length)
-            {
-                case 0: jogadorID = JogadorID.J1; break;
-                case 1: jogadorID = JogadorID.J2; break;
-                case 2: jogadorID = JogadorID.J3; break;
-                case 3: jogadorID = JogadorID.J4; break;
-            }
+            //var jogadores = FindObjectsOfType<IdentificadorJogador>();
+//
+            //switch(jogadores.Length)
+            //{
+                //case 0: jogadorID = JogadorID.J1; break;
+                //case 1: jogadorID = JogadorID.J2; break;
+                //case 2: jogadorID = JogadorID.J3; break;
+                //case 3: jogadorID = JogadorID.J4; break;
+            //}
         }
     }
 }

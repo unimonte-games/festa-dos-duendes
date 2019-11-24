@@ -53,6 +53,27 @@ namespace Gerenciadores
             PhotonNetwork.AutomaticallySyncScene = true;
         }
 
+#if UNITY_EDITOR
+        [Space(10)]
+        [Header("DEBUG VIEW")]
+        public int DV_qtdJogadores = 4;
+        public int[] DV_pontuacao = new int[4];
+        public bool DV_modoOnline;
+        public string DV__versaoRede = "0.1";
+        public GameObject DV_tabuleiroRaiz;
+        public JogadorID DV_vencedorID;
+
+        void Update()
+        {
+            DV_qtdJogadores = qtdJogadores;
+            DV_pontuacao = pontuacao;
+            DV_modoOnline = modoOnline;
+            DV__versaoRede = _versaoRede;
+            DV_tabuleiroRaiz = tabuleiroRaiz;
+            DV_vencedorID = vencedorID;
+        }
+#endif
+
 #region (de)cadastramento de jogadores
 
         /// <summary>
