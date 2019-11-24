@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Componentes.Jogador;
 using Componentes.Tabuleiro;
 using Identificadores;
 
@@ -22,6 +23,10 @@ namespace Componentes.Jogador
         {
             _gerenPart = FindObjectOfType<Gerenciadores.GerenciadorPartida>();
             inicioMov = true;
+
+            JogadorID jid = GetComponent<IdentificadorJogador>().jogadorID;
+            casaAtual = _gerenPart.paiConectores.GetChild((int)jid);
+            transform.position = casaAtual.position;
         }
 
         public void SetCasaAtual(Transform casa)
@@ -31,7 +36,7 @@ namespace Componentes.Jogador
         }
 
         public IEnumerator ProcuraCasa(TiposCasa corDesejada)
-        {           
+        {
             bool achou = false;
             Transform casaTemp = casaAtual;
             TiposCasa corTemp = casaTemp.GetComponent<CasaBase>().tipoCasa;

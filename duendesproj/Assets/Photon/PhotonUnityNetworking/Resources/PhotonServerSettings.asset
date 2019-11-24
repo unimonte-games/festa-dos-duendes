@@ -34,5 +34,8 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RPC_GerarCarta
+  - RPC_AtivarPowerUp
+  - RPC_EscolherRota
   DisableAutoOpenWizard: 1
   ShowSettings: 0

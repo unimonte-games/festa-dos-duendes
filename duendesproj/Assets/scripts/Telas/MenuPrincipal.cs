@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using Gerenciadores;
 using Identificadores;
 using Componentes.Jogador;
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace Telas
 {
@@ -73,15 +75,40 @@ namespace Telas
             }
         }
 
-        public void BtMenuPrincipal() { telaAtual = 0; }
+        public void BtMenuPrincipal()
+        {
+            telaAtual = 0;
+            if (GerenciadorGeral.modoOnline)
+                GerenciadorGeral.DesconectarRede();
+        }
         public void BtJogar()         { telaAtual = 1; }
         public void BtInstrucoes()    { telaAtual = 2; }
         public void BtCreditos()      { telaAtual = 3; }
+        public void BtJogarRede()
+        {
+            telaAtual = 4;
+            GerenciadorGeral.ConectarRede();
+        }
 
         public void BtIniciarPartida()
         {
+            if (GerenciadorGeral.modoOnline && PhotonNetwork.IsMasterClient)
+            {
+                var room = PhotonNetwork.CurrentRoom;
+                if (room == null)
+                    return;
+
+                GerenciadorGeral.qtdJogadores = room.PlayerCount;
+            }
+
+
             GerenciadorGeral.TransitarParaMJ(CenaID.Tabuleiro);
         }
+
+        //public void BtIniciarPartidaRede()
+        //{
+            //GerenciadorGeral.TransitarParaMJ(CenaID.Tabuleiro);
+        //}
 
         public void CadastrarJogador()
         {

@@ -1044,6 +1044,7 @@ GameObject:
   - component: {fileID: 421956280038527547}
   - component: {fileID: -6881591407131961449}
   - component: {fileID: 68740333918470957}
+  - component: {fileID: 4069480324888307833}
   m_Layer: 0
   m_Name: Jogador
   m_TagString: Player
@@ -1238,7 +1239,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 1
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 68740333918470957}
   viewIdField: 0
@@ -1259,6 +1260,18 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &4069480324888307833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331946322051694165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343ba742e41c34a1eb10f4119d8ef55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3434399121815507516
 GameObject:
   m_ObjectHideFlags: 0

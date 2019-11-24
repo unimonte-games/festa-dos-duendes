@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Identificadores;
+using Photon.Pun;
+using Photon.Realtime;
+using Gerenciadores;
 
 namespace Componentes.Tabuleiro
 {
@@ -15,6 +18,13 @@ namespace Componentes.Tabuleiro
 
         public void GerarCarta()
         {
+            if (GerenciadorGeral.modoOnline && !PhotonNetwork.IsMasterClient)
+            {
+                PhotonView pvLocal = GerenciadorPartida.ObterPVLocal();
+                pvLocal.RPC("RPC_GerarCarta", RpcTarget.MasterClient);
+                return;
+            }
+
             float rand = Random.value;
             TiposCasa carta;
 

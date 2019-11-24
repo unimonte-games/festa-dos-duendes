@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Identificadores;
 using Componentes.Tabuleiro;
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace Gerenciadores
 {
-    public class GerenciadorGeral : MonoBehaviour
+    public class GerenciadorGeral : MonoBehaviourPunCallbacks
     {
         /// <summary>
         /// Quantidade de jogadores em jogo,
@@ -26,18 +28,13 @@ namespace Gerenciadores
         public static int[] pontuacao = new int[4];
 
         public static bool modoOnline;
-
-#region UNITY_EDITOR
-        public bool usandoGGTest;
-#endregion
+        static bool conectando;
+        public static string _versaoRede = "0.1";
 
         static GerenciadorGeral instancia;
         public static GameObject tabuleiroRaiz;
 
-        public static GerenciadorGeral ObterInstancia()
-        {
-            return instancia;
-        }
+        public static GerenciadorGeral ObterInstancia() { return instancia; }
 
         void Awake()
         {
@@ -50,6 +47,8 @@ namespace Gerenciadores
             // eu acho que poderia escrever = this; mas não tenho certeza
             instancia = GetComponent<GerenciadorGeral>();
             DontDestroyOnLoad(gameObject);
+
+            PhotonNetwork.AutomaticallySyncScene = true;
         }
 
 #region (de)cadastramento de jogadores
@@ -97,7 +96,8 @@ namespace Gerenciadores
         /// </summary>
         public static void TransitarParaMJ(CenaID cenaId)
         {
-            if (Telas.Preminijogo.cenaMJ != cenaId)
+            if (cenaId != CenaID.Tabuleiro &&
+                Telas.Preminijogo.cenaMJ != cenaId)
             {
                 TabuleiroRaiz.Desativar();
                 Telas.Preminijogo.cenaMJ = cenaId;
@@ -111,18 +111,6 @@ namespace Gerenciadores
 
         void _TransitarPara(CenaID cenaId)
         {
-            // Se estiver rodando no Editor, se rodamos o jogo no GGTest
-            // e a cena pra carregar é o tabuleiro, ao invés de carregar
-            // o tabuleiro, carregamos o GGTest.
-            // caso contrário, carregue o cenaId normalmente (esse vai
-            // ser o caso pro jogador final sempre)
-#if UNITY_EDITOR
-            if (usandoGGTest && cenaId == CenaID.Tabuleiro)
-            {
-                SceneManager.LoadScene("GGTest");
-                return;
-            }
-#endif
             SceneManager.LoadScene((int)cenaId);
         }
 
@@ -140,6 +128,54 @@ namespace Gerenciadores
                 case (int)CenaID.PreMiniJogo:    return CenaID.PreMiniJogo;
             }
             return CenaID.Nenhum;
+        }
+
+        public static void ConectarRede()
+        {
+            modoOnline = true;
+            Debug.Log("ConectarRede(): " + PhotonNetwork.IsConnected);
+            PhotonNetwork.LogLevel = PunLogLevel.Informational;
+
+            conectando = true;
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.JoinRandomRoom();
+            }
+            else
+            {
+                PhotonNetwork.ConnectUsingSettings();
+            }
+        }
+
+        public static void DesconectarRede()
+        {
+            modoOnline = false;
+            PhotonNetwork.Disconnect();
+        }
+
+        public override void OnJoinRandomFailed(short returnCode, string msg)
+        {
+            Debug.Log(string.Concat(
+                "callback OnJoinRandomFailed(",
+                returnCode,
+                ", \"",
+                msg,
+                "\") foi chamada"
+            ));
+            PhotonNetwork.CreateRoom(null, new RoomOptions() {MaxPlayers = 4});
+        }
+
+        public override void OnJoinedRoom()
+        {
+            Debug.Log("callback OnJoinedRoom() foi chamada");
+        }
+
+        public override void OnConnectedToMaster()
+        {
+            Debug.Log("callback OnConnectedToMaster() foi chamada");
+
+            if (conectando)
+                PhotonNetwork.JoinRandomRoom();
         }
 
 #endregion gerenciamento de cenas

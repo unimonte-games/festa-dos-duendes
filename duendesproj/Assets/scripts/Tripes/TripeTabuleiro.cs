@@ -17,6 +17,7 @@ public class TripeTabuleiro : MonoBehaviour
 
     void Update ()
     {
-        tripe.alvo = gerenP.ObterJogadorAtivo();
+        if (GerenciadorPartida.OrdemJogadores.Count > 0)
+            tripe.alvo = gerenP.ObterJogadorAtivo();
     }
 }

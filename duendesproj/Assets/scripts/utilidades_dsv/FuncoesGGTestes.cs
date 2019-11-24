@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Identificadores;
+using Gerenciadores;
 
-namespace Gerenciadores.DsvUtils
+namespace DsvUtils
 {
     public class FuncoesGGTestes : MonoBehaviour
     {
