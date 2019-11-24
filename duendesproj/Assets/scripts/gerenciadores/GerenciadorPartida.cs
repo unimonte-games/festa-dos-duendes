@@ -49,6 +49,7 @@ namespace Gerenciadores
 
                 _escolheRota.estadoUIRota(false);
                 _escolheRota.estadoUICarta(true);
+                _escolheRota.estadoPowerUps(false);
 
                 TabuleiroHUD.AlteraFundo(Color.green);
             }

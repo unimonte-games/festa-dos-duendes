@@ -15,7 +15,7 @@ namespace Componentes.Tabuleiro
 
         public static void TrilhaPelaFloresta()
         {
-            TabuleiroHUD.AlteraPowerUp(3, false);
+            GerenciadorPartida.InvAtual.AlteraPowerUp(3, false);
             GerenciadorPartida.InvAtual.powerUps.Clear();
             GerenciadorPartida.descricaoCarta =
                 "Caminhando pela floresta você deixa uma trilha de melhoramentos para não se perder. Agora você não tem mais nenhum. Talvez não tenha sido uma boa ideia.";
@@ -29,7 +29,7 @@ namespace Componentes.Tabuleiro
             {
                 int rand = Random.Range(0, inv.objetos.Count);
 
-                TabuleiroHUD.AlteraPowerUp(1, false);
+                inv.AlteraPowerUp(1, false);
                 inv.objetos.RemoveAt(rand);
                 GerenciadorPartida.descricaoCarta =
                     "Você acaba de notar que seu bolso está mais leve. Você perdeu 1 objeto aleatório. Onde será que ele caiu?";
@@ -38,7 +38,7 @@ namespace Componentes.Tabuleiro
 
         public static void CogumeloEstragado()
         {
-            TabuleiroHUD.AlteraMoeda(-15);
+            GerenciadorPartida.InvAtual.AlteraMoeda(-15);
             GerenciadorPartida.descricaoCarta =
                 "Acho que os cogumelos não fizeram muito bem pra alguém... De repente você nota que perdeu 15 moedas. Uma pena, não?";
         }
@@ -48,10 +48,10 @@ namespace Componentes.Tabuleiro
             foreach (var jogador in GerenciadorPartida.OrdemJogadores)
             {
                 Inventario inv = jogador.GetComponent<Inventario>();
-                TabuleiroHUD.AlteraMoeda(+5, inv);
+                inv.AlteraMoeda(+5);
             }
 
-            TabuleiroHUD.AlteraMoeda(-2 * GerenciadorGeral.qtdJogadores);
+            GerenciadorPartida.InvAtual.AlteraMoeda(-2 * GerenciadorGeral.qtdJogadores);
 
             GerenciadorPartida.descricaoCarta =
                 "Você tem moedas demais. Divida com seus amigos; dê 2 moedas para cada um!";

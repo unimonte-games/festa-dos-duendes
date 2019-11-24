@@ -6,7 +6,7 @@ namespace Componentes.Tabuleiro
 {
     public class EscolheRota : MonoBehaviour
     {
-        public GameObject UIJogada, UIDirecao, setaObj;
+        public GameObject UIJogada, UIDirecao, UIPowerUps, setaObj;
         [HideInInspector]
         public bool paraFrente;
 
@@ -73,6 +73,11 @@ namespace Componentes.Tabuleiro
         public void estadoUICarta(bool estado)
         {
             UIJogada.SetActive(estado);
+        }
+
+        public void estadoPowerUps(bool estado)
+        {
+            UIPowerUps.SetActive(estado);
         }
     }
 }

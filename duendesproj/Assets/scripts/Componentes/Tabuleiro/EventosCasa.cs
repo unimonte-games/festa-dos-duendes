@@ -15,8 +15,7 @@ namespace Componentes.Tabuleiro
             TiposCasa evento = GetComponent<CasaBase>().tipoCasa;
             MethodInfo metodo = GetType().GetMethod(evento.ToString());
 
-            try { metodo.Invoke(this, null); }
-            catch(System.Exception e) { Debug.LogError(e); }
+            metodo.Invoke(this, null);
 
             GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
             gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
@@ -44,13 +43,15 @@ namespace Componentes.Tabuleiro
 
         public void PowerUp()
         {
-            int qtd = System.Enum.GetNames(typeof(Identificadores.PowerUp)).Length;
+            int qtd = System.Enum.GetNames(typeof(PowerUp)).Length;
             int rand = Random.Range(0, qtd);
 
-            if (GerenciadorPartida.InvAtual.powerUps.Count < 3)
+            Inventario inv = GerenciadorPartida.InvAtual;
+
+            if (inv.powerUps.Count < 3)
             {
-                TabuleiroHUD.AlteraPowerUp(1, true);
-                GerenciadorPartida.InvAtual.powerUps.Add((Identificadores.PowerUp)rand);
+                inv.AlteraPowerUp(1, true);
+                inv.powerUps.Add((PowerUp)rand);
             }
         }
 
@@ -67,7 +68,7 @@ namespace Componentes.Tabuleiro
 
         public void Moeda()
         {
-            TabuleiroHUD.AlteraMoeda(+5);
+            GerenciadorPartida.InvAtual.AlteraMoeda(+5);
         }
 
         private void ExecMetodoRand(System.Type tipo)
