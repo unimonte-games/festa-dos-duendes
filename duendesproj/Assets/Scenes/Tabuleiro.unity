@@ -257,7 +257,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -666,7 +666,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -1921,7 +1921,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -3924,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5658,7 +5658,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6913,7 +6913,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7829,7 +7829,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8293,7 +8293,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8592,7 +8592,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -9013,6 +9013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f04457f6512ce4f9f239162bf6e8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _escolheRota: {fileID: 1089121050}
   pnlEscolherJogador: {fileID: 269544865}
   textoBtn: {fileID: 0}
 --- !u!1 &974031396
@@ -13554,7 +13555,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -14171,7 +14172,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -16155,7 +16156,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -16454,7 +16455,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -16598,7 +16599,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -17354,7 +17355,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -17744,7 +17745,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9638e5b6c0d365e82b8b2eaf34e66b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 49f30531e496fc44db050e3569eb5e35, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -18221,7 +18222,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -18839,7 +18840,7 @@ PrefabInstance:
       objectReference: {fileID: 973485008}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AtivarPowerUp
+      value: AtivarEscolha
       objectReference: {fileID: 0}
     - target: {fileID: 6170480241402275, guid: 2bf2d537ccf41074d9d5a5dcaa72c11f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -20400,12 +20401,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 973485008}
-        m_MethodName: escolheJogador
+        m_MethodName: AtivarPowerUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
