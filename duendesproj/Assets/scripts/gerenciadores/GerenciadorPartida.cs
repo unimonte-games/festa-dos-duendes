@@ -79,7 +79,7 @@ namespace Gerenciadores
                 _escolheRota.estadoUIRota(false);
                 _escolheRota.estadoUICarta(true);
 
-                TabuleiroHUD.AlteraFundo(Color.green);
+                TabuleiroHUD.FundoJogador(TabuleiroHUD.corOn);
             }
         }
 
@@ -88,9 +88,7 @@ namespace Gerenciadores
             if (!autoridade)
                 return;
 
-            TabuleiroHUD.AlteraFundo(Color.gray);
-            _escolheRota.estadoPowerUp = true;
-            _escolheRota.AlteraEstadoPowerUps(Turno);
+            TabuleiroHUD.FundoJogador(TabuleiroHUD.corOff);
 
             //Aumenta turno
             Turno = ++Turno % OrdemJogadores.Count;
@@ -99,7 +97,7 @@ namespace Gerenciadores
             MovAtual = OrdemJogadores[Turno].GetComponent<Movimentacao>();
             InvAtual = OrdemJogadores[Turno].GetComponent<Inventario>();
 
-            TabuleiroHUD.AlteraFundo(Color.green);
+            TabuleiroHUD.FundoJogador(TabuleiroHUD.corOn);
 
             //Jogador atual joga caso não esteja preso
             if (InvAtual.rodadasPreso > 0)

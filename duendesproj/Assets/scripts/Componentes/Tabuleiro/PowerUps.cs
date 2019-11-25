@@ -10,10 +10,11 @@ namespace Componentes.Tabuleiro
 {
     public class PowerUps : MonoBehaviour
     {
+        public EscolheRota _escolheRota;
         public GameObject pnlEscolherJogador;
         public Text textoBtn;
-        private int jogadorEscolhido = -1;
         private TipoPowerUps powerUpEscolhido;
+        private static int jogadorEscolhido = -1;
 
         private void Start()
         {
@@ -33,16 +34,19 @@ namespace Componentes.Tabuleiro
             textoBtn.text = "Jogador " + (jogadorEscolhido+1);
         }
 
-        public void AtivarPowerUp(int powerUp)
+        public void AtivarPowerUp()
         {
             if (jogadorEscolhido != -1)
             {
-                MethodInfo metodo = GetType().GetMethod(((TipoPowerUps)powerUp).ToString());
+                pnlEscolherJogador.SetActive(false);
+                _escolheRota.AlteraEstadoPowerUps();
+
+                MethodInfo metodo = GetType().GetMethod(powerUpEscolhido.ToString());
 
                 metodo.Invoke(this, null);
 
                 GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
-                gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
+                gp.NovaRodada();
             }
         }
 
@@ -66,10 +70,9 @@ namespace Componentes.Tabuleiro
 
         public static void TrocaTudo()
         {
-            //TODO: escolher jogador
-            int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
-
-            Inventario jogador = GerenciadorPartida.OrdemJogadores[rand-1].GetComponent<Inventario>();
+            Inventario jogador = 
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
             PowerUp[] tempList = jogador.powerUps.ToArray();
             jogador.powerUps = GerenciadorPartida.InvAtual.powerUps;
@@ -78,71 +81,92 @@ namespace Componentes.Tabuleiro
 
         public static void PoeiraNosOlhos()
         {
-            //TODO: escolher jogador
-            int rand = Random.Range(0, GerenciadorGeral.qtdJogadores);
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
-            Inventario jogador = GerenciadorPartida.OrdemJogadores[rand-1].GetComponent<Inventario>();
-
-
+            jogador.rodadasSemObj = 2;
         }
 
         public static void Teletransporte()
         {
-            Debug.Log("Teste");
+            Movimentacao jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Movimentacao>();
 
+            Transform casaTemp = jogador.casaAtual;
+            jogador.SetCasaAtual(GerenciadorPartida.MovAtual.casaAtual);
+            GerenciadorPartida.MovAtual.SetCasaAtual(casaTemp);
         }
 
         public static void Espanador()
         {
-            Debug.Log("Teste");
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
+            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
         }
 
         public static void MaoEscorregadia()
         {
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
-            Debug.Log("Teste");
+            TipoPowerUps pwTemp = jogador.powerUps[jogador.powerUps.Count - 1].tipo;
+            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+
+            jogador = GerenciadorPartida.InvAtual;
+            if (jogador.powerUps.Count < 3)
+                jogador.AddPowerUp(pwTemp);
         }
 
         public static void Emprestador()
         {
-            Debug.Log("Teste");
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
+            Objetos objTemp = jogador.objetos[jogador.objetos.Count - 1];
+            jogador.RemoveObjeto(1);
+            jogador = GerenciadorPartida.InvAtual;
+            jogador.AddObjeto(objTemp);
         }
 
         public static void LadraoDeBanco()
         {
-            Debug.Log("Teste");
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
-        }
-
-        public static void PilhaDeFolhas()
-        {
-            Debug.Log("Teste");
-
+            jogador.AlteraMoeda(-10);
+            jogador = GerenciadorPartida.InvAtual;
+            jogador.AlteraMoeda(+10);
         }
 
         public static void PausaParaBanheiro()
         {
-            Debug.Log("Teste");
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
+            jogador.rodadasPreso = 2;
         }
         public static void SuperEspanador()
         {
-            Debug.Log("Teste");
+            Inventario jogador =
+                GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
+                .GetComponent<Inventario>();
 
+            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
         }
 
         public static void SuperEmprestador()
         {
-            Debug.Log("Teste");
-
-        }
-
-        public static void SuperPilhaDeFolhas()
-        {
-            Debug.Log("Teste");
-
+            Emprestador();
+            Emprestador();
         }
     }
 }

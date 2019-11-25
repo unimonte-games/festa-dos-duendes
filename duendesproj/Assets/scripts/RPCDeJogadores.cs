@@ -29,11 +29,11 @@ public class RPCDeJogadores : MonoBehaviour
         geraCarta.GerarCarta();
     }
 
-    [PunRPC]
-    void RPC_AtivarPowerUp(int powerUp)
-    {
-        powerUps.AtivarPowerUp(powerUp);
-    }
+    //[PunRPC]
+    //void RPC_AtivarPowerUp(int powerUp)
+    //{
+    //    powerUps.AtivarPowerUp(powerUp);
+    //}
 
     [PunRPC]
     void RPC_EscolherRota(bool confirmacao)

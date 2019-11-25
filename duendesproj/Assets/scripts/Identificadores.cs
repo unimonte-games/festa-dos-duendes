@@ -1,20 +1,20 @@
 namespace Identificadores
 {
-    public enum JogadorID {J1 = 0, J2, J3, J4};
+    public enum JogadorID { J1 = 0, J2, J3, J4 };
 
     public enum CenaID
     {
         Nenhum = -1,
-        MenuInicial      = 0,
-        Tabuleiro        = 1,
-        QuebraBotao      = 2,
-        BaldeDasMacas    = 3,
-        PescaEscorrega   = 4,
-        CogumeloQuente   = 5,
-        FlautaHero       = 6,
+        MenuInicial = 0,
+        Tabuleiro = 1,
+        QuebraBotao = 2,
+        BaldeDasMacas = 3,
+        PescaEscorrega = 4,
+        CogumeloQuente = 5,
+        FlautaHero = 6,
         TelaCarregamento = 7,
-        PreMiniJogo      = 8,
-        Vencedor         = 9,
+        PreMiniJogo = 8,
+        Vencedor = 9,
         // TODO: Colocar outros aqui
     };
 
@@ -24,8 +24,8 @@ namespace Identificadores
 
     public enum TipoPowerUps
     {
-        GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, Emprestador,
-        LadraoDeBanco, PilhaDeFolhas, PausaParaBanheiro, SuperEspanador, SuperEmprestador, SuperPilhaDeFolhas
+        GincanaGratis, TrocaTudo, PoeiraNosOlhos, Teletransporte, Espanador, MaoEscorregadia, 
+        Emprestador, LadraoDeBanco, PausaParaBanheiro, SuperEspanador, SuperEmprestador
     };
 
     public struct PowerUp

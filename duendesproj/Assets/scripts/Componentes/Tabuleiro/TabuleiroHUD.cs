@@ -11,6 +11,8 @@ namespace Componentes.Tabuleiro
         public GameObject painelPrefab;
         public static Transform PnlDescricoes;
         public static Transform[] Paineis = new Transform[GerenciadorGeral.qtdJogadores];
+        public static Color corOn = new Color(0.2039216f, 0.2f, 0.1843137f);
+        public static Color corOff = new Color(0.8392158f, 0.7529413f, 0.5333334f);
 
         private void Start()
         {
@@ -22,7 +24,7 @@ namespace Componentes.Tabuleiro
                     painel.transform.SetParent(painelPrincipal);
                     Paineis[i] = painel.GetComponent<RectTransform>();
 
-                    AlteraFundo(Color.gray);
+                    FundoJogador(Color.gray);
 
                     Transform rosto = Paineis[i].transform.Find("Mascara").Find("Img Rosto");
                     rosto.GetComponent<Image>().sprite = spritesCabecas[i];
@@ -32,10 +34,18 @@ namespace Componentes.Tabuleiro
             PnlDescricoes = transform.Find("Painel Descricoes");
         }
 
-        public static void AlteraFundo(Color cor)
+        public static void FundoJogador(Color cor, int i = -1)
         {
-            int i = GerenciadorPartida.Turno;
+            if (i == -1) i = GerenciadorPartida.Turno;
             Transform fundo = Paineis[i].transform.Find("Fundo Jogador");
+            fundo.GetComponent<Image>().color = cor;
+        }
+
+        public static void FundoPowerUps(Color cor, int i, int turno = -1)
+        {
+            if (turno == -1) turno = GerenciadorPartida.Turno;
+            Transform fundo = Paineis[turno].transform.Find("Painel PowerUps");
+            fundo = fundo.GetChild(i);
             fundo.GetComponent<Image>().color = cor;
         }
     }
