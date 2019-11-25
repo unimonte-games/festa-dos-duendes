@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using Identificadores;
 using Photon.Pun;
-using Photon.Realtime;
 using Gerenciadores;
 
 namespace Componentes.Tabuleiro
@@ -10,11 +9,15 @@ namespace Componentes.Tabuleiro
     public class GeraCarta : MonoBehaviour
     {
         public Image botao;
-        public Gerenciadores.GerenciadorPartida _gerenPartida;
+        public GerenciadorPartida _gerenPartida;
         public GeradorTabuleiro _geraTabuleiro;
         public PainelCartas _painelCartas;
+        private EscolheRota _escolheRota;
 
-        private string desc;
+        private void Start()
+        {
+            _escolheRota = GetComponent<EscolheRota>();
+        }
 
         public void GerarCarta()
         {
@@ -51,6 +54,9 @@ namespace Componentes.Tabuleiro
                 carta = TiposCasa.Moeda;
             else // 15%
                 carta = TiposCasa.MiniJogo;
+
+            _escolheRota.estadoPowerUp = true;
+            _escolheRota.AlteraEstadoPowerUps();
 
             PainelCartas.MostrarCarta(carta);
 

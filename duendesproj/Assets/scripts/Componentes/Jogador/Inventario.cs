@@ -15,12 +15,14 @@ namespace Componentes.Jogador
         public int rodadasPreso = 0;
         public int rodadasSemObj = 0;
 
-        public void AlteraMoeda(int qtd, bool substitui = false)
+        public void AlteraMoeda(int qtd, bool substitui = false, int i = -1)
         {
-            moedas = substitui ? qtd : qtd + moedas;
-            if (moedas < 0) moedas = 0;
+            if (i < 0) i = GerenciadorPartida.Turno;
+            Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
 
-            int i = GerenciadorPartida.Turno;
+            inv.moedas = substitui ? qtd : qtd + inv.moedas;
+            if (inv.moedas < 0) inv.moedas = 0;
+
             Transform txtMoedas = TabuleiroHUD.Paineis[i].transform.Find("Painel Moedas");
             txtMoedas.GetComponentInChildren<Text>().text = moedas + " moedas";
         }
@@ -28,8 +30,9 @@ namespace Componentes.Jogador
         public void AddPowerUp(TipoPowerUps novoPowerUp, int i = -1)
         {
             if (i < 0) i = GerenciadorPartida.Turno;
+            Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
 
-            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(GerenciadorPartida.Turno);
+            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(i);
 
             string txt = LeitorDescr.LeLinha((int)novoPowerUp);
 
@@ -38,27 +41,65 @@ namespace Componentes.Jogador
             pw.titulo = txt.Split(';')[0];
             pw.descricao = txt.Split(';')[1];
 
-            powerUps.Add(pw);
-            pnlDescricao = pnlDescricao.GetChild(powerUps.Count-1);
+            inv.powerUps.Add(pw);
+            int teste = powerUps.Count - 1;
+            pnlDescricao = pnlDescricao.GetChild(teste);
 
             pnlDescricao.Find("titulo").GetComponentInChildren<Text>().text = pw.titulo;
             pnlDescricao.Find("conteudo").GetComponentInChildren<Text>().text = pw.descricao;
+
+            TabuleiroHUD.FundoPowerUps(TabuleiroHUD.corOn, powerUps.Count - 1, i);
         }
 
         public void RemovePowerUp(int qtd, int i = -1)
         {
             if (i < 0) i = GerenciadorPartida.Turno;
+            Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
 
-            Transform pnlPowerUp = TabuleiroHUD.Paineis[i].transform.Find("Painel PowerUps");
-            Text pnlDescricao = TabuleiroHUD.PnlDescricoes.GetComponentInChildren<Text>();
+            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(i);
+            pnlDescricao = pnlDescricao.GetChild(powerUps.Count - 1);
 
-            if (qtd <= powerUps.Count)
+            if (qtd <= inv.powerUps.Count)
             {
                 for (int j = qtd; j >= 0; j--)
                 {
-                    powerUps.RemoveAt(j);
-                    Image fundo = pnlPowerUp.transform.GetChild(j).GetComponent<Image>();
-                    fundo.color = Color.black;
+                    inv.powerUps.RemoveAt(j);
+                    pnlDescricao.Find("titulo").GetComponentInChildren<Text>().text = "";
+                    pnlDescricao.Find("conteudo").GetComponentInChildren<Text>().text = "nenhum melhoramento";
+                }
+
+                TabuleiroHUD.FundoPowerUps(TabuleiroHUD.corOff, powerUps.Count - 1, i);
+            }
+        }
+
+        public void AddObjeto(Objetos novoObj, int i = -1)
+        {
+            if (i < 0) i = GerenciadorPartida.Turno;
+            Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
+
+            Transform pnlObj = TabuleiroHUD.Paineis[i].Find("Painel Objetos");
+
+            if (!inv.objetos.Contains(novoObj))
+                inv.objetos.Add(novoObj);
+
+            pnlObj = pnlObj.GetChild((int)novoObj);
+            pnlObj.GetComponent<Image>().color = TabuleiroHUD.corOn;
+        }
+
+        public void RemoveObjeto(int qtd, int i = -1)
+        {
+            if (i < 0) i = GerenciadorPartida.Turno;
+            Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
+
+            Transform pnlObj = TabuleiroHUD.Paineis[i].Find("Painel Objetos");
+
+            if (qtd <= inv.objetos.Count)
+            {
+                for (int j = qtd; j >= 0; j--)
+                {
+                    Transform x = pnlObj.GetChild((int)inv.objetos[j]);
+                    x.GetComponent<Image>().color = TabuleiroHUD.corOff;
+                    inv.objetos.RemoveAt(j);
                 }
             }
         }

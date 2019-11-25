@@ -45,13 +45,12 @@ namespace Componentes.Tabuleiro
 
         public static void DivisaoJusta()
         {
-            foreach (var jogador in GerenciadorPartida.OrdemJogadores)
-            {
-                Inventario inv = jogador.GetComponent<Inventario>();
-                inv.AlteraMoeda(+5);
-            }
+            Inventario inv = GerenciadorPartida.InvAtual;
 
-            GerenciadorPartida.InvAtual.AlteraMoeda(-2 * GerenciadorGeral.qtdJogadores);
+            for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
+                inv.AlteraMoeda(+2, false, i);
+
+            inv.AlteraMoeda(-2 * GerenciadorGeral.qtdJogadores);
 
             GerenciadorPartida.descricaoCarta =
                 "Você tem moedas demais. Divida com seus amigos; dê 2 moedas para cada um!";
