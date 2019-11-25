@@ -105,7 +105,8 @@ namespace Componentes.Tabuleiro
                 GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
                 .GetComponent<Inventario>();
 
-            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+            if (jogador.powerUps.Count > 0)
+                jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
         }
 
         public static void MaoEscorregadia()
@@ -114,12 +115,15 @@ namespace Componentes.Tabuleiro
                 GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
                 .GetComponent<Inventario>();
 
-            TipoPowerUps pwTemp = jogador.powerUps[jogador.powerUps.Count - 1].tipo;
-            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+            if (jogador.powerUps.Count > 0)
+            {
+                TipoPowerUps pwTemp = jogador.powerUps[jogador.powerUps.Count - 1].tipo;
+                jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
 
-            jogador = GerenciadorPartida.InvAtual;
-            if (jogador.powerUps.Count < 3)
-                jogador.AddPowerUp(pwTemp);
+                jogador = GerenciadorPartida.InvAtual;
+                if (jogador.powerUps.Count < 3)
+                    jogador.AddPowerUp(pwTemp);
+            }
         }
 
         public static void Emprestador()
@@ -128,10 +132,13 @@ namespace Componentes.Tabuleiro
                 GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
                 .GetComponent<Inventario>();
 
-            Objetos objTemp = jogador.objetos[jogador.objetos.Count - 1];
-            jogador.RemoveObjeto(1);
-            jogador = GerenciadorPartida.InvAtual;
-            jogador.AddObjeto(objTemp);
+            if (jogador.objetos.Count > 0)
+            {
+                Objetos objTemp = jogador.objetos[jogador.objetos.Count - 1];
+                jogador.RemoveObjeto(1);
+                jogador = GerenciadorPartida.InvAtual;
+                jogador.AddObjeto(objTemp);
+            }
         }
 
         public static void LadraoDeBanco()
@@ -159,8 +166,13 @@ namespace Componentes.Tabuleiro
                 GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
                 .GetComponent<Inventario>();
 
-            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
-            jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+            int i = 2;
+            while (jogador.powerUps.Count > 0 && i > 0)
+            {
+                jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+                jogador.powerUps.RemoveAt(jogador.powerUps.Count - 1);
+                i--;
+            }
         }
 
         public static void SuperEmprestador()

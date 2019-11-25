@@ -10,7 +10,10 @@ namespace Componentes.Tabuleiro
 
         public static string LeLinha(int posi)
         {
-            return File.ReadLines(path, System.Text.Encoding.GetEncoding("iso-8859-1")).Skip(posi - 1).Take(1).First();
+            return File.ReadLines(path, System.Text.Encoding.GetEncoding("iso-8859-1"))
+                .Skip(posi)
+                .Take(1)
+                .First();
         }
     }
 }
