@@ -868,12 +868,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Instru\xE7\xF5es:</b>\n\nOs controles se resumem a \"movimento\" e \"bot\xE3o
-    de a\xE7\xE3o\"; o mapa dos controles para cada jogador s\xE3o:\n\n1\xBA Jogador:\n
-    \ Movimento: teclas W, A, S, D;\n  A\xE7\xE3o: Espa\xE7o.\n\n2\xBA Jogador:\n
-    \ Movimento: teclas das setas;\n  A\xE7\xE3o: tecla Enter.\n\n3\xBA e 4\xBA Jogadores:\n
-    \ Movimento: setas ou direcional;\n  A\xE7\xE3o: bot\xE3o 0 (muda de acordo com
-    o sistema operacional e modelo do controle)."
+  m_Text: "<b>Instru\xE7\xF5es:</b>\n\nOs controles do tabuleiro s\xE3o o mouse e
+    os bot\xF5es da tela.\n\nOs controles dos minijogos s\xE3o \"movimento\" e \"bot\xE3o
+    de a\xE7\xE3o\"; o mapa dos controles para cada jogador s\xE3o:\n\n1\xBA Jogador:
+    \n  Movimento: teclas W, A, S, D;\n  A\xE7\xE3o: Espa\xE7o.\n\n2\xBA Jogador:
+    \n  Movimento: teclas das setas;\n  A\xE7\xE3o: tecla Enter.\n\n3\xBA Jogador:\n
+    \ Movimento: setas ou direcional do 1\xBA controle;\n  A\xE7\xE3o: bot\xE3o 0
+    do 1\xBA controle \n\n4\xBA Jogador:\n  Movimento: setas ou direcional do 2\xBA
+    controle;\n  A\xE7\xE3o: bot\xE3o 0 do 2\xBA controle \n\n(infelizmente \"o que
+    \xE9 bot\xE3o 0\" varia de acordo com o sistema operacional e modelo do controle)."
 --- !u!222 &298269838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3254,8 +3257,11 @@ MonoBehaviour:
     a Duck\", por Kevin MacLeod (incompetech.com), licenciado sob CC-BY.\n\"Wholesome\",
     por Kevin MacLeod (incompetech.com), licenciado sob CC-BY.\n\"The Builder\", por
     Kevin MacLeod (incompetech.com), licenciado sob CC-BY.\n\"Fretless\", por Kevin
-    MacLeod (incompetech.com), licenciado sob CC-BY.\n\n<b>Fontes utilizada:</b>\nSoft
-    Marshmallow, por Galdino Otten\nc\xF3pia da licen\xE7a dispon\xEDvel em:\ngithub.com/unimonte-games/festa-dos-duendes/blob/master/duendesproj/Assets/Fontes/Soft%20Marshmallow.pdf\n\nPlaykidz,
+    MacLeod (incompetech.com), licenciado sob CC-BY.\n\"Retro Party - Kitschy Comedy\",
+    por Kevin MacLeod (incompetech.com), licenciado sob CC-BY.\n\"Rush - Energetic
+    Playful Comedy\", por Kevin MacLeod (incompetech.com), licenciado sob CC-BY.\n\n\n<b>Fontes
+    utilizada:</b>\nSoft Marshmallow, por Galdino Otten\nc\xF3pia da licen\xE7a dispon\xEDvel
+    em:\ngithub.com/unimonte-games/festa-dos-duendes/blob/master/duendesproj/Assets/Fontes/Soft%20Marshmallow.pdf\n\nPlaykidz,
     por Figuree Studio\n\nLicen\xE7a CC-0 dispon\xEDvel em: https://creativecommons.org/publicdomain/zero/1.0/\nLicen\xE7a
     CC-BY dispon\xEDvel em: http://creativecommons.org/licenses/by/4.0/"
 --- !u!222 &1244198729

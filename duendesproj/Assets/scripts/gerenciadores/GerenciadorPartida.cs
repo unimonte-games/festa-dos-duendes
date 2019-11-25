@@ -88,6 +88,8 @@ namespace Gerenciadores
             if (!autoridade)
                 return;
 
+            Debug.Log("nova rodada");
+
             TabuleiroHUD.AlteraFundo(Color.gray);
             _escolheRota.estadoPowerUp = true;
             _escolheRota.AlteraEstadoPowerUps(Turno);
@@ -104,10 +106,13 @@ namespace Gerenciadores
             //Jogador atual joga caso não esteja preso
             if (InvAtual.rodadasPreso > 0)
             {
+                Debug.Log("StartCoroutine(diminuiRodadasPreso(1f, 3f))");
                 StartCoroutine(diminuiRodadasPreso(1f, 3f));
             }
-            else
+            else {
+                Debug.Log("estadoUICarta(true)");
                 _escolheRota.estadoUICarta(true);
+            }
 
             if (InvAtual.rodadasSemObj > 0)
                 InvAtual.rodadasSemObj--;
@@ -115,7 +120,9 @@ namespace Gerenciadores
 
         public IEnumerator WaitNovaRodada(float tempo)
         {
-            yield return new WaitForSeconds(tempo);
+            Debug.Log(gameObject.activeInHierarchy + "JJJJJJJ" + tempo.ToString() + this.enabled);
+            yield return new WaitForSecondsRealtime(tempo);
+            Debug.Log("AAAAAAAAAA");
             NovaRodada();
         }
 

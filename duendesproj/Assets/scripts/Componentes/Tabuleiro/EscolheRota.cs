@@ -81,7 +81,11 @@ namespace Componentes.Tabuleiro
 
         public void estadoUICarta(bool estado)
         {
+            Debug.Log("estadoUICarta bool estado = " + estado.ToString());
+            Debug.Log("gbj active" + gameObject.activeInHierarchy);
+            Debug.Log("ui jogada active" + UIJogada.activeInHierarchy);
             UIJogada.SetActive(estado);
+            Debug.Log("ui jogada active dps" + UIJogada.activeInHierarchy);
         }
 
         public void AlteraEstadoPowerUps(int i = -1)

@@ -32,7 +32,7 @@ public class BaldeDasMacas_Maca : MonoBehaviour
 
     void Update()
     {
-        if (!pego)
+        if (!pego && !macaAnterior)
             return;
 
         var pos = tr.position;

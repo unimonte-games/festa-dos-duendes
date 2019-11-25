@@ -88,7 +88,7 @@ namespace Telas
                     return string.Concat(
                         "Controles:", "\n", "\n",
                         "Movimentação é <b>horizontal</b>", "\n",
-                        "Use o <b>botão de ação></b> para pular, entretanto ",
+                        "Use o <b>botão de ação</b> para pular, entretanto ",
                         "não poderá mudar a direção do seu movimento ",
                         "enquanto estiver no ar."
                     );
@@ -97,18 +97,18 @@ namespace Telas
                         "Controles:", "\n", "\n",
                         "Movimentação é <b>horizontal</b> e <b>vertical</b>",
                         "\n",
-                        "Use o <b>botão de ação></b> para colher uma flor."
+                        "Use o <b>botão de ação</b> para colher uma flor."
                     );
                 case CenaID.CogumeloQuente:
                     return string.Concat(
                         "Controles:", "\n", "\n",
-                        "Use o <b>botão de ação></b> para passar o cogumelo ",
+                        "Use o <b>botão de ação</b> para passar o cogumelo ",
                         "quente para o próximo jogador."
                     );
                 case CenaID.FlautaHero:
                     return string.Concat(
                         "Controles:", "\n", "\n",
-                        "Use o <b>botão de ação></b> para catar a flauta, ",
+                        "Use o <b>botão de ação</b> para catar a flauta, ",
                         "tente ao máximo catar a flauta no ritmo da música ",
                         "(ocorre quando a flauta está no personagem)."
                     );

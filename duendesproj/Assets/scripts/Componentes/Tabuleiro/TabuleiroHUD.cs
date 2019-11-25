@@ -12,7 +12,7 @@ namespace Componentes.Tabuleiro
         public static Transform PnlDescricoes;
         public static Transform[] Paineis = new Transform[GerenciadorGeral.qtdJogadores];
 
-        private void Start()
+        private void Awake()
         {
             if (Paineis[0] == null)
             {

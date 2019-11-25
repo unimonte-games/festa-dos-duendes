@@ -9,17 +9,18 @@ namespace Componentes.Tabuleiro
     public class EventosCasa : MonoBehaviour
     {
         public CenaID minijogo;
+        GerenciadorPartida gp;
+
+        void Start()
+        {
+            gp = FindObjectOfType<GerenciadorPartida>();
+        }
 
         public void ativarCasa()
         {
             TiposCasa evento = GetComponent<CasaBase>().tipoCasa;
             MethodInfo metodo = GetType().GetMethod(evento.ToString());
-            GerenciadorPartida gp = FindObjectOfType<GerenciadorPartida>();
-
             metodo.Invoke(this, null);
-
-            if (gp.enabled)
-                gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
         }
 
         public void Garrafa()
@@ -27,6 +28,7 @@ namespace Componentes.Tabuleiro
             Inventario inv = GerenciadorPartida.InvAtual;
             inv.rodadasPreso += 2;
             inv.transform.GetChild(1).gameObject.SetActive(true);
+            GPWaitRodada();
         }
 
         public void BemMal()
@@ -40,6 +42,7 @@ namespace Componentes.Tabuleiro
                 tipo = typeof(Maldicoes);
 
             ExecMetodoRand(tipo);
+            GPWaitRodada();
         }
 
         public void PowerUp()
@@ -53,11 +56,13 @@ namespace Componentes.Tabuleiro
             {
                 inv.AddPowerUp((TipoPowerUps)rand);
             }
+            GPWaitRodada();
         }
 
         public void Acontecimento()
         {
             ExecMetodoRand(typeof(Acontecimentos));
+            GPWaitRodada();
         }
 
         public void MiniJogo()
@@ -69,6 +74,7 @@ namespace Componentes.Tabuleiro
         public void Moeda()
         {
             GerenciadorPartida.InvAtual.AlteraMoeda(+5);
+            GPWaitRodada();
         }
 
         private void ExecMetodoRand(System.Type tipo)
@@ -83,6 +89,13 @@ namespace Componentes.Tabuleiro
 
             MethodInfo metodoRand = metodos[rd];
             metodoRand.Invoke(this, null);
+
+            GPWaitRodada();
+        }
+
+        void GPWaitRodada()
+        {
+            gp.StartCoroutine(gp.WaitNovaRodada(2.5f));
         }
     }
 }

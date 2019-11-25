@@ -28,28 +28,28 @@ namespace Componentes.Tabuleiro
             float rand = Random.value;
             TiposCasa carta;
 
-            if (rand <= 0.1f)
+            if (rand <= 0.1f) // 10%
             {
                 carta = TiposCasa.BemMal;
                 _painelCartas.MudaDescricao(carta, "Benção ou Maldição");
             }
-            else if (rand <= 0.2f)
+            else if (rand <= 0.2f) // 10%
             {
                 carta = TiposCasa.Garrafa;
             }
-            else if (rand <= 0.35f)
+            else if (rand <= 0.35f) // 15%
             {
                 carta = TiposCasa.Acontecimento;
                 _painelCartas.MudaDescricao(carta, "Acontecimento Aleatório");
             }
-            else if (rand <= 0.55f)
+            else if (rand <= 0.50f) // 15%
             {
                 carta = TiposCasa.PowerUp;
                 _painelCartas.MudaDescricao(carta, "Melhoramento Aleatório");
             }
-            else if (rand <= 0.9f)
+            else if (rand <= 0.85f) // 35%
                 carta = TiposCasa.Moeda;
-            else
+            else // 15%
                 carta = TiposCasa.MiniJogo;
 
             PainelCartas.MostrarCarta(carta);
