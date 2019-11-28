@@ -69,6 +69,8 @@ namespace Componentes.Tabuleiro
         {
             if (GerenciadorPartida.InvAtual.moedas >= 25)
                 GerenciadorGeral.TransitarParaMJ(minijogo);
+            else
+                GPWaitRodada();
         }
 
         public void Moeda()
@@ -89,8 +91,6 @@ namespace Componentes.Tabuleiro
 
             MethodInfo metodoRand = metodos[rd];
             metodoRand.Invoke(this, null);
-
-            GPWaitRodada();
         }
 
         void GPWaitRodada()
