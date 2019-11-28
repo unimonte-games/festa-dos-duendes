@@ -1042,6 +1042,7 @@ GameObject:
   - component: {fileID: -1193938992236057927}
   - component: {fileID: 6279249427535395037}
   - component: {fileID: 421956280038527547}
+  - component: {fileID: -3407262124277079341}
   m_Layer: 0
   m_Name: Jogador
   m_TagString: Player
@@ -1220,6 +1221,18 @@ MonoBehaviour:
   J4_manga: {fileID: -5086562777235283581, guid: 8b707a7690fa1a45594fc0194a333a6b,
     type: 3}
   J4_mao: {fileID: -8236565567477014588, guid: 8b707a7690fa1a45594fc0194a333a6b, type: 3}
+--- !u!114 &-3407262124277079341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331946322051694165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343ba742e41c34a1eb10f4119d8ef55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3434399121815507516
 GameObject:
   m_ObjectHideFlags: 0

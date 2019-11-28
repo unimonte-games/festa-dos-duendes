@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 7407179971970227482}
   - component: {fileID: 1830430121501411471}
   - component: {fileID: 2052464903489675178}
+  - component: {fileID: -1045166163442976112}
   m_Layer: 0
   m_Name: JogadorBase
   m_TagString: Player
@@ -1058,7 +1059,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moedas: 0
   objetos: 
-  powerUps: 
   rodadasPreso: 0
   rodadasSemObj: 0
 --- !u!114 &3681516346191066717
@@ -1140,6 +1140,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec2db519ece521933bf1b5988afa847d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1045166163442976112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7826317525506834733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343ba742e41c34a1eb10f4119d8ef55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7939390527455879545
