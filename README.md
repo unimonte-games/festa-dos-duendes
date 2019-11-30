@@ -2,6 +2,7 @@
 Terceiro Projeto Interdisciplinar
 
 ## Como jogar
+Os executáveis estão disponíveis na aba [Releases](https://github.com/unimonte-games/festa-dos-duendes/releases), para Linux e Windows.
 Instruções e detalhes para jogar estão na [Wiki](https://github.com/unimonte-games/festa-dos-duendes/wiki)
 
 ## Para se jogar online:
