@@ -1,6 +1,7 @@
 # festa-dos-duendes
 Terceiro Projeto Interdisciplinar
 
+## Como jogar
 Instruções e detalhes para jogar estão na [Wiki](https://github.com/unimonte-games/festa-dos-duendes/wiki)
 
 ## Para se jogar online:
