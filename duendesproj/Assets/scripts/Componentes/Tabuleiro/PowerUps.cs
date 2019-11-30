@@ -23,6 +23,12 @@ namespace Componentes.Tabuleiro
 
         public void escolheJogador()
         {
+            if (RPCDeJogadores.DeveUsarRPC())
+            {
+                RPCDeJogadores.UsarRPC("RPC_escolheJogador");
+                return;
+            }
+
             int qtdJogadores = GerenciadorGeral.qtdJogadores;
 
             jogadorEscolhido++;
@@ -36,6 +42,12 @@ namespace Componentes.Tabuleiro
 
         public void AtivarPowerUp()
         {
+            if (RPCDeJogadores.DeveUsarRPC())
+            {
+                RPCDeJogadores.UsarRPC("RPC_AtivarPowerUp");
+                return;
+            }
+
             if (jogadorEscolhido != -1)
             {
                 pnlEscolherJogador.SetActive(false);
@@ -52,6 +64,12 @@ namespace Componentes.Tabuleiro
 
         public void AtivarEscolha(int i)
         {
+            if (RPCDeJogadores.DeveUsarRPC())
+            {
+                RPCDeJogadores.UsarRPCArg("RPC_AtivarEscolha", i);
+                return;
+            }
+
             Inventario inv = GerenciadorPartida.InvAtual;
             if (i < inv.powerUps.Count)
             {
@@ -70,7 +88,7 @@ namespace Componentes.Tabuleiro
 
         public static void TrocaTudo()
         {
-            Inventario jogador = 
+            Inventario jogador =
                 GerenciadorPartida.OrdemJogadores[jogadorEscolhido]
                 .GetComponent<Inventario>();
 

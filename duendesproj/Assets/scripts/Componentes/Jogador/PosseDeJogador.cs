@@ -3,29 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Gerenciadores;
+using Componentes.Tabuleiro;
 
 namespace Componentes.Jogador
 {
     public class PosseDeJogador : MonoBehaviour
     {
-        PhotonView pv;
-
-        void Awake()
-        {
-            pv = GetComponent<PhotonView>();
-        }
-
         void Start()
         {
+            var tronco_gbj = FindObjectOfType<TabuleiroRaiz>().tronco_gbj;
+            transform.SetParent(tronco_gbj.transform);
+
             if (!GerenciadorGeral.modoOnline)
             {
                 Destroy(GetComponent<PhotonTransformView>());
                 Destroy(GetComponent<PhotonView>());
                 Destroy(GetComponent<PosseDeJogador>());
             }
-            else if (!pv.IsMine)
+            else if (!GetComponent<IdentificadorJogador>().eMeu)
             {
-                GetComponent<Movimentador>().enabled = false;
+                var mov1 = GetComponent<Movimentacao>();
+                if (mov1)
+                    mov1.enabled = false;
+
+                var mov2 = GetComponent<Movimentador>();
+                if (mov2)
+                    mov2.enabled = false;
+
                 GetComponent<ParamAnimSync_Jogador>().enabled = false;
             }
         }

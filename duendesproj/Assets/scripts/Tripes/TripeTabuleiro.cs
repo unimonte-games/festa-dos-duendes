@@ -15,9 +15,14 @@ public class TripeTabuleiro : MonoBehaviour
         gerenP = FindObjectOfType<GerenciadorPartida>();
     }
 
-    void Update ()
+    //void Update ()
+    //{
+        //if (GerenciadorPartida.OrdemJogadores.Count > 0)
+            //tripe.alvo = gerenP.ObterJogadorAtivo();
+    //}
+
+    public void DefAlvo(Transform alvo)
     {
-        if (GerenciadorPartida.OrdemJogadores.Count > 0)
-            tripe.alvo = gerenP.ObterJogadorAtivo();
+        tripe.alvo = alvo;
     }
 }

@@ -27,7 +27,12 @@ namespace Componentes.Tabuleiro
         {
             Inventario inv = GerenciadorPartida.InvAtual;
             inv.rodadasPreso += 2;
-            inv.transform.GetChild(1).gameObject.SetActive(true);
+
+            if (!GerenciadorGeral.modoOnline)
+                inv.garrafa.SetActive(true);
+            else
+                gp.GarrafaSync(true);
+
             GPWaitRodada();
         }
 

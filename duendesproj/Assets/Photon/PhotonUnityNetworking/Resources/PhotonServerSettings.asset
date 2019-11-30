@@ -37,5 +37,17 @@ MonoBehaviour:
   - RPC_GerarCarta
   - RPC_AtivarPowerUp
   - RPC_EscolherRota
+  - RPC_DefAlvo
+  - RPC_DarPosse
+  - RPC_DefQtd
+  - RPC_UIDirSetActive
+  - RPC_DirESetaSetActives
+  - RPC_estadoUICarta
+  - RPC_MostrarCarta
+  - RPC_MudaDescricao
+  - RPC_DefQtdJogadores
+  - RPC_EstadoPowerUpSetActive
+  - RPC_GarrafaSync
+  - RPC_MudaTxtMoeda
   DisableAutoOpenWizard: 1
   ShowSettings: 0

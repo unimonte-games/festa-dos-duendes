@@ -24,22 +24,72 @@ namespace Gerenciadores
 
         public static int Turno = 0;
 
-        bool jaInicializado, autoridade;
+        bool jaInicializado;//, autoridade;
+
+        public PhotonView meuPV;
+
+#if UNITY_EDITOR
+        [Header("Dev View")]
+        public string _static_descricaoCarta;
+        public Movimentacao _static_MovAtual;
+        public Inventario _static_InvAtual;
+        public List<Transform> _static_OrdemJogadores;
+        public int _static_Turno = 0;
+
+        void Update()
+        {
+            _static_descricaoCarta = descricaoCarta;
+            _static_MovAtual = MovAtual;
+            _static_InvAtual = InvAtual;
+            _static_OrdemJogadores = OrdemJogadores;
+            _static_Turno = Turno;
+        }
+#endif
+
+        void DefAlvo(int idAlvo)
+        {
+            IdentificadorJogador[] idJs = FindObjectsOfType<IdentificadorJogador>();
+
+            for (int i = 0; i < idJs.Length; i++)
+            {
+                if (idAlvo == (int)idJs[i].jogadorID)
+                {
+                    var tripeT = FindObjectOfType<TripeTabuleiro>();
+                    tripeT.DefAlvo(idJs[i].GetComponent<Transform>());
+                    break;
+                }
+            }
+        }
+
+        [PunRPC]
+        void RPC_DefAlvo(int i)
+        {
+            DefAlvo(i);
+        }
+
+        [PunRPC]
+        void RPC_DefQtd(int qtd)
+        {
+            GerenciadorGeral.qtdJogadores = qtd;
+        }
 
         private void Start()
         {
+            meuPV = GetComponent<PhotonView>();
             GameObject tronco_gbj = FindObjectOfType<TabuleiroRaiz>().tronco_gbj;
             jaInicializado = OrdemJogadores.Count != 0;
 
-            autoridade = GerenciadorGeral.modoOnline
-                            ? PhotonNetwork.IsMasterClient
-                            : true;
+            bool autoridade = GerenciadorGeral.modoOnline
+                                ? PhotonNetwork.IsMasterClient
+                                : true;
 
             if (!autoridade)
                 return;
 
             if (!jaInicializado)
             {
+                meuPV.RPC("RPC_DefQtd", RpcTarget.Others, GerenciadorGeral.qtdJogadores);
+
                 for (int i = 0; i < GerenciadorGeral.qtdJogadores; i++)
                 {
                     Transform jogador;
@@ -60,14 +110,19 @@ namespace Gerenciadores
                             Vector3.zero,
                             Quaternion.identity
                         ).transform;
-                        jogador.SetParent(tronco_gbj.transform);
+                        //jogador.SetParent(tronco_gbj.transform);
 
-                        if (i > 0)
-                        {
-                            var jogador_pv = jogador.GetComponent<PhotonView>();
-                            var player = PhotonNetwork.CurrentRoom.Players[i+1];
-                            jogador_pv.TransferOwnership(player);
-                        }
+                        //if (i > 0)
+                        //{
+                            //var jogador_pv = jogador.GetComponent<PhotonView>();
+                            //DsvUtils.InspetorPhoton.ImprimirDicio(PhotonNetwork.CurrentRoom.Players);
+                            //var player = PhotonNetwork.CurrentRoom.Players[i+1];
+                            //jogador_pv.TransferOwnership(player);
+                        //}
+
+                        var jogador_pv = jogador.GetComponent<PhotonView>();
+                        var player = PhotonNetwork.CurrentRoom.Players[i+1];
+                        jogador_pv.RPC("RPC_DarPosse", RpcTarget.All, i);
                     }
 
                     OrdemJogadores.Add(jogador.transform);
@@ -80,13 +135,18 @@ namespace Gerenciadores
                 _escolheRota.estadoUICarta(true);
 
                 TabuleiroHUD.FundoJogador(TabuleiroHUD.corOn);
+
+                if (GerenciadorGeral.modoOnline)
+                    meuPV.RPC("RPC_DefAlvo", RpcTarget.All, ObterJogadorAtivo());
+                else
+                    DefAlvo(ObterJogadorAtivo());
             }
         }
 
         public void NovaRodada()
         {
-            if (!autoridade)
-                return;
+            //if (!autoridade)
+            //    return;
 
             TabuleiroHUD.FundoJogador(TabuleiroHUD.corOff);
 
@@ -112,6 +172,24 @@ namespace Gerenciadores
 
             if (InvAtual.rodadasSemObj > 0)
                 InvAtual.rodadasSemObj--;
+
+            if (GerenciadorGeral.modoOnline) {
+                if (PhotonNetwork.IsMasterClient)
+                    meuPV.RPC("RPC_DefAlvo", RpcTarget.All, Turno);
+            }
+            else
+                DefAlvo(Turno);
+        }
+
+        [PunRPC]
+        void RPC_GarrafaSync(bool ativ)
+        {
+            InvAtual.garrafa.SetActive(ativ);
+        }
+
+        public void GarrafaSync(bool ativ)
+        {
+            meuPV.RPC("RPC_GarrafaSync", RpcTarget.All, ativ);
         }
 
         public IEnumerator WaitNovaRodada(float tempo)
@@ -127,7 +205,11 @@ namespace Gerenciadores
             if (--InvAtual.rodadasPreso == 0)
             {
                 yield return new WaitForSeconds(tempoAnda);
-                InvAtual.transform.GetChild(1).gameObject.SetActive(false);
+
+                if (!GerenciadorGeral.modoOnline)
+                    InvAtual.transform.GetChild(1).gameObject.SetActive(false);
+                else
+                    GarrafaSync(false);
 
                 //Mostra Carta de movimentação para o Jogador
                 _escolheRota.estadoUICarta(true);
@@ -141,8 +223,15 @@ namespace Gerenciadores
 
         public void MoverJogador(int casa)
         {
-            if (!autoridade)
+            if (RPCDeJogadores.DeveUsarRPC())
+            {
+                RPCDeJogadores.UsarRPCArg("RPC_MoverJogador", casa);
                 return;
+            }
+            Debug.LogFormat("MoverJogador({0})", casa);
+
+            //if (!autoridade)
+            //    return;
 
             _escolheRota.estadoUICarta(false);
             StartCoroutine(MovAtual.ProcuraCasa((TiposCasa)casa));
@@ -150,8 +239,8 @@ namespace Gerenciadores
 
         public void fimMov(bool casaEncontrada)
         {
-            if (!autoridade)
-                return;
+            //if (!autoridade)
+            //    return;
 
             if (casaEncontrada)
             {
@@ -171,9 +260,11 @@ namespace Gerenciadores
             }
         }
 
-        public Transform ObterJogadorAtivo()
+        public int ObterJogadorAtivo()
         {
-            return OrdemJogadores[Turno];
+            return (int)(OrdemJogadores[Turno]
+                    .GetComponent<IdentificadorJogador>()
+                    .jogadorID);
         }
 
         public IEnumerator VoltaParaInicio()
@@ -203,18 +294,12 @@ namespace Gerenciadores
 
         public static PhotonView ObterPVLocal()
         {
-            Player jogadorLocal = PhotonNetwork.LocalPlayer;
-            GameObject[] jogadores = GameObject.FindGameObjectsWithTag("Player");
+            IdentificadorJogador[] idJs = FindObjectsOfType<IdentificadorJogador>();
 
-            for (int i = 0; i < jogadores.Length; i++)
+            for (int i = 0; i < idJs.Length; i++)
             {
-                PhotonView pv = jogadores[i].GetComponent<PhotonView>();
-
-                if (pv.Owner != null)
-                {
-                    if (pv.Owner.ActorNumber == jogadorLocal.ActorNumber)
-                        return pv;
-                }
+                if (idJs[i].eMeu)
+                    return idJs[i].GetComponent<PhotonView>();
             }
 
             return null;

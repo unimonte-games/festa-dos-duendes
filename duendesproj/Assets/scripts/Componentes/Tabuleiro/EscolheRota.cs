@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using Gerenciadores;
 using Photon.Pun;
+using Identificadores;
+using Componentes.Jogador;
 
 namespace Componentes.Tabuleiro
 {
@@ -16,12 +18,20 @@ namespace Componentes.Tabuleiro
         private Jogador.Movimentacao jogador;
         private int indice;
 
+        PhotonView meuPV;
+        GerenciadorPartida gerenP;
+
+        void Awake()
+        {
+            meuPV = GetComponent<PhotonView>();
+            gerenP = FindObjectOfType<GerenciadorPartida>();
+        }
+
         public void EscolherRota(bool confirmacao)
         {
-            if (GerenciadorGeral.modoOnline && !PhotonNetwork.IsMasterClient)
+            if (RPCDeJogadores.DeveUsarRPC())
             {
-                PhotonView pvLocal = GerenciadorPartida.ObterPVLocal();
-                pvLocal.RPC("RPC_EscolherRota", RpcTarget.MasterClient, confirmacao);
+                RPCDeJogadores.UsarRPCArg("RPC_EscolherRota", confirmacao);
                 return;
             }
 
@@ -64,6 +74,8 @@ namespace Componentes.Tabuleiro
 
         public void estadoUIRota(bool estado)
         {
+            Debug.LogFormat("estadoUIRota({0})", estado);
+
             if (estado)
             {
                 jogador = GerenciadorPartida.MovAtual;
@@ -75,23 +87,85 @@ namespace Componentes.Tabuleiro
 
                 setaObj.transform.position = casaTemp.position;
             }
+
+            if (!GerenciadorGeral.modoOnline) {
+                setaObj.SetActive(estado);
+                UIDirecao.SetActive(estado);
+            }
+            else if (PhotonNetwork.IsMasterClient)
+                meuPV.RPC("RPC_DirESetaSetActives", RpcTarget.All, estado, gerenP.ObterJogadorAtivo());
+        }
+
+        [PunRPC]
+        void RPC_DirESetaSetActives(bool estado, int jogadorAtivo)
+        {
+
+            int jidLocal = (int)GerenciadorPartida
+                                .ObterPVLocal()
+                                .GetComponent<IdentificadorJogador>()
+                                .jogadorID;
+
+            bool estadoL = estado ? jidLocal == jogadorAtivo : false;
+
+            Debug.LogFormat(
+                "estado: {0}, jogador Ativo: {1}, ismasterclient: {2}, estadoL: {3}, jidlocal: {4}",
+                estado, jogadorAtivo, PhotonNetwork.IsMasterClient,
+                estadoL, jidLocal
+            );
+
             setaObj.SetActive(estado);
-            UIDirecao.SetActive(estado);
+            UIDirecao.SetActive(estadoL);
         }
 
         public void estadoUICarta(bool estado)
         {
-            Debug.Log("estadoUICarta bool estado = " + estado.ToString());
-            Debug.Log("gbj active" + gameObject.activeInHierarchy);
-            Debug.Log("ui jogada active" + UIJogada.activeInHierarchy);
-            UIJogada.SetActive(estado);
-            Debug.Log("ui jogada active dps" + UIJogada.activeInHierarchy);
+            Debug.LogFormat("estadoUICarta({0})", estado);
+
+            if (!GerenciadorGeral.modoOnline)
+                UIJogada.SetActive(estado);
+            else if (PhotonNetwork.IsMasterClient) {
+                meuPV.RPC(
+                    "RPC_estadoUICarta",
+                    RpcTarget.All,
+                    estado,
+                    gerenP.ObterJogadorAtivo()
+                );
+            }
+        }
+
+        [PunRPC]
+        void RPC_estadoUICarta(bool estado, int jogadorAtivo)
+        {
+            Debug.LogFormat("RPC_estadoUICarta({0}, {1})", estado, jogadorAtivo);
+
+            int jidLocal = (int)GerenciadorPartida
+                                .ObterPVLocal()
+                                .GetComponent<IdentificadorJogador>()
+                                .jogadorID;
+
+            UIJogada.SetActive(estado ? jidLocal == jogadorAtivo : false);
         }
 
         public void AlteraEstadoPowerUps(int i = -1)
         {
+            if (RPCDeJogadores.DeveUsarRPC())
+            {
+                RPCDeJogadores.UsarRPCArg("RPC_AlteraEstadoPowerUps", i);
+                return;
+            }
+
             if (i < 0) i = GerenciadorPartida.Turno;
             estadoPowerUp = !estadoPowerUp;
+
+            if (!GerenciadorGeral.modoOnline)
+                UIPowerUps.transform.GetChild(i).gameObject.SetActive(estadoPowerUp);
+            else
+                meuPV.RPC("RPC_EstadoPowerUpSetActive", RpcTarget.All, i, estadoPowerUp);
+        }
+
+        [PunRPC]
+        void RPC_EstadoPowerUpSetActive(int i, bool estadoPowerUp)
+        {
             UIPowerUps.transform.GetChild(i).gameObject.SetActive(estadoPowerUp);
         }
     }
