@@ -21,12 +21,13 @@ namespace Componentes.Tabuleiro
 
         public void GerarCarta()
         {
-            if (GerenciadorGeral.modoOnline && !PhotonNetwork.IsMasterClient)
+            if (RPCDeJogadores.DeveUsarRPC())
             {
-                PhotonView pvLocal = GerenciadorPartida.ObterPVLocal();
-                pvLocal.RPC("RPC_GerarCarta", RpcTarget.MasterClient);
+                RPCDeJogadores.UsarRPC("RPC_GerarCarta");
                 return;
             }
+
+            Debug.Log("GerarCarta()");
 
             float rand = Random.value;
             TiposCasa carta;

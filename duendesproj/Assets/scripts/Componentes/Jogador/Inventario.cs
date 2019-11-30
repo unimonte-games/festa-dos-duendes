@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Identificadores;
 using Componentes.Tabuleiro;
 using Gerenciadores;
+using Photon.Pun;
 
 namespace Componentes.Jogador
 {
@@ -14,6 +15,7 @@ namespace Componentes.Jogador
         public List<PowerUp> powerUps = new List<PowerUp>();
         public int rodadasPreso = 0;
         public int rodadasSemObj = 0;
+        public GameObject garrafa;
 
         public void AlteraMoeda(int qtd, bool substitui = false, int i = -1)
         {
@@ -23,8 +25,19 @@ namespace Componentes.Jogador
             inv.moedas = substitui ? qtd : qtd + inv.moedas;
             if (inv.moedas < 0) inv.moedas = 0;
 
+            if (!GerenciadorGeral.modoOnline) {
+                Transform txtMoedas = TabuleiroHUD.Paineis[i].transform.Find("Painel Moedas");
+                txtMoedas.GetComponentInChildren<Text>().text = moedas + " moedas";
+            }
+            else
+                GetComponent<PhotonView>().RPC("RPC_MudaTxtMoeda", RpcTarget.All, i, moedas);
+        }
+
+        [PunRPC]
+        void RPC_MudaTxtMoeda(int i, int qtdmoedas)
+        {
             Transform txtMoedas = TabuleiroHUD.Paineis[i].transform.Find("Painel Moedas");
-            txtMoedas.GetComponentInChildren<Text>().text = moedas + " moedas";
+            txtMoedas.GetComponentInChildren<Text>().text = qtdmoedas + " moedas";
         }
 
         public void AddPowerUp(TipoPowerUps novoPowerUp, int i = -1)
@@ -32,7 +45,13 @@ namespace Componentes.Jogador
             if (i < 0) i = GerenciadorPartida.Turno;
             Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
 
-            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(i);
+            if (inv.powerUps.Count >= 3)
+                return;
+
+            Transform pnlDescricao = TabuleiroHUD.PnlsDescricoes[i];
+
+            bool pnlActive = pnlDescricao.gameObject.activeSelf;
+            pnlDescricao.gameObject.SetActive(true);
 
             string txt = LeitorDescr.LeLinha((int)novoPowerUp);
 
@@ -42,21 +61,32 @@ namespace Componentes.Jogador
             pw.descricao = txt.Split(';')[1];
 
             inv.powerUps.Add(pw);
+
             int teste = powerUps.Count - 1;
+
             pnlDescricao = pnlDescricao.GetChild(teste);
 
             pnlDescricao.Find("titulo").GetComponentInChildren<Text>().text = pw.titulo;
             pnlDescricao.Find("conteudo").GetComponentInChildren<Text>().text = pw.descricao;
+
+            pnlDescricao.gameObject.SetActive(pnlActive);
 
             TabuleiroHUD.FundoPowerUps(TabuleiroHUD.corOn, powerUps.Count - 1, i);
         }
 
         public void RemovePowerUp(int qtd, int i = -1)
         {
+            if (powerUps.Count == 0)
+                return;
+
             if (i < 0) i = GerenciadorPartida.Turno;
             Inventario inv = GerenciadorPartida.OrdemJogadores[i].GetComponent<Inventario>();
 
-            Transform pnlDescricao = TabuleiroHUD.PnlDescricoes.GetChild(i);
+            Transform pnlDescricao = TabuleiroHUD.PnlsDescricoes[i];
+
+            bool pnlActive = pnlDescricao.gameObject.activeSelf;
+            pnlDescricao.gameObject.SetActive(true);
+
             pnlDescricao = pnlDescricao.GetChild(powerUps.Count - 1);
 
             if (qtd <= inv.powerUps.Count)
@@ -70,6 +100,8 @@ namespace Componentes.Jogador
 
                 TabuleiroHUD.FundoPowerUps(TabuleiroHUD.corOff, powerUps.Count - 1, i);
             }
+
+            pnlDescricao.gameObject.SetActive(pnlActive);
         }
 
         public void AddObjeto(Objetos novoObj, int i = -1)

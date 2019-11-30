@@ -38,6 +38,8 @@ namespace Gerenciadores
 
         public static GerenciadorGeral ObterInstancia() { return instancia; }
 
+        public PhotonView meuPV;
+
         void Awake()
         {
             if (instancia != null)
@@ -48,8 +50,9 @@ namespace Gerenciadores
         {
             // eu acho que poderia escrever = this; mas não tenho certeza
             instancia = GetComponent<GerenciadorGeral>();
-            DontDestroyOnLoad(gameObject);
+            meuPV = GetComponent<PhotonView>();
 
+            DontDestroyOnLoad(gameObject);
             PhotonNetwork.AutomaticallySyncScene = true;
         }
 
@@ -75,6 +78,20 @@ namespace Gerenciadores
 #endif
 
 #region (de)cadastramento de jogadores
+
+        [PunRPC]
+        void RPC_DefQtdJogadores(int qtd)
+        {
+            qtdJogadores = qtd;
+        }
+
+
+        public static void SyncClientesQtdJogadores()
+        {
+            instancia.meuPV.RPC(
+                "RPC_DefQtdJogadores", RpcTarget.Others, qtdJogadores
+            );
+        }
 
         /// <summary>
         /// Retorna com uma booliana que diz se há espaço para mais um jogador.

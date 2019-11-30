@@ -27,7 +27,12 @@ namespace Componentes.Tabuleiro
         {
             Inventario inv = GerenciadorPartida.InvAtual;
             inv.rodadasPreso += 2;
-            inv.transform.GetChild(1).gameObject.SetActive(true);
+
+            if (!GerenciadorGeral.modoOnline)
+                inv.garrafa.SetActive(true);
+            else
+                gp.GarrafaSync(true);
+
             GPWaitRodada();
         }
 
@@ -69,6 +74,8 @@ namespace Componentes.Tabuleiro
         {
             if (GerenciadorPartida.InvAtual.moedas >= 25)
                 GerenciadorGeral.TransitarParaMJ(minijogo);
+            else
+                GPWaitRodada();
         }
 
         public void Moeda()
@@ -89,8 +96,6 @@ namespace Componentes.Tabuleiro
 
             MethodInfo metodoRand = metodos[rd];
             metodoRand.Invoke(this, null);
-
-            GPWaitRodada();
         }
 
         void GPWaitRodada()

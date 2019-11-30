@@ -91,6 +91,7 @@ namespace Telas
                     return;
 
                 GerenciadorGeral.qtdJogadores = room.PlayerCount;
+                GerenciadorGeral.SyncClientesQtdJogadores();
             }
 
 

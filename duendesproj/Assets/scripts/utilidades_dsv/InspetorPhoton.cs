@@ -80,5 +80,20 @@ namespace DsvUtils
                 case TipoSaida.GUIText: text.text = info; break;
             }
         }
+
+        public static void ImprimirDicio<T, T2>(Dictionary<T, T2> dict)
+        {
+            string str = "";
+
+            foreach (KeyValuePair<T, T2> kvp in dict)
+            {
+                str = string.Concat(
+                    str,
+                    string.Format("K={0}, V={1}\n", kvp.Key, kvp.Value)
+                );
+            }
+
+            Debug.Log(str);
+        }
     }
 }
