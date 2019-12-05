@@ -1058,9 +1058,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moedas: 0
   objetos: 
-  powerUps: 
   rodadasPreso: 0
   rodadasSemObj: 0
+  garrafaGbj: {fileID: 4630897650720766729}
 --- !u!114 &3681516346191066717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,6 +1542,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8783c50cb153d674da92504807ed2968, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0df9c33de84710edda729442f6524b5f, type: 3}
+--- !u!1 &4630897650720766729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0df9c33de84710edda729442f6524b5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3703557544286462464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8511549550571292954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0df9c33de84710edda729442f6524b5f,

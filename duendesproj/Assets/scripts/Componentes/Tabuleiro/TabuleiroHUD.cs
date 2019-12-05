@@ -10,6 +10,7 @@ namespace Componentes.Tabuleiro
         public Transform painelPrincipal;
         public GameObject painelPrefab;
         public static Transform PnlDescricoes;
+        public static Transform[] PnlsDescricoes = new Transform[4];
         public static Transform[] Paineis = new Transform[GerenciadorGeral.qtdJogadores];
         public static Color corOn = new Color(0.2039216f, 0.2f, 0.1843137f);
         public static Color corOff = new Color(0.8392158f, 0.7529413f, 0.5333334f);
@@ -32,6 +33,12 @@ namespace Componentes.Tabuleiro
             }
 
             PnlDescricoes = transform.Find("Painel Descricoes");
+
+            for (int i = 0; i < 4; i++)
+            {
+                PnlsDescricoes[i] = PnlDescricoes.GetChild(0);
+                PnlsDescricoes[i].gameObject.SetActive(false);
+            }
         }
 
         public static void FundoJogador(Color cor, int i = -1)
